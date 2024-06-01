@@ -8,19 +8,4 @@
 # Ignore everything in the root except the "content" directory and "static"
 /*
 !.gitignore
-!content/
-!*.toml
-!static/
-
-#OS
-.DS_Store
-
-# Ignore everything in the "content" directory,
-# and "themes" directories.
-content/*
-themes/*
-# uncomment below if you dont want to load static img resources
-# !static/img
-
-# uncomment below if you are migrating from WordPress
-# static/wp-content/*
+libs/
