@@ -6,7 +6,7 @@ author: Sulthan A. Karimov
 
 sphinx:
   config:
-    html_theme: alabaster
+    html_theme: shibuya
   recursive_update: true
   config:
     html_theme_options:
