@@ -32,4 +32,4 @@ html:
 
 sphinx:
   config:
-    html_theme: mozilla-sphinx-theme
+    html_theme: mozilla_sphinx_theme
