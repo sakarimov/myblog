@@ -6,6 +6,5 @@
 # configuration files etc., in your project's repository. You just don't.
 #
 # Ignore everything in the root except the "content" directory and "static"
-/*
 !.gitignore
 libs/
