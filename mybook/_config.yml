@@ -4,6 +4,14 @@
 title: Just Another Attempt to Share
 author: Sulthan A. Karimov
 
+sphinx:
+  config:
+    html_theme: alabaster
+  recursive_update: true
+  config:
+    html_theme_options:
+      repository_provider: custom
+
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
@@ -26,10 +34,7 @@ repository:
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
-html:
-  use_issues_button: true
-  use_repository_button: true
+#html:
+#  use_issues_button: true
+#  use_repository_button: true
 
-sphinx:
-  config:
-    html_theme: mozilla_sphinx_theme
