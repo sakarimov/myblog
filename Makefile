@@ -1,8 +1,7 @@
 push:
-	jupyter-book toc from-project mybook -f jb-book
+	jupyter-book toc from-project mybook -f jb-book > mybook/_toc.yml
 	jupyter-book config sphinx mybook
 	jupyter-book build mybook
-	#sphinx-build mybook mybook/_build/html -b html
 	git add -A
 	git commit -m 'update'
 	git push
