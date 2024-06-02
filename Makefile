@@ -1,5 +1,5 @@
 push:
-	jupyter-book toc to-project mybook/_toc.yml
+	jupyter-book toc from-project mybook -f jb-book
 	jupyter-book config sphinx mybook
 	sphinx-build mybook mybook/_build/html -b html
 	git add -A
