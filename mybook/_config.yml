@@ -42,6 +42,7 @@ sphinx:
     #    html_theme: alabaster
     #    html_theme: pydata-sphinx-theme
     html_title: Just Another Attempt to Share
-    html_logo: false
-    html_heme_options: |
-      {"nav_links": [{"title": "Home", "url": "https://github.com/sakarimov"}]}
+    html_heme_options:
+      nav_links:
+        - title: Home
+        - url: https://github.com/sakarimov
