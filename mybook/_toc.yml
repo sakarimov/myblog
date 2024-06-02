@@ -5,6 +5,4 @@ chapters:
   sections:
   - file: content/markdown
 - file: notebook/markdown-notebooks
-  sections:
-  - file: notebook/notebooks
 
