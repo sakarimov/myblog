@@ -1,3 +1,6 @@
+```{eval-rst}
+:layout: landing
+```
 # Welcome to My Book | Blog | Website | Whatever
 
 It has been a long time since i want to create my own website where i can write my thought, experience, opinion about everything from technology, science, even philosophy.
