@@ -39,3 +39,5 @@ html:
 sphinx:
   config:
     html_theme: shibuya
+    #    html_theme: alabaster
+    #    html_theme: pydata-sphinx-theme
