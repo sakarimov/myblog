@@ -8,3 +8,4 @@
 # Ignore everything in the root except the "content" directory and "static"
 !.gitignore
 libs/
+_builds/
