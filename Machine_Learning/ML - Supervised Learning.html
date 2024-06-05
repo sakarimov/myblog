@@ -2,7 +2,7 @@
 <html lang="en" data-accent-color="violet" data-content_root="../">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Classification - Just Another Attempt to Share</title><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Machine Learning - Supervised Learning - Just Another Attempt to Share</title><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><script>
     function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
     setColorMode(localStorage._theme||"auto");
   </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
@@ -22,7 +22,7 @@
   --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
 }
 </style>
-    <meta property="og:type" content="website"/><meta property="og:title" content="Classification"/>
+    <meta property="og:type" content="website"/><meta property="og:title" content="Machine Learning - Supervised Learning"/>
 <meta name="twitter:card" content="summary"/>
   </head>
 <body><div class="sy-head">
@@ -80,7 +80,10 @@ data-aria-dark="Switch to auto color mode">
       <i class="i-lucide close"></i>
     </button>
     <div class="sy-scrollbar sy-rside-inner px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><div class="localtoc"><h3>On this page</h3><ul>
-<li><a class="reference internal" href="#">Classification</a></li>
+<li><a class="reference internal" href="#">Machine Learning - Supervised Learning</a><ul>
+<li><a class="reference internal" href="#classification">Classification</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#conclusion-on-cross-val-score">conclusion on cross_val_score</a></li>
 <li><a class="reference internal" href="#regression">Regression</a><ul>
 <li><a class="reference internal" href="#linear-regression">Linear Regression</a></li>
@@ -103,7 +106,7 @@ data-aria-dark="Switch to auto color mode">
         <span>/</span>
         <meta itemprop="position" content="1" />
       </li><li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <strong itemprop="name">Classification</strong>
+        <strong itemprop="name">Machine Learning - Supervised Learning</strong>
         <meta itemprop="position" content="2" />
       </li></ol>
     <div class="xl:hidden ml-1">
@@ -116,8 +119,12 @@ data-aria-dark="Switch to auto color mode">
 </div><div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
-          <section class="tex2jax_ignore mathjax_ignore" id="classification">
-<h1>Classification<a class="headerlink" href="#classification" title="Link to this heading">¶</a></h1>
+          <section class="tex2jax_ignore mathjax_ignore" id="machine-learning-supervised-learning">
+<h1>Machine Learning - Supervised Learning<a class="headerlink" href="#machine-learning-supervised-learning" title="Link to this heading">¶</a></h1>
+<p>One of Machine Learning models is Supervised Learning. as named, this model need human supervision to achieve it’s goal. if the goal is classifying bunch of objects to several categories, this model needs human to tell whether it’s  category A, B, or C etc. given that labels the model try to find the best possible pattern of data to be determined as one of those categories.</p>
+<p>there are several kind of Supervised Learning Model ML, one of those and the most simple is Classification. to know more about Classification check this out.</p>
+<section id="classification">
+<h2>Classification<a class="headerlink" href="#classification" title="Link to this heading">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -488,6 +495,7 @@ data-aria-dark="Switch to auto color mode">
 </div>
 </div>
 </div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="conclusion-on-cross-val-score">
 <h1>conclusion on cross_val_score<a class="headerlink" href="#conclusion-on-cross-val-score" title="Link to this heading">¶</a></h1>
