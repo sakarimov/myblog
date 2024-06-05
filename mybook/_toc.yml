@@ -4,5 +4,12 @@ chapters:
 - file: content/content
   sections:
   - file: content/markdown
+- file: machine learning/index
+  sections:
+  - file: machine learning/ML - Supervised Learning
+  - file: machine learning/ML - Unsupervised Learning
+  - file: machine learning/SVM
 - file: notebook/markdown-notebooks
+  sections:
+  - file: notebook/notebooks
 
