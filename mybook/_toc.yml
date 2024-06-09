@@ -12,4 +12,5 @@ chapters:
 - file: notebook/markdown-notebooks
   sections:
   - file: notebook/notebooks
+- file: notes/numpy task#1
 
