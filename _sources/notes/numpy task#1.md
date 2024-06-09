@@ -4,7 +4,7 @@
 
 Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L, XL) di berbagai lokasi (toko). Data penjualan disimpan dalam array NumPy bernama ```sales_data``` dengan struktur berikut:
 
-```{python}
+```python
 sales_data = np.array([
 [[10, 15, 20],  # Penjualan Lokasi 1
 [25, 30, 18],
