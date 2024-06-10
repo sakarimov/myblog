@@ -1,6 +1,6 @@
-## Analisa Penjualan Pakaian dengan NumPy
+# Analisa Penjualan Pakaian dengan NumPy
 
-### Skenario
+## Skenario
 
 Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L, XL) di berbagai lokasi (toko). Data penjualan disimpan dalam array NumPy bernama ```sales_data``` dengan struktur berikut (data dalam struktur hanya contoh):
 
@@ -23,11 +23,14 @@ sales_data = np.array([
  [7,  35, 9, 11]]
 ])
 
-jumlah_ukuran = [S M L XL]
 sales_data.shape = (jumlah_lokasi, jumlah_kategori, jumlah_ukuran)
 ```
 
-### Tugas
+```{note}
+file tugas bisa didownload [di sini](https://github.com/sakarimov/my-personal-blog/raw/main/mybook/notes/numpy%231.txt)
+```
+
+## Tugas
 
 1. **Identifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):**
 
