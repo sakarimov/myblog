@@ -33,12 +33,12 @@ file tugas bisa didownload [di sini](https://github.com/sakarimov/my-personal-bl
 
 ::::{note}
 untuk membuka file ini ikuti petunjuk berikut:
-:::{python}
+```python
 import numpy as np
 
 load_file = np.loadtxt('path/to/the/file/you/download')
 load_original = load_file.reshape(4,7,4)
-:::
+```
 ::::
 ## Tugas
 
