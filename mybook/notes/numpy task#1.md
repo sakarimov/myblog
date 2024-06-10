@@ -28,8 +28,18 @@ sales_data.shape = (jumlah_lokasi, jumlah_kategori, jumlah_ukuran)
 
 ```{note}
 file tugas bisa didownload [di sini](https://github.com/sakarimov/my-personal-blog/raw/main/mybook/notes/numpy%231.txt)
+
 ```
 
+::::{note}
+untuk membuka file ini ikuti petunjuk berikut:
+:::{python}
+import numpy as np
+
+load_file = np.loadtxt('path/to/the/file/you/download')
+load_original = load_file.reshape(4,7,4)
+:::
+::::
 ## Tugas
 
 1. **Identifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):**
