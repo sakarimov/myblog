@@ -124,21 +124,35 @@ data-aria-dark="Switch to auto color mode">
 </div><div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
-          <section id="analisa-penjualan-pakaian-dengan-numpy">
+          <section class="tex2jax_ignore mathjax_ignore" id="analisa-penjualan-pakaian-dengan-numpy">
 <h1>Analisa Penjualan Pakaian dengan NumPy<a class="headerlink" href="#analisa-penjualan-pakaian-dengan-numpy" title="Link to this heading">¶</a></h1>
 <section id="skenario">
 <h2>Skenario<a class="headerlink" href="#skenario" title="Link to this heading">¶</a></h2>
-<p>Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L, XL) di berbagai lokasi (toko). Data penjualan disimpan dalam array NumPy bernama <code class="docutils literal notranslate"><span class="pre">sales_data</span></code> dengan struktur berikut:</p>
+<p>Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L, XL) di berbagai lokasi (toko). Data penjualan disimpan dalam array NumPy bernama <code class="docutils literal notranslate"><span class="pre">sales_data</span></code> dengan struktur berikut (data dalam struktur hanya contoh):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="n">sales_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-</span><span data-line="2"><span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>  <span class="c1"># Penjualan Lokasi 1</span>
-</span><span data-line="3"><span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">18</span><span class="p">],</span>
-</span><span data-line="4"><span class="p">[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">]],</span>
-</span><span data-line="5">
-</span><span data-line="6"><span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>  <span class="c1"># Penjualan Lokasi 2</span>
-</span><span data-line="7"><span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
-</span><span data-line="8"><span class="p">[</span><span class="mi">7</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]]</span>
-</span><span data-line="9"><span class="p">])</span>
+</span><span data-line="2"><span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>  <span class="c1"># Penjualan Lokasi 1</span>
+</span><span data-line="3"> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">18</span><span class="p">],</span>
+</span><span data-line="4"> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">18</span><span class="p">],</span>
+</span><span data-line="5"> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">18</span><span class="p">],</span>
+</span><span data-line="6"> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">18</span><span class="p">],</span>
+</span><span data-line="7"> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">18</span><span class="p">],</span>
+</span><span data-line="8"> <span class="p">[</span><span class="mi">5</span><span class="p">,</span>  <span class="mi">35</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">]],</span>
+</span><span data-line="9">
+</span><span data-line="10"><span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>  <span class="c1"># Penjualan Lokasi 2</span>
+</span><span data-line="11"> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+</span><span data-line="12"> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+</span><span data-line="13"> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+</span><span data-line="14"> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+</span><span data-line="15"> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+</span><span data-line="16"> <span class="p">[</span><span class="mi">7</span><span class="p">,</span>  <span class="mi">35</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]]</span>
+</span><span data-line="17"><span class="p">])</span>
+</span><span data-line="18">
+</span><span data-line="19"><span class="n">sales_data</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">jumlah_lokasi</span><span class="p">,</span> <span class="n">jumlah_kategori</span><span class="p">,</span> <span class="n">jumlah_ukuran</span><span class="p">)</span>
 </span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>file tugas bisa didownload <a class="reference external" href="https://github.com/sakarimov/my-personal-blog/raw/main/mybook/notes/numpy%231.txt">di sini</a></p>
 </div>
 </section>
 <section id="tugas">
