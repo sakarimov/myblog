@@ -4,13 +4,17 @@ chapters:
 - file: content/content
   sections:
   - file: content/markdown
-- file: machine learning/index
-  sections:
-  - file: machine learning/ML - Supervised Learning
-  - file: machine learning/ML - Unsupervised Learning
-  - file: machine learning/SVM
 - file: notebook/markdown-notebooks
   sections:
   - file: notebook/notebooks
-- file: notes/numpy task#1
+- file: World of Data/index
+  sections:
+  - file: World of Data/machine learning/index
+    sections:
+    - file: World of Data/machine learning/ML - Supervised Learning
+    - file: World of Data/machine learning/ML - Unsupervised Learning
+    - file: World of Data/machine learning/SVM
+  - file: World of Data/notes/numpy task#1
+    sections:
+    - file: World of Data/notes/numpy task#1 solution
 
