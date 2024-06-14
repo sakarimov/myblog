@@ -220,7 +220,7 @@ data-aria-dark="Switch to auto color mode">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span data-line="1">/tmp/ipykernel_1496968/2628508463.py:4: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span data-line="1">/tmp/ipykernel_1508366/2628508463.py:4: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
 </span><span data-line="2">  df[&#39;gender&#39;] = df[&#39;gender&#39;].replace([&#39;Female&#39;, &#39;Male&#39;], [0,1])
 </span></pre></div>
 </div>
@@ -365,18 +365,6 @@ data-aria-dark="Switch to auto color mode">
 </span></pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="gt">---------------------------------------------------------------------------</span>
-</span><span data-line="2"><span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-</span><span data-line="3"><span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-</span><span data-line="4"><span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-</span><span data-line="5"><span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;customer_id&#39;</span><span class="p">,</span> <span class="s1">&#39;gender&#39;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-</span><span data-line="6"><span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">clusters</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span data-line="7">
-</span><span data-line="8"><span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
-</span></pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -392,6 +380,12 @@ data-aria-dark="Switch to auto color mode">
 </span></pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span data-line="1">Text(0, 0.5, &#39;inertia&#39;)
+</span></pre></div>
+</div>
+<img alt="../../_images/a3221357f958c6005ca69876591b49c66a021e828278e784218e7fbdf514bfdb.png" src="../../_images/a3221357f958c6005ca69876591b49c66a021e828278e784218e7fbdf514bfdb.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -406,6 +400,9 @@ data-aria-dark="Switch to auto color mode">
 </span><span data-line="9"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/9257932979802fd9d7e2ab1bf788f9e74a07c56c525b111bfa1b2dded0531ac7.png" src="../../_images/9257932979802fd9d7e2ab1bf788f9e74a07c56c525b111bfa1b2dded0531ac7.png" />
 </div>
 </div>
 </section>
