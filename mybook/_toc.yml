@@ -1,6 +1,7 @@
 format: jb-book
 root: intro
 chapters:
+- file: coba/index
 - file: World of Data/index
   sections:
   - file: World of Data/machine learning/index
