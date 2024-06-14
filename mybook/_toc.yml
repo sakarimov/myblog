@@ -1,12 +1,6 @@
 format: jb-book
 root: intro
 chapters:
-- file: content/content
-  sections:
-  - file: content/markdown
-- file: notebook/markdown-notebooks
-  sections:
-  - file: notebook/notebooks
 - file: World of Data/index
   sections:
   - file: World of Data/machine learning/index
