@@ -1,4 +1,5 @@
-.. post:: June 25, 2024
+:blogpost: true
+:date: June 25, 2024
 :tags: data, machine learning, ai
 :category: data sciences
 :author: sulthan a. karimov
