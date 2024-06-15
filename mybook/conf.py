@@ -13,6 +13,7 @@ external_toc_path = '_toc.yml'
 html_baseurl = ''
 html_favicon = ''
 html_logo = 'logo.png'
+html_sidebar = ['ablog/postcard.html', 'ablog/tagcloud.html', 'ablog/recentposts.html', 'ablog/categories.html']
 html_sourcelink_suffix = ''
 html_theme = 'shibuya'
 html_theme_options = {'nav_links': [{'title': 'Home', 'url': 'https://github.com/sakarimov'}]}
