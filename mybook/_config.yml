@@ -39,6 +39,9 @@ html:
   use_repository_button: true
 
 sphinx:
+  extra_extensions:
+    - ablog
+    - sphinx.ext.intersphinx
   config:
     html_theme: shibuya
     #    html_theme: alabaster
