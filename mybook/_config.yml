@@ -47,12 +47,13 @@ sphinx:
     #    html_theme: alabaster
     #    html_theme: pydata-sphinx-theme
     html_title: Just Another Attempt to Share
-    #html_sidebars:
-    #  '**':
-    #    - ablog/postcard.html
-    #    - ablog/tagcloud.html
-    #    - ablog/recentposts.html
-    #    - ablog/categories.html
+    html_sidebars:
+      '**':
+        - sidebars/localtoc.html
+        - ablog/postcard.html
+        - ablog/tagcloud.html
+        - ablog/recentposts.html
+        - ablog/categories.html
     html_theme_options:
       nav_links:
         - title: Home
