@@ -1,3 +1,12 @@
+---
+blogpost: true
+date: June 25, 2024
+tags: data, machine learning, ai
+category: data sciences
+author: sulthan a. karimov
+language: english
+---
+
 # Machine Learning - Supervised Learning
 One of Machine Learning models is Supervised Learning. as named, this model need human supervision to achieve it's goal. if the goal is classifying bunch of objects to several categories, this model needs human to tell whether it's  category A, B, or C etc. given that labels the model try to find the best possible pattern of data to be determined as one of those categories.
 
