@@ -1,0 +1,26 @@
+project:
+  type: website
+
+website:
+  title: "Sulthan A. Karimov"
+  navbar:
+    search: true
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/sakarimov
+      - icon: twitter
+        href: https://twitter.com/sulthankarimov
+      - icon: linkedin
+        href: https://linkedin.com/in/sulthankarimov
+  sidebar:
+    contents: auto
+    style: floating
+  back-to-top-navigation: true
+format:
+  html:
+    theme: slate
+    css: styles.css
+
+
+
