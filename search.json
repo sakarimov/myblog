@@ -170,7 +170,7 @@
     "href": "index.html",
     "title": "Myblog",
     "section": "",
-    "text": "Dimensionality Reduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Name : Sulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning - Supervised Learning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Name : Sulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Name : Sulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimport the necessary packages\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnalisa Penjualan Pakaian dengan NumPy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolusi Tugas numpy#1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Dimensionality Reduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Name : Sulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning - Supervised Learning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Name : Sulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Name : Sulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimport the necessary packages\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnalisa Penjualan Pakaian dengan NumPy\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "posts/Machine Learning/JanKenPon CNN Feature Extraction.html",
@@ -235,32 +235,6 @@
       "Posts",
       "Machine Learning",
       "CNN"
-    ]
-  },
-  {
-    "objectID": "posts/notes/numpy task1 solution.html",
-    "href": "posts/notes/numpy task1 solution.html",
-    "title": "Solusi Tugas numpy#1",
-    "section": "",
-    "text": "import numpy as np\n\nload_file = np.loadtxt('numpy#1.txt')\ndata = load_file.reshape(4,7,4)\ndata\n\narray([[[24.,  5., 22.,  7.],\n        [15., 19., 31., 28.],\n        [14., 25., 18.,  5.],\n        [ 5., 28., 26., 16.],\n        [20., 22., 26.,  9.],\n        [ 7., 19.,  4., 34.],\n        [ 6., 34., 23., 34.]],\n\n       [[11., 34., 15., 33.],\n        [ 8., 27., 19., 18.],\n        [12., 16.,  7., 26.],\n        [ 6., 34., 30., 21.],\n        [33.,  4., 13.,  7.],\n        [11., 12., 32.,  8.],\n        [27., 19., 16., 20.]],\n\n       [[21., 30.,  8., 22.],\n        [18., 30.,  9., 24.],\n        [19., 22., 29.,  8.],\n        [15., 19., 20., 30.],\n        [11., 12., 12.,  6.],\n        [33., 11., 27., 31.],\n        [13., 14., 28., 32.]],\n\n       [[29., 32., 22.,  7.],\n        [14.,  4.,  7.,  4.],\n        [24., 14., 28., 21.],\n        [28., 25., 10., 15.],\n        [14., 15., 15.,  3.],\n        [22.,  6.,  4., 26.],\n        [32., 27., 32.,  4.]]])\nimport numpy as np\n\n# Asumsikan data penjualan Anda berada dalam array NumPy bernama \"sales_data\"\n\n# Langkah 1: Hitung total penjualan per kategori di semua ukuran untuk setiap lokasi\ntotal_per_kategori = data.sum(axis=2)  # Jumlahkan sepanjang sumbu ukuran (axis=2)\n\n# Langkah 2: Identifikasi kategori terlaris untuk setiap lokasi\n# Pendekatan tanpa menggunakan argmax\n\n# Temukan nilai maksimum untuk setiap lokasi\nmaks_penjualan_per_lokasi = total_per_kategori.max(axis=1)  # Cari nilai maksimum di setiap baris\n\n# Buat mask untuk kategori terlaris di setiap lokasi\nmask_terlaris = total_per_kategori == maks_penjualan_per_lokasi[:, np.newaxis]  # Perbandingan elemen-per-elemen\n\n# Dapatkan indeks kategori untuk kategori terlaris\nkategori_terlaris = []\nfor mask in mask_terlaris:\n    for i in range(len(mask)):\n        if mask[i] == True:\n            kategori_terlaris.append(i)\n        \n# Tampilkan hasilnya\nprint(\"Kategori Terlaris menurut Lokasi:\", kategori_terlaris)\n\nKategori Terlaris menurut Lokasi: [6, 0, 5, 6]",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Notes",
-      "Solusi Tugas numpy#1"
-    ]
-  },
-  {
-    "objectID": "posts/notes/numpy task1 solution.html#todo",
-    "href": "posts/notes/numpy task1 solution.html#todo",
-    "title": "Solusi Tugas numpy#1",
-    "section": "TODO",
-    "text": "TODO\n\nimport numpy as np\n\n# Asumsikan data penjualan Anda berada dalam array NumPy bernama \"sales_data\"\n\n# Langkah 1: Pilih data untuk kategori tertentu (misalnya, kemeja)\n# Ganti \"category_index\" dengan indeks aktual untuk kemeja\nkategori_yang_diminati = 0  # Misalkan kemeja adalah kategori 0\npenjualan_kemeja = data[:, kategori_yang_diminati, :]  # Pilih data untuk kategori ini\n\n# Langkah 2: Hitung total penjualan untuk setiap ukuran (jumlahkan sepanjang sumbu ukuran)\ntotal_per_ukuran = penjualan_kemeja.sum(axis=0)  # Jumlahkan di semua lokasi\n\n# Langkah 3: Analisis distribusi ukuran (tanpa argmax)\n# Temukan nilai maksimum untuk total penjualan tiap ukuran\nmaks_penjualan_ukuran = total_per_ukuran.max()  # Cari total penjualan maksimum\n\n# Buat mask untuk ukuran terpopuler\nmask_terpopuler = total_per_ukuran == maks_penjualan_ukuran  # Bandingkan dengan nilai maksimum\n\n# Identifikasi ukuran terpopuler (menangani kemungkinan seri)\nukuran_terpopuler = np.where(mask_terpopuler)[0]  # Dapatkan indeks elemen True\n\n# Tampilkan hasilnya\nprint(\"Total Penjualan Kemeja per Ukuran:\", total_per_ukuran)\n\n# Tampilkan ukuran terpopuler (menangani seri)\nif len(ukuran_terpopuler) &gt; 1:\n  print(\"Ukuran Kemeja Terpopuler:\", ukuran_terpopuler)\nelse:\n  print(\"Ukuran Kemeja Terpopuler:\", ukuran_terpopuler[0])\n\nTotal Penjualan Kemeja per Ukuran: [ 85. 101.  67.  69.]\nUkuran Kemeja Terpopuler: 1\n\n\n\nTemukan Lokasi dengan Penjualan Rendah pada Ukuran Tertentu:\n\nTentukan ukuran tertentu (misalnya, XL) yang mungkin perlu diisi ulang stoknya.\nGunakan masking boolean untuk memilih hanya data penjualan ukuran tersebut dari seluruh array.\nHitung total penjualan produk dengan ukuran tersebut di setiap lokasi (jumlahkan di sepanjang semua sumbu lainnya).\nIdentifikasi lokasi dengan penjualan di bawah ambang batas tertentu untuk produk dengan ukuran tersebut, yang menunjukkan potensi kebutuhan untuk mengisi ulang stok.\n\n\n\nimport numpy as np\n\n# Asumsikan data penjualan Anda berada dalam array NumPy bernama \"sales_data\"\n\n# Langkah 1: Pilih data untuk ukuran tertentu (misalnya, XL)\n# Ganti \"size_index\" dengan indeks aktual untuk XL\nukuran_yang_dicek = 2  # Misalkan XL adalah ukuran 2\npenjualan_xl = data[:, :, ukuran_yang_dicek]  # Pilih data untuk ukuran ini\n\n# Langkah 2: Hitung total penjualan untuk ukuran XL di setiap lokasi (jumlahkan di semua sumbu lainnya)\ntotal_penjualan_xl = penjualan_xl.sum(axis=(0, 1))  # Jumlahkan di semua kategori dan ukuran\n\n# Langkah 3: Identifikasi lokasi dengan potensi stok rendah (ambang batas)\nambang_penjualan = 10  # Tetapkan ambang batas penjualan untuk stok rendah\nlokasi_stok_rendah = total_penjualan_xl &lt; ambang_penjualan\n\n# Tampilkan hasilnya\nprint(\"Lokasi dengan Penjualan XL Rendah:\", np.where(lokasi_stok_rendah)[0])\nprint(\"Total Penjualan XL per Lokasi:\", total_penjualan_xl)  # Opsional untuk referensi\n\nLokasi dengan Penjualan XL Rendah: []\nTotal Penjualan XL per Lokasi: 533.0\n\n\n/tmp/ipykernel_2535693/3546558514.py:18: DeprecationWarning: Calling nonzero on 0d arrays is deprecated, as it behaves surprisingly. Use `atleast_1d(cond).nonzero()` if the old behavior was intended. If the context of this warning is of the form `arr[nonzero(cond)]`, just use `arr[cond]`.\n  print(\"Lokasi dengan Penjualan XL Rendah:\", np.where(lokasi_stok_rendah)[0])",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Notes",
-      "Solusi Tugas numpy#1"
     ]
   }
 ]
