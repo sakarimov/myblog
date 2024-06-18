@@ -17,6 +17,7 @@ website:
     contents: auto
     style: floating
   back-to-top-navigation: true
+  reader-mode: true
 format:
   html:
     theme: slate
