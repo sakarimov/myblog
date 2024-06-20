@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sulthan A. Karimov - Myblog</title>
+<title>Sulthan A. Karimov - Just Another Attempt to Share</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -183,7 +183,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Myblog</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Just Another Attempt to Share</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -193,7 +193,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Myblog</h1>
+      <h1 class="title">Just Another Attempt to Share</h1>
                       </div>
   </div>
     
@@ -229,12 +229,35 @@ window.Quarto = {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
- <span class="menu-text">Machine Learning</span></a>
+ <span class="menu-text">Exercises</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/Exercises/numpy task1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Latihan Numpy 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/Exercises/numpy task1 solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solusi Tugas numpy 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./posts/Machine Learning/CNN.html" class="sidebar-item-text sidebar-link">
@@ -297,29 +320,6 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
- <span class="menu-text">Notes</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/notes/numpy task1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Analisa Penjualan Pakaian dengan NumPy</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/notes/numpy task1 solution.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Solusi Tugas numpy 1</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
       </ul>
   </li>
     </ul>
@@ -329,7 +329,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(12)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(12)</span></div><div class="category" data-category="basic">basic <span class="quarto-category-count">(2)</span></div><div class="category" data-category="data science">data science <span class="quarto-category-count">(2)</span></div><div class="category" data-category="exercise">exercise <span class="quarto-category-count">(2)</span></div><div class="category" data-category="numpy">numpy <span class="quarto-category-count">(2)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="solution">solution <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-body" id="quarto-document-content">
 
@@ -341,23 +341,43 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1714560608079" data-listing-reading-time-sort="1" data-listing-word-count-sort="5">
-<div class="thumbnail">
-<p><a href="./posts/Machine Learning/Dimensionality Reduction.html" class="no-external"></a></p><a href="./posts/Machine Learning/Dimensionality Reduction.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/Machine Learning/Dimensionality Reduction.html" class="no-external"></a></p>
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-author" data-direction="asc">
+          Author
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Machine Learning/Dimensionality Reduction.html" class="no-external">Dimensionality Reduction</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Machine Learning/Dimensionality Reduction.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/Machine Learning/Dimensionality Reduction.html" class="no-external">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1714560608079" data-listing-reading-time-sort="1" data-listing-word-count-sort="5">
+<a href="./posts/Machine Learning/Dimensionality Reduction.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Dimensionality Reduction
+</h5>
+<div class="card-text listing-description">
+
 
 <div id="6f556b4e-fd04-4391-99ab-af3334e207c8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im">from</span> sklearn <span class="im">import</span> datasets</span>
@@ -367,262 +387,276 @@ window.Quarto = {
 <span id="cb1-5">attributes <span class="op">=</span> iris.data</span>
 <span id="cb1-6">label <span class="op">=</span> iris.target</span>
 <span id="cb1-7"></span>
-<span id="cb1-8">X_train…<span class="op"></span></span><span id="cb1-9"><span class="op"></span><span class="fl"></span><span class="op"></span><span class="dv"></span></span></code></pre></div></div><section id="without-pca" class="level3"><div id="7bd66f09-18c7-460f-9a9a-9570b92689e2" class="cell" data-execution_count="4"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im"></span><span class="im"></span></span><span id="cb2-2"></span><span id="cb2-3"><span class="op"></span></span><span id="cb2-4"><span class="op"></span></span><span id="cb2-5"></span></code></pre></div><div class="cell-output cell-output-display" data-execution_count="4"><pre><code></code></pre></div></div></section><section id="with-pca" class="level3"><div id="59ac9a77-6f5a-4e07-8c53-e4a6ee98c702" class="cell" data-execution_count="6"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im"></span><span class="im"></span></span><span id="cb4-2"></span><span id="cb4-3"><span class="op"></span><span class="op"></span><span class="dv"></span></span><span id="cb4-4"></span><span id="cb4-5"><span class="op"></span></span><span id="cb4-6"></span><span id="cb4-7"></span></code></pre></div><div class="cell-output cell-output-display" data-execution_count="6"><pre><code></code></pre></div></div><div id="aa71d5f5-4d28-4f2c-86f0-e350189d23ee" class="cell" data-execution_count="7"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="op"></span><span class="op"></span><span class="dv"></span></span><span id="cb6-2"></span><span id="cb6-3"><span class="op"></span></span><span id="cb6-4"><span class="op"></span></span></code></pre></div></div><div id="389915fb-966b-4dce-b725-41e1e79777b6" class="cell" data-execution_count="8"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="op"></span></span><span id="cb7-2"></span><span id="cb7-3"></span></code></pre></div><div class="cell-output cell-output-display" data-execution_count="8"><pre><code></code></pre></div></div></section></a>
+<span id="cb1-8">X_train…<span class="op"></span></span><span id="cb1-9"><span class="op"></span><span class="fl"></span><span class="op"></span><span class="dv"></span></span></code></pre></div></div><section id="without-pca" class="level3"><div id="7bd66f09-18c7-460f-9a9a-9570b92689e2" class="cell" data-execution_count="4"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im"></span><span class="im"></span></span><span id="cb2-2"></span><span id="cb2-3"><span class="op"></span></span><span id="cb2-4"><span class="op"></span></span><span id="cb2-5"></span></code></pre></div><div class="cell-output cell-output-display" data-execution_count="4"><pre><code></code></pre></div></div></section><section id="with-pca" class="level3"><div id="59ac9a77-6f5a-4e07-8c53-e4a6ee98c702" class="cell" data-execution_count="6"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im"></span><span class="im"></span></span><span id="cb4-2"></span><span id="cb4-3"><span class="op"></span><span class="op"></span><span class="dv"></span></span><span id="cb4-4"></span><span id="cb4-5"><span class="op"></span></span><span id="cb4-6"></span><span id="cb4-7"></span></code></pre></div><div class="cell-output cell-output-display" data-execution_count="6"><pre><code></code></pre></div></div><div id="aa71d5f5-4d28-4f2c-86f0-e350189d23ee" class="cell" data-execution_count="7"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="op"></span><span class="op"></span><span class="dv"></span></span><span id="cb6-2"></span><span id="cb6-3"><span class="op"></span></span><span id="cb6-4"><span class="op"></span></span></code></pre></div></div><div id="389915fb-966b-4dce-b725-41e1e79777b6" class="cell" data-execution_count="8"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="op"></span></span><span id="cb7-2"></span><span id="cb7-3"></span></code></pre></div><div class="cell-output cell-output-display" data-execution_count="8"><pre><code></code></pre></div></div></section>
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
 </div>
 </div>
-<div class="metadata">
-<p><a href="./posts/Machine Learning/Dimensionality Reduction.html" class="no-external"></a></p><a href="./posts/Machine Learning/Dimensionality Reduction.html" class="no-external">
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1718172636776" data-listing-reading-time-sort="1" data-listing-word-count-sort="15">
+<a href="./posts/Machine Learning/JanKenPon CNN Feature Extraction.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Student Name</strong> : Sulthan A. Karimov
+</h5>
+<div class="card-text listing-description">
+  
 </div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1718172636776" data-listing-reading-time-sort="1" data-listing-word-count-sort="15">
-<div class="thumbnail">
-<p><a href="./posts/Machine Learning/JanKenPon CNN Feature Extraction.html" class="no-external"></a></p><a href="./posts/Machine Learning/JanKenPon CNN Feature Extraction.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/Machine Learning/JanKenPon CNN Feature Extraction.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Machine Learning/JanKenPon CNN Feature Extraction.html" class="no-external"><strong>Student Name</strong> : Sulthan A. Karimov</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Machine Learning/JanKenPon CNN Feature Extraction.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/Machine Learning/JanKenPon CNN Feature Extraction.html" class="no-external">  </a>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
 </div>
 </div>
-<div class="metadata">
-<p><a href="./posts/Machine Learning/JanKenPon CNN Feature Extraction.html" class="no-external"></a></p><a href="./posts/Machine Learning/JanKenPon CNN Feature Extraction.html" class="no-external">
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1717664897567" data-listing-reading-time-sort="1" data-listing-word-count-sort="116">
+<a href="./posts/Machine Learning/ML - Supervised Learning.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="posts/Machine Learning/ML - Supervised Learning_files/figure-html/cell-15-output-1.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Machine Learning - Supervised Learning
+</h5>
+<div class="card-text listing-description">
+One of Machine Learning models is Supervised Learning. as named, this model need human supervision to achieve it’s goal. if the goal is classifying bunch of objects to…
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1717664897567" data-listing-reading-time-sort="1" data-listing-word-count-sort="116">
-<div class="thumbnail">
-<p><a href="./posts/Machine Learning/ML - Supervised Learning.html" class="no-external"></a></p><a href="./posts/Machine Learning/ML - Supervised Learning.html" class="no-external">
-<p class="card-img-top"><img src="posts/Machine Learning/ML - Supervised Learning_files/figure-html/cell-15-output-1.svg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/Machine Learning/ML - Supervised Learning.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Machine Learning/ML - Supervised Learning.html" class="no-external">Machine Learning - Supervised Learning</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Machine Learning/ML - Supervised Learning.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/Machine Learning/ML - Supervised Learning.html" class="no-external">One of Machine Learning models is Supervised Learning. as named, this model need human supervision to achieve it’s goal. if the goal is classifying bunch of objects to…</a>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
 </div>
 </div>
-<div class="metadata">
-<p><a href="./posts/Machine Learning/ML - Supervised Learning.html" class="no-external"></a></p><a href="./posts/Machine Learning/ML - Supervised Learning.html" class="no-external">
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1714560607969">
+<a href="./posts/Machine Learning/ML - Unsupervised Learning.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="posts/Machine Learning/ML - Unsupervised Learning_files/figure-html/cell-6-output-2.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<div class="card-text listing-description">
+200 rows × 5 columns
 </div>
-<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1714560607969">
-<div class="thumbnail">
-<p><a href="./posts/Machine Learning/ML - Unsupervised Learning.html" class="no-external"></a></p><a href="./posts/Machine Learning/ML - Unsupervised Learning.html" class="no-external">
-<p class="card-img-top"><img src="posts/Machine Learning/ML - Unsupervised Learning_files/figure-html/cell-6-output-2.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/Machine Learning/ML - Unsupervised Learning.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Machine Learning/ML - Unsupervised Learning.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Machine Learning/ML - Unsupervised Learning.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/Machine Learning/ML - Unsupervised Learning.html" class="no-external">200 rows × 5 columns</a>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
 </div>
 </div>
-<div class="metadata">
-<p><a href="./posts/Machine Learning/ML - Unsupervised Learning.html" class="no-external"></a></p><a href="./posts/Machine Learning/ML - Unsupervised Learning.html" class="no-external">
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1718263123168" data-listing-reading-time-sort="1" data-listing-word-count-sort="15">
+<a href="./posts/Machine Learning/Submission-colab.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Student Name</strong> : Sulthan A. Karimov
+</h5>
+<div class="card-text listing-description">
+  
 </div>
-<div class="quarto-post image-right" data-index="4" data-listing-file-modified-sort="1718263123168" data-listing-reading-time-sort="1" data-listing-word-count-sort="15">
-<div class="thumbnail">
-<p><a href="./posts/Machine Learning/Submission-colab.html" class="no-external"></a></p><a href="./posts/Machine Learning/Submission-colab.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/Machine Learning/Submission-colab.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Machine Learning/Submission-colab.html" class="no-external"><strong>Student Name</strong> : Sulthan A. Karimov</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Machine Learning/Submission-colab.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/Machine Learning/Submission-colab.html" class="no-external">  </a>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
 </div>
 </div>
-<div class="metadata">
-<p><a href="./posts/Machine Learning/Submission-colab.html" class="no-external"></a></p><a href="./posts/Machine Learning/Submission-colab.html" class="no-external">
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1718262069286" data-listing-reading-time-sort="1" data-listing-word-count-sort="15">
+<a href="./posts/Machine Learning/Submission.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Student Name</strong> : Sulthan A. Karimov
+</h5>
+<div class="card-text listing-description">
+  
 </div>
-<div class="quarto-post image-right" data-index="5" data-listing-file-modified-sort="1718262069286" data-listing-reading-time-sort="1" data-listing-word-count-sort="15">
-<div class="thumbnail">
-<p><a href="./posts/Machine Learning/Submission.html" class="no-external"></a></p><a href="./posts/Machine Learning/Submission.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/Machine Learning/Submission.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Machine Learning/Submission.html" class="no-external"><strong>Student Name</strong> : Sulthan A. Karimov</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Machine Learning/Submission.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/Machine Learning/Submission.html" class="no-external">  </a>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
 </div>
 </div>
-<div class="metadata">
-<p><a href="./posts/Machine Learning/Submission.html" class="no-external"></a></p><a href="./posts/Machine Learning/Submission.html" class="no-external">
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1718197877942" data-listing-reading-time-sort="1" data-listing-word-count-sort="94">
+<a href="./posts/Machine Learning/Transfer Learning.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+import the necessary packages
+</h5>
+<div class="card-text listing-description">
+from pyimagesearch import config from imutils import paths import shutil import os # loop over the data splits for split in (config.TRAIN, config.TEST, config.VAL): # grab…
 </div>
-<div class="quarto-post image-right" data-index="6" data-listing-file-modified-sort="1718197877942" data-listing-reading-time-sort="1" data-listing-word-count-sort="94">
-<div class="thumbnail">
-<p><a href="./posts/Machine Learning/Transfer Learning.html" class="no-external"></a></p><a href="./posts/Machine Learning/Transfer Learning.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/Machine Learning/Transfer Learning.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Machine Learning/Transfer Learning.html" class="no-external">import the necessary packages</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Machine Learning/Transfer Learning.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/Machine Learning/Transfer Learning.html" class="no-external">from pyimagesearch import config from imutils import paths import shutil import os # loop over the data splits for split in (config.TRAIN, config.TEST, config.VAL): # grab…</a>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
 </div>
 </div>
-<div class="metadata">
-<p><a href="./posts/Machine Learning/Transfer Learning.html" class="no-external"></a></p><a href="./posts/Machine Learning/Transfer Learning.html" class="no-external">
+</div>
+</div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-listing-file-modified-sort="1718208108392">
-<div class="thumbnail">
-<p><a href="./posts/Machine Learning/Transfer Learning with CNN.html" class="no-external"></a></p><a href="./posts/Machine Learning/Transfer Learning with CNN.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/Machine Learning/Transfer Learning with CNN.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Machine Learning/Transfer Learning with CNN.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Machine Learning/Transfer Learning with CNN.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/Machine Learning/Transfer Learning with CNN.html" class="no-external">
+<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1718208108392">
+<a href="./posts/Machine Learning/Transfer Learning with CNN.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<div class="card-text listing-description">
+
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co"># import the necessary packages</span></span>
 <span id="cb1-2"><span class="im">import</span> os</span>
 <span id="cb1-3"><span class="co"># initialize the path to the *original* input directory of images</span></span>
 <span id="cb1-4">ORIG_INPUT_DATASET <span class="op">=</span> <span class="st">"Food-5K"</span></span>
-<span id="cb1-5"><span class="co"># initialize the base path to the…</span></span><span id="cb1-6"><span class="co"></span></span><span id="cb1-7"><span class="op"></span><span class="st"></span></span><span id="cb1-8"><span class="co"></span></span><span id="cb1-9"><span class="co"></span></span><span id="cb1-10"><span class="op"></span><span class="st"></span></span><span id="cb1-11"><span class="op"></span><span class="st"></span></span><span id="cb1-12"><span class="op"></span><span class="st"></span></span><span id="cb1-13"><span class="co"></span></span><span id="cb1-14"><span class="op"></span><span class="st"></span><span class="st"></span><span class="st"></span></span><span id="cb1-15"><span class="co"></span></span><span id="cb1-16"><span class="op"></span><span class="dv"></span></span><span id="cb1-17"><span class="co"></span></span><span id="cb1-18"><span class="co"></span></span><span id="cb1-19"><span class="op"></span><span class="st"></span><span class="st"></span></span><span id="cb1-20"><span class="op"></span><span class="st"></span></span></code></pre></div></a>
+<span id="cb1-5"><span class="co"># initialize the base path to the…</span></span><span id="cb1-6"><span class="co"></span></span><span id="cb1-7"><span class="op"></span><span class="st"></span></span><span id="cb1-8"><span class="co"></span></span><span id="cb1-9"><span class="co"></span></span><span id="cb1-10"><span class="op"></span><span class="st"></span></span><span id="cb1-11"><span class="op"></span><span class="st"></span></span><span id="cb1-12"><span class="op"></span><span class="st"></span></span><span id="cb1-13"><span class="co"></span></span><span id="cb1-14"><span class="op"></span><span class="st"></span><span class="st"></span><span class="st"></span></span><span id="cb1-15"><span class="co"></span></span><span id="cb1-16"><span class="op"></span><span class="dv"></span></span><span id="cb1-17"><span class="co"></span></span><span id="cb1-18"><span class="co"></span></span><span id="cb1-19"><span class="op"></span><span class="st"></span><span class="st"></span></span><span id="cb1-20"><span class="op"></span><span class="st"></span></span></code></pre></div>
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
 </div>
 </div>
-<div class="metadata">
-<p><a href="./posts/Machine Learning/Transfer Learning with CNN.html" class="no-external"></a></p><a href="./posts/Machine Learning/Transfer Learning with CNN.html" class="no-external">
+</div>
+</div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-listing-file-modified-sort="1717733220572">
-<div class="thumbnail">
-<p><a href="./posts/Machine Learning/Untitled.html" class="no-external"></a></p><a href="./posts/Machine Learning/Untitled.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/Machine Learning/Untitled.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Machine Learning/Untitled.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Machine Learning/Untitled.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/Machine Learning/Untitled.html" class="no-external">
+<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1717733220572">
+<a href="./posts/Machine Learning/Untitled.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<div class="card-text listing-description">
+
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im">from</span> tensorflow.keras.preprocessing.image <span class="im">import</span> img_to_array, load_img</span></code></pre></div>
+
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1718689189824" data-listing-reading-time-sort="1" data-listing-word-count-sort="37">
+<a href="./posts/Machine Learning/CNN.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+</h5>
+<div class="card-text listing-description">
+  
 </div>
-<div class="metadata">
-<p><a href="./posts/Machine Learning/Untitled.html" class="no-external"></a></p><a href="./posts/Machine Learning/Untitled.html" class="no-external">
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="10" data-categories="data science,exercise,python,numpy,basic" data-listing-date-sort="1717952400000" data-listing-file-modified-sort="1718716521232" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="367">
+<a href="./posts/Exercises/numpy task1.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Latihan Numpy 1
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
+data science
 </div>
-<div class="quarto-post image-right" data-index="9" data-listing-file-modified-sort="1718689189824" data-listing-reading-time-sort="1" data-listing-word-count-sort="37">
-<div class="thumbnail">
-<p><a href="./posts/Machine Learning/CNN.html" class="no-external"></a></p><a href="./posts/Machine Learning/CNN.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/Machine Learning/CNN.html" class="no-external"></a></p>
+<div class="listing-category" onclick="window.quartoListingCategory('exercise'); return false;">
+exercise
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Machine Learning/CNN.html" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Machine Learning/CNN.html" class="no-external"></a>
+<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
+python
 </div>
-<div class="listing-description">
-<a href="./posts/Machine Learning/CNN.html" class="no-external">  </a>
+<div class="listing-category" onclick="window.quartoListingCategory('numpy'); return false;">
+numpy
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('basic'); return false;">
+basic
 </div>
 </div>
-<div class="metadata">
-<p><a href="./posts/Machine Learning/CNN.html" class="no-external"></a></p><a href="./posts/Machine Learning/CNN.html" class="no-external">
+<div class="card-text listing-description">
+Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L…<code></code>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+sulthan a. karimov
+</div>
+<div class="listing-date">
+Jun 10, 2024
+</div>
+</div>
+</div>
+</div>
 </a>
 </div>
+<div class="g-col-1" data-index="11" data-categories="data science,exercise,python,numpy,basic,solution" data-listing-date-sort="1717952400000" data-listing-file-modified-sort="1718716905235" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="227">
+<a href="./posts/Exercises/numpy task1 solution.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Solusi Tugas numpy 1
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('data science'); return false;">
+data science
 </div>
-<div class="quarto-post image-right" data-index="10" data-listing-file-modified-sort="1718687237292" data-listing-reading-time-sort="2" data-listing-word-count-sort="362">
-<div class="thumbnail">
-<p><a href="./posts/notes/numpy task1.html" class="no-external"></a></p><a href="./posts/notes/numpy task1.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/notes/numpy task1.html" class="no-external"></a></p>
+<div class="listing-category" onclick="window.quartoListingCategory('exercise'); return false;">
+exercise
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/notes/numpy task1.html" class="no-external">Analisa Penjualan Pakaian dengan NumPy</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/notes/numpy task1.html" class="no-external"></a>
+<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
+python
 </div>
-<div class="listing-description">
-<a href="./posts/notes/numpy task1.html" class="no-external">Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L…<code></code></a>
+<div class="listing-category" onclick="window.quartoListingCategory('numpy'); return false;">
+numpy
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('basic'); return false;">
+basic
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('solution'); return false;">
+solution
 </div>
 </div>
-<div class="metadata">
-<p><a href="./posts/notes/numpy task1.html" class="no-external"></a></p><a href="./posts/notes/numpy task1.html" class="no-external">
+<div class="card-text listing-description">
+
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+sulthan a. karimov
+</div>
+<div class="listing-date">
+Jun 10, 2024
+</div>
+</div>
+</div>
+</div>
 </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="11" data-listing-file-modified-sort="1718691243814" data-listing-reading-time-sort="2" data-listing-word-count-sort="227">
-<div class="thumbnail">
-<p><a href="./posts/notes/numpy task1 solution.html" class="no-external"></a></p><a href="./posts/notes/numpy task1 solution.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/notes/numpy task1 solution.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/notes/numpy task1 solution.html" class="no-external">Solusi Tugas numpy 1</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/notes/numpy task1 solution.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/notes/numpy task1 solution.html" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/notes/numpy task1 solution.html" class="no-external"></a></p><a href="./posts/notes/numpy task1 solution.html" class="no-external">
-</a>
-</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
@@ -710,7 +744,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/sakarimov\.github\.io\/my-personal-blog\/");
+      var filterRegex = new RegExp("https:\/\/sakarimov\.github\.io\/myblog\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

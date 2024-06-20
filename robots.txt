@@ -1,1 +1,1 @@
-Sitemap: https://sakarimov.github.io/my-personal-blog/sitemap.xml
+Sitemap: https://sakarimov.github.io/myblog/sitemap.xml

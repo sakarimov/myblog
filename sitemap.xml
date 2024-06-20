@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/about.html</loc>
-    <lastmod>2024-06-17T00:50:17.813Z</lastmod>
+    <loc>https://sakarimov.github.io/myblog/index.html</loc>
+    <lastmod>2024-06-18T12:23:04.300Z</lastmod>
   </url>
   <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/posts/notes/numpy task1.html</loc>
-    <lastmod>2024-06-18T05:07:17.292Z</lastmod>
+    <loc>https://sakarimov.github.io/myblog/posts/Exercises/numpy task1 solution.html</loc>
+    <lastmod>2024-06-18T13:21:45.235Z</lastmod>
   </url>
   <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/posts/Machine Learning/Untitled.html</loc>
-    <lastmod>2024-06-07T04:07:00.572Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/posts/Machine Learning/Transfer Learning.html</loc>
-    <lastmod>2024-06-12T13:11:17.942Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/posts/Machine Learning/Submission-colab.html</loc>
-    <lastmod>2024-06-13T07:18:43.168Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/posts/Machine Learning/ML - Supervised Learning.html</loc>
-    <lastmod>2024-06-06T09:08:17.567Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/posts/Machine Learning/Dimensionality Reduction.html</loc>
-    <lastmod>2024-05-01T10:50:08.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/index.html</loc>
-    <lastmod>2024-06-17T00:50:17.810Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/posts/Machine Learning/JanKenPon CNN Feature Extraction.html</loc>
-    <lastmod>2024-06-12T06:10:36.776Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/posts/Machine Learning/ML - Unsupervised Learning.html</loc>
-    <lastmod>2024-05-01T10:50:07.969Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/posts/Machine Learning/Submission.html</loc>
-    <lastmod>2024-06-13T07:01:09.286Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/posts/Machine Learning/Transfer Learning with CNN.html</loc>
-    <lastmod>2024-06-12T16:01:48.392Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/posts/Machine Learning/CNN.html</loc>
+    <loc>https://sakarimov.github.io/myblog/posts/Machine Learning/CNN.html</loc>
     <lastmod>2024-06-18T05:39:49.824Z</lastmod>
   </url>
   <url>
-    <loc>https://sakarimov.github.io/my-personal-blog/posts/notes/numpy task1 solution.html</loc>
-    <lastmod>2024-06-18T06:14:03.814Z</lastmod>
+    <loc>https://sakarimov.github.io/myblog/posts/Machine Learning/Transfer Learning with CNN.html</loc>
+    <lastmod>2024-06-12T16:01:48.392Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sakarimov.github.io/myblog/posts/Machine Learning/Submission.html</loc>
+    <lastmod>2024-06-13T07:01:09.286Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sakarimov.github.io/myblog/posts/Machine Learning/ML - Unsupervised Learning.html</loc>
+    <lastmod>2024-05-01T10:50:07.969Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sakarimov.github.io/myblog/posts/Machine Learning/JanKenPon CNN Feature Extraction.html</loc>
+    <lastmod>2024-06-12T06:10:36.776Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sakarimov.github.io/myblog/posts/Machine Learning/Dimensionality Reduction.html</loc>
+    <lastmod>2024-05-01T10:50:08.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sakarimov.github.io/myblog/posts/Machine Learning/ML - Supervised Learning.html</loc>
+    <lastmod>2024-06-06T09:08:17.567Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sakarimov.github.io/myblog/posts/Machine Learning/Submission-colab.html</loc>
+    <lastmod>2024-06-13T07:18:43.168Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sakarimov.github.io/myblog/posts/Machine Learning/Transfer Learning.html</loc>
+    <lastmod>2024-06-12T13:11:17.942Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sakarimov.github.io/myblog/posts/Machine Learning/Untitled.html</loc>
+    <lastmod>2024-06-07T04:07:00.572Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sakarimov.github.io/myblog/posts/Exercises/numpy task1.html</loc>
+    <lastmod>2024-06-18T13:15:21.232Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sakarimov.github.io/myblog/about.html</loc>
+    <lastmod>2024-06-18T12:15:13.707Z</lastmod>
   </url>
 </urlset>
