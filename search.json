@@ -1,10 +1,13 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Just Another Attempt to Share",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDimensionality Reduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Name : Sulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning - Supervised Learning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Name : Sulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Name : Sulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimport the necessary packages\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmy first encounter with webrtc and livekit agents\n\n\n\nbackend\n\n\npython\n\n\nai\n\n\nmlops\n\n\nwebrtc\n\n\ncloud\n\n\n\n\n\n\n\nsulthan a. karimov\n\n\nJun 22, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nLatihan Numpy 1\n\n\n\ndata science\n\n\nexercise\n\n\npython\n\n\nnumpy\n\n\nbasic\n\n\n\n\n\n\n\nsulthan a. karimov\n\n\nJun 10, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nSolusi Tugas numpy 1\n\n\n\ndata science\n\n\nexercise\n\n\npython\n\n\nnumpy\n\n\nbasic\n\n\nsolution\n\n\n\n\n\n\n\nsulthan a. karimov\n\n\nJun 10, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Just Another Attempt to Share\nIlmu memberi kita pengetahuan, tetapi hanya filsafat yang bisa memberi kita kebijaksanaan.\nWill Durant\n\n\n\n Back to top",
+    "crumbs": [
+      "About"
+    ]
   },
   {
     "objectID": "posts/livekit/1_first_encounter_with_livekit.html",
@@ -254,13 +257,10 @@
     ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Just Another Attempt to Share",
     "section": "",
-    "text": "Just Another Attempt to Share\nIlmu memberi kita pengetahuan, tetapi hanya filsafat yang bisa memberi kita kebijaksanaan.\nWill Durant\n\n\n\n Back to top",
-    "crumbs": [
-      "About"
-    ]
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDimensionality Reduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Name : Sulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning - Supervised Learning\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Name : Sulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent Name : Sulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimport the necessary packages\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmy first encounter with webrtc and livekit agents\n\n\n\nbackend\n\n\npython\n\n\nai\n\n\nmlops\n\n\nwebrtc\n\n\ncloud\n\n\n\n\n\n\n\nsulthan a. karimov\n\n\nJun 22, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nLatihan Numpy 1\n\n\n\ndata science\n\n\nexercise\n\n\npython\n\n\nnumpy\n\n\nbasic\n\n\n\n\n\n\n\nsulthan a. karimov\n\n\nJun 10, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nSolusi Tugas numpy 1\n\n\n\ndata science\n\n\nexercise\n\n\npython\n\n\nnumpy\n\n\nbasic\n\n\nsolution\n\n\n\n\n\n\n\nsulthan a. karimov\n\n\nJun 10, 2024\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   }
 ]
