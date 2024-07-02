@@ -6,10 +6,10 @@
       version="2.0">
 <channel>
 <title>Sulthan A. Karimov</title>
-<link>https://sulthankarimov.my.id/#category=rss</link>
-<atom:link href="https://sulthankarimov.my.id/index-rss.xml" rel="self" type="application/rss+xml"/>
+<link>https://sulthankarimov.my.id/myblog/#category=rss</link>
+<atom:link href="https://sulthankarimov.my.id/myblog/index-rss.xml" rel="self" type="application/rss+xml"/>
 <description>just another attempt to share</description>
 <generator>quarto-1.4.555</generator>
-<lastBuildDate>Tue, 02 Jul 2024 09:39:05 GMT</lastBuildDate>
+<lastBuildDate>Tue, 02 Jul 2024 09:55:22 GMT</lastBuildDate>
 </channel>
 </rss>
