@@ -4,20 +4,7 @@
     "href": "index.html",
     "title": "Just Another Attempt to Share",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nsalut dengan bangsa indonesia\n\n\n\n\n\n\nopini\n\n\nngelantur\n\n\nindonesia\n\n\n\n\n\n\n\n\n\nJun 29, 2024\n\n\nsulthan a. karimov\n\n\n\n\n\n\n\n\n\n\n\n\nmy first encounter with webrtc and livekit agents\n\n\n\n\n\n\nbackend\n\n\npython\n\n\nai\n\n\nmlops\n\n\nwebrtc\n\n\ncloud\n\n\n\n\n\n\n\n\n\nJun 22, 2024\n\n\nsulthan a. karimov\n\n\n\n\n\n\n\n\n\n\n\n\nLatihan Numpy 1\n\n\n\n\n\n\ndata science\n\n\nexercise\n\n\npython\n\n\nnumpy\n\n\nbasic\n\n\n\n\n\n\n\n\n\nJun 10, 2024\n\n\nsulthan a. karimov\n\n\n\n\n\n\n\n\n\n\n\n\nSolusi Tugas numpy 1\n\n\n\n\n\n\ndata science\n\n\nexercise\n\n\npython\n\n\nnumpy\n\n\nbasic\n\n\nsolution\n\n\n\n\n\n\n\n\n\nJun 10, 2024\n\n\nsulthan a. karimov\n\n\n\n\n\n\nNo matching items\n\n Back to top"
-  },
-  {
-    "objectID": "posts/livekit/1_first_encounter_with_livekit.html",
-    "href": "posts/livekit/1_first_encounter_with_livekit.html",
-    "title": "my first encounter with webrtc and livekit agents",
-    "section": "",
-    "text": "Back to top",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Livekit",
-      "my first encounter with webrtc and livekit agents"
-    ]
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nkekuatan unik bangsa ini\n\n\n\n\n\n\nopini\n\n\nngelantur\n\n\nindonesia\n\n\n\nsebuah opini kebangsaan\n\n\n\n\n\nJul 2, 2024\n\n\nSulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\nLatihan Numpy 1\n\n\n\n\n\n\ndata science\n\n\nexercise\n\n\npython\n\n\nnumpy\n\n\nbasic\n\n\n\n\n\n\n\n\n\nJun 10, 2024\n\n\nsulthan a. karimov\n\n\n\n\n\n\n\n\n\n\n\n\nSolusi Tugas numpy 1\n\n\n\n\n\n\ndata science\n\n\nexercise\n\n\npython\n\n\nnumpy\n\n\nbasic\n\n\nsolution\n\n\n\n\n\n\n\n\n\nJun 10, 2024\n\n\nsulthan a. karimov\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "posts/Exercises/numpy task1.html",
@@ -63,7 +50,20 @@
     "href": "posts/Exercises/numpy task1 solution.html",
     "title": "Solusi Tugas numpy 1",
     "section": "",
-    "text": "Back to top",
+    "text": "import numpy as np\n\nload_file = np.loadtxt('numpy data1.txt')\ndata = load_file.reshape(4,7,4)",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Exercises",
+      "Solusi Tugas numpy 1"
+    ]
+  },
+  {
+    "objectID": "posts/Exercises/numpy task1 solution.html#todo",
+    "href": "posts/Exercises/numpy task1 solution.html#todo",
+    "title": "Solusi Tugas numpy 1",
+    "section": "TODO",
+    "text": "TODO\n\nimport numpy as np\n\n# Asumsikan data penjualan Anda berada dalam array NumPy bernama \"sales_data\"\n\n# Langkah 1: Pilih data untuk kategori tertentu (misalnya, kemeja)\n# Ganti \"category_index\" dengan indeks aktual untuk kemeja\nkategori_yang_diminati = 0  # Misalkan kemeja adalah kategori 0\npenjualan_kemeja = data[:, kategori_yang_diminati, :]  # Pilih data untuk kategori ini\n\n# Langkah 2: Hitung total penjualan untuk setiap ukuran (jumlahkan sepanjang sumbu ukuran)\ntotal_per_ukuran = penjualan_kemeja.sum(axis=0)  # Jumlahkan di semua lokasi\n\n# Langkah 3: Analisis distribusi ukuran (tanpa argmax)\n# Temukan nilai maksimum untuk total penjualan tiap ukuran\nmaks_penjualan_ukuran = total_per_ukuran.max()  # Cari total penjualan maksimum\n\n# Buat mask untuk ukuran terpopuler\nmask_terpopuler = total_per_ukuran == maks_penjualan_ukuran  # Bandingkan dengan nilai maksimum\n\n# Identifikasi ukuran terpopuler (menangani kemungkinan seri)\nukuran_terpopuler = np.where(mask_terpopuler)[0]  # Dapatkan indeks elemen True\n\n# Tampilkan hasilnya\nprint(\"Total Penjualan Kemeja per Ukuran:\", total_per_ukuran)\n\n# Tampilkan ukuran terpopuler (menangani seri)\nif len(ukuran_terpopuler) &gt; 1:\n  print(\"Ukuran Kemeja Terpopuler:\", ukuran_terpopuler)\nelse:\n  print(\"Ukuran Kemeja Terpopuler:\", ukuran_terpopuler[0])",
     "crumbs": [
       "About",
       "Posts",
@@ -74,14 +74,14 @@
   {
     "objectID": "posts/opinions/salut dengan bangsa indonesia.html",
     "href": "posts/opinions/salut dengan bangsa indonesia.html",
-    "title": "salut dengan bangsa indonesia",
+    "title": "kekuatan unik bangsa ini",
     "section": "",
     "text": "Salut dengan Bangsa Ini\nsaya salut sekali dengan bangsa Indonesia dalam menyikapi masalah-masalah yang mencuat baru-baru ini. bagaimana tidak?, gempuran itu datang dari berbagai arah, ekonomi, sosial, budaya, bahkan politik. Bangsa Indonesia ini umurnya sudah tidak muda lagi, lebih tua dari negaranya sendiri. jadi maklum kalau masalah-masalah yang muncul belakangan tak menjadi persoalan sebesar kehancuran sebuah bangsa. paling hanya menjadi riak-riak kecil dalam mewarnai kehidupan bernegara. semoga kondisi ini terus jadi kekuatan untuk seluruh Bangsa Indonesia, sehingga masalah selevel negara tidak bisa mengusik kemakmuran hidup kita.\n\n\n\n\n Back to top",
     "crumbs": [
       "About",
       "Posts",
       "Opinions",
-      "salut dengan bangsa indonesia"
+      "kekuatan unik bangsa ini"
     ]
   },
   {
