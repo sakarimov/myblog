@@ -1,0 +1,63 @@
+<script>
+  function addAnswerWithButton(answerClass, buttonText, answerText) {
+
+    const divElement = document.querySelector(`.${answerClass}`);
+    const answerRandomId = "answer-" + Math.floor(Math.random() * 1000000);
+    const tokenRandomId = "answer-" + Math.floor(Math.random() * 1000000);
+
+    // Create div for token
+    const tokenContainer = document.createElement('div');
+    tokenContainer.className = "token-container"
+    tokenContainer.style.display = "flex"
+
+    // Create the new button element
+    const buttonElement = document.createElement("button");
+    buttonElement.className = "show-answer btn btn-primary";
+    buttonElement.textContent = buttonText;
+    buttonElement.onclick = function() {
+      showAnswer(answerRandomId, tokenRandomId);
+    };
+
+    // Create the new button element
+    const inputElement = document.createElement("input");
+    inputElement.id = tokenRandomId;
+    inputElement.className = "input-token form-control";
+    inputElement.setAttribute("type", "text")
+    inputElement.setAttribute("placeholder", "Put Your Token Here")
+    inputElement.style.width = "50%"
+    inputElement.style.marginRight = "20px"
+
+    // Create the new answer element
+    const answerElement = document.createElement("p");
+    answerElement.id = answerRandomId;
+    answerElement.style.display = "none";
+    answerElement.innerHTML = answerText;
+
+    // Replace the div element with the new button and answer elements
+    tokenContainer.append(inputElement)
+    tokenContainer.append(buttonElement)
+    divElement.parentNode.replaceChild(tokenContainer, divElement);
+    tokenContainer.insertAdjacentElement("afterend", answerElement);
+  }
+
+  function showAnswer(answerId, tokenId) {
+    var answer = document.getElementById(answerId);
+    var token = document.getElementById(tokenId)
+    if (answer.style.display === "none" && token.value === "token") {
+      answer.style.display = "block";
+    } else {
+      answer.style.display = "none";
+    }
+  }
+
+  function addAnswerButton() {
+    var answers = document.querySelectorAll(".answer")
+    answers.forEach(e => {
+      addAnswerWithButton("answer", " Show", e.innerHTML);
+    });
+  }
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    addAnswerButton();
+  });
+</script>

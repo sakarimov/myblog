@@ -3,6 +3,8 @@ project:
 
 website:
   title: "Sulthan A. Karimov"
+  site-url: https://sulthankarimov.my.id/myblog
+  description: "just another attempt to share"
   navbar:
     search: true
     right:
@@ -10,9 +12,11 @@ website:
       - icon: github
         href: https://github.com/sakarimov
       - icon: twitter
-        href: https://twitter.com/sulthankarimov
+        href: https://twitter.com/sulthan_karimov
       - icon: linkedin
         href: https://linkedin.com/in/sulthankarimov
+      - icon: rss
+        href: index.xml
   sidebar:
     contents: auto
     style: floating
@@ -20,7 +24,7 @@ website:
   reader-mode: true
 format:
   html:
-    theme: slate
+    theme: litera
     css: styles.css
 
 

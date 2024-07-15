@@ -1,19 +1,37 @@
 ---
 title: "About"
-image: profile.jpg
+image: comfy.jpg
+publish: true
 about:
   template: jolla
   links:
     - icon: twitter
       text: Twitter
-      href: https://twitter.com
+      href: https://twitter.com/sulthan_karimov
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://linkedin.com/in/sulthankarimov
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/sakarimov
 
 ---
 
-About this blog
+# Just Another Attempt to Share
+
+::: {.content-hidden when-meta="publish"}
+puji syukur kehadirat Allah SWT. tanpanya, blog ini tak mungkin bisa author wujudkan. shalawat serta salam semoga senantiasa tercurah kepada Nabi Muhammad SAW, selaku rasul dan imam bagi seluruh alam.
+
+blog ini adalah kumpulan dari hasil coba-coba, hitung-hitung, dan trial & error yang selama ini author jalani. bukan hanya tentang computer science, data science, automation, linux sysadmin, atau design 3D. di luar semua itu, author juga menyisipkan beberapa cerita dan quote-quote filosofis yang mungkin bisa jadi inspirasi bagi pembaca sekalian.
+:::
+
+| **Ilmu memang memberi kita pengetahuan, tetapi hanya filsafat yang bisa memberi kita kebijaksanaan.**
+| *Will Durant*
+
+::: {.content-hidden when-meta="publish"}
+semua artikel dalam blog ini author dedikasikan untuk dapat diserap dan disebarkan seluas-luasnya tanpa perlu di-artibusikan kepada author (kecuali bila bersumber dari sumber yang perlu artibusi). author hanya berharap apapun yang tersebar lewat blog ini dapat bermanfaat dan diserap seluas-luasnya.
+
+apabila pembaca merasa senang dan terbantu dari apa yang didapat dari blog ini, dan sekiranya ingin membantu author, cukup sisipkan doa untuk author menurut keyakinan dan kepercayaan masing2.
+
+akhirnya, semua yang tersaji tak lepas dari taufiq dan qodho Nya, semoga kita semua senantiasa mendapat taufiq nya untuk bisa berusaha menjadi lebih baik, aamiin...
+:::

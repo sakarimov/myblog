@@ -1,0 +1,40 @@
+---
+title: "my first encounter with webrtc and livekit agents"
+date: "6/22/2024"
+author: sulthan a. karimov
+categories:
+  - backend
+  - python
+  - ai
+  - mlops
+  - webrtc
+  - cloud
+publish: false
+draft: true
+---
+
+::: {.content-hidden unless-meta="publish"}
+
+# My First Encounter with WebRTC and Livekit Agents
+
+yesterday i got a project that pushed me to learn about livekit agents which also involve AI model, even though it's my first time hearing about that stuff, but i'm pretty much confident with my understanding about Devops and AI. at first, i thought that it's just like another backend framework from the rest of the market, turns out i was wrong, it's beyond that, and the potential of this project is beyond reality.
+
+if you ever heard about WebRTC and it's complexity livekit agents try to solve that for you. it creates private room for every user who interact with your frontend app, handle the authentication, audio/video transport etc. and everything are in one API. in this post i will try to give a glimps overview of this topic, how to get your feet wet in it, and how to begin your first webRTC project which involve AI model.
+
+# What is WebRTC?
+
+> With WebRTC, you can add real-time communication capabilities to your application that works on top of an open standard. It supports video, voice, and generic data to be sent between peers, allowing developers to build powerful voice- and video-communication solutions. The technology is available on all modern browsers as well as on native clients for all major platforms. The technologies behind WebRTC are implemented as an open web standard and available as regular JavaScript APIs in all major browsers. For native clients, like Android and iOS applications, a library is available that provides the same functionality. The WebRTC project is open-source and supported by Apple, Google, Microsoft and Mozilla, amongst others. This page is maintained by the Google WebRTC team.
+
+at least that is what written in it's official website [read more here](https://webrtc.org/), this technology gives ability to any web app or mobile app to use users audio and video input to interact with it. it can even control user's screen. many big app uses this technology as their backbone lets mention google duo, whatsapp, zoom, jitsi and so on.
+
+it's just basic implementation of this library. we still can improvise by modifying the input or the output, or by connecting it to AI API, etc. curious? lets get into it.
+
+## basic functionality with WebRTC
+
+## TODO add figure of technology chart
+
+# How Livekit Agents Untangled the Challenges
+
+if you ever heard about WebRTC and it's complexity livekit agents try to solve that for you. ```LiveKit Agents is an end-to-end framework for building realtime, multimodal AI "agents" that interact with end-users through voice, video, and data channels. This framework allows you to build an agent using Python.``` - this is what written in it's official docs. 
+
+:::

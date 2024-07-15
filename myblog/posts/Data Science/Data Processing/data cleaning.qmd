@@ -1,0 +1,14 @@
+---
+title: common data processing practices
+description: this post will describe common practices on processing data from raw to ready-to-use dataframe
+date: 02/07/24
+author: Sulthan A. Karimov
+categories: [data science, python, rss, pandas, data cleaning, dataframe]
+draft: true
+show: true
+freeze: true
+---
+
+# Common Data Processing practices
+
+
