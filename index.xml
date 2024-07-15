@@ -9,7 +9,7 @@
 <link>https://sulthankarimov.my.id/myblog/</link>
 <atom:link href="https://sulthankarimov.my.id/myblog/index.xml" rel="self" type="application/rss+xml"/>
 <description>just another attempt to share</description>
-<generator>quarto-1.5.52</generator>
+<generator>quarto-1.5.54</generator>
 <lastBuildDate>Mon, 01 Jul 2024 17:00:00 GMT</lastBuildDate>
 <item>
   <title>kekuatan unik bangsa ini</title>
@@ -34,242 +34,6 @@
   <category>indonesia</category>
   <guid>https://sulthankarimov.my.id/myblog/posts/opinions/salut dengan bangsa indonesia.html</guid>
   <pubDate>Mon, 01 Jul 2024 17:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Latihan Numpy 1</title>
-  <dc:creator>sulthan a. karimov</dc:creator>
-  <link>https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="latihan-numpy-1-analisa-penjualan-pakaian-dengan-numpy" class="level1">
-<h1>Latihan Numpy 1 : Analisa Penjualan Pakaian dengan NumPy</h1>
-<section id="skenario" class="level2">
-<h2 class="anchored" data-anchor-id="skenario">Skenario</h2>
-<p>Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L, XL) di berbagai lokasi (toko). Data penjualan disimpan dalam array NumPy bernama <code>sales_data</code> dengan struktur berikut (data dalam struktur hanya contoh):</p>
-<div id="62f26bbc" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb1-2"></span>
-<span id="cb1-3">sales_data <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> np.array([</span>
-<span id="cb1-4">[[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">15</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>],  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Penjualan Lokasi 1</span></span>
-<span id="cb1-5"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">18</span>],</span>
-<span id="cb1-6"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">18</span>],</span>
-<span id="cb1-7"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">18</span>],</span>
-<span id="cb1-8"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">18</span>],</span>
-<span id="cb1-9"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">18</span>],</span>
-<span id="cb1-10"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>,  <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">12</span>]],</span>
-<span id="cb1-11"></span>
-<span id="cb1-12">[[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">12</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">18</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">15</span>],  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Penjualan Lokasi 2</span></span>
-<span id="cb1-13"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>],</span>
-<span id="cb1-14"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>],</span>
-<span id="cb1-15"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>],</span>
-<span id="cb1-16"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>],</span>
-<span id="cb1-17"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>],</span>
-<span id="cb1-18"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">7</span>,  <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">11</span>]]</span>
-<span id="cb1-19">])</span>
-<span id="cb1-20"></span>
-<span id="cb1-21"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># sales_data.shape = (jumlah_lokasi, jumlah_kategori, jumlah_ukuran)</span></span></code></pre></div>
-</div>
-<pre class="{note}"><code>file tugas bisa didownload [di sini](https://github.com/sakarimov/my-personal-blog/raw/main/mybook/notes/numpy%231.txt)
-</code></pre>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>untuk membuka file ini ikuti petunjuk berikut:</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb3-2"></span>
-<span id="cb3-3">load_file <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> np.loadtxt(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'path/to/the/file/you/download'</span>)</span>
-<span id="cb3-4">load_original <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> load_file.reshape(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">7</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>)</span></code></pre></div>
-</div>
-</div>
-</section>
-<section id="tugas" class="level2">
-<h2 class="anchored" data-anchor-id="tugas">Tugas</h2>
-<ol type="1">
-<li><p><strong>Identifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):</strong></p>
-<ul>
-<li>Gunakan teknik slicing tingkat lanjut dalam NumPy untuk menghitung total penjualan untuk setiap kategori di semua ukuran di setiap lokasi.</li>
-<li>Petunjuk: Anda dapat menggabungkan slicing dasar (<code>:</code>) untuk memilih lokasi tertentu dan masking boolean untuk menjumlahkan di sepanjang sumbu kategori.</li>
-<li>Identifikasi kategori dengan penjualan tertinggi untuk setiap lokasi.</li>
-</ul></li>
-<li><p><strong>Bandingkan Distribusi Ukuran untuk Kategori Spesifik:</strong></p>
-<ul>
-<li>Fokus pada kategori tertentu (misalnya, kemeja) di semua lokasi.</li>
-<li>Gunakan teknik slicing atau pengindeksan array untuk memilih hanya data penjualan kategori tersebut.</li>
-<li>Hitung total penjualan untuk setiap ukuran (jumlahkan di sepanjang sumbu ukuran).</li>
-<li>Analisa distribusi ukuran (misalnya, ukuran mana yang paling banyak terjual untuk kategori tersebut secara keseluruhan).</li>
-</ul></li>
-<li><p><strong>Temukan Lokasi dengan Penjualan Rendah pada Ukuran Tertentu:</strong></p>
-<ul>
-<li>Tentukan ukuran tertentu (misalnya, XL) yang mungkin perlu diisi ulang stoknya.</li>
-<li>Gunakan masking boolean untuk memilih hanya data penjualan ukuran tersebut dari seluruh array.</li>
-<li>Hitung total penjualan produk dengan ukuran tersebut di setiap lokasi (jumlahkan di sepanjang semua sumbu lainnya).</li>
-<li>Identifikasi lokasi dengan penjualan di bawah ambang batas tertentu untuk produk dengan ukuran tersebut, yang menunjukkan potensi kebutuhan untuk mengisi ulang stok.</li>
-</ul></li>
-</ol>
-
-
-</section>
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>data science</category>
-  <category>exercise</category>
-  <category>python</category>
-  <category>numpy</category>
-  <category>basic</category>
-  <guid>https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1.html</guid>
-  <pubDate>Sun, 09 Jun 2024 17:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Solusi Tugas numpy 1</title>
@@ -649,6 +413,242 @@ font-style: inherit;"># Opsional untuk referensi</span></span></code></pre></div
   <category>basic</category>
   <category>solution</category>
   <guid>https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1 solution.html</guid>
+  <pubDate>Sun, 09 Jun 2024 17:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Latihan Numpy 1</title>
+  <dc:creator>sulthan a. karimov</dc:creator>
+  <link>https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="latihan-numpy-1-analisa-penjualan-pakaian-dengan-numpy" class="level1">
+<h1>Latihan Numpy 1 : Analisa Penjualan Pakaian dengan NumPy</h1>
+<section id="skenario" class="level2">
+<h2 class="anchored" data-anchor-id="skenario">Skenario</h2>
+<p>Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L, XL) di berbagai lokasi (toko). Data penjualan disimpan dalam array NumPy bernama <code>sales_data</code> dengan struktur berikut (data dalam struktur hanya contoh):</p>
+<div id="62f26bbc" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-2"></span>
+<span id="cb1-3">sales_data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.array([</span>
+<span id="cb1-4">[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>],  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Penjualan Lokasi 1</span></span>
+<span id="cb1-5"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>],</span>
+<span id="cb1-6"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>],</span>
+<span id="cb1-7"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>],</span>
+<span id="cb1-8"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>],</span>
+<span id="cb1-9"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>],</span>
+<span id="cb1-10"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>,  <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>]],</span>
+<span id="cb1-11"></span>
+<span id="cb1-12">[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>],  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Penjualan Lokasi 2</span></span>
+<span id="cb1-13"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>],</span>
+<span id="cb1-14"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>],</span>
+<span id="cb1-15"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>],</span>
+<span id="cb1-16"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>],</span>
+<span id="cb1-17"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>],</span>
+<span id="cb1-18"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>,  <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11</span>]]</span>
+<span id="cb1-19">])</span>
+<span id="cb1-20"></span>
+<span id="cb1-21"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># sales_data.shape = (jumlah_lokasi, jumlah_kategori, jumlah_ukuran)</span></span></code></pre></div>
+</div>
+<pre class="{note}"><code>file tugas bisa didownload [di sini](https://github.com/sakarimov/my-personal-blog/raw/main/mybook/notes/numpy%231.txt)
+</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>untuk membuka file ini ikuti petunjuk berikut:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb3-2"></span>
+<span id="cb3-3">load_file <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.loadtxt(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'path/to/the/file/you/download'</span>)</span>
+<span id="cb3-4">load_original <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> load_file.reshape(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)</span></code></pre></div>
+</div>
+</div>
+</section>
+<section id="tugas" class="level2">
+<h2 class="anchored" data-anchor-id="tugas">Tugas</h2>
+<ol type="1">
+<li><p><strong>Identifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):</strong></p>
+<ul>
+<li>Gunakan teknik slicing tingkat lanjut dalam NumPy untuk menghitung total penjualan untuk setiap kategori di semua ukuran di setiap lokasi.</li>
+<li>Petunjuk: Anda dapat menggabungkan slicing dasar (<code>:</code>) untuk memilih lokasi tertentu dan masking boolean untuk menjumlahkan di sepanjang sumbu kategori.</li>
+<li>Identifikasi kategori dengan penjualan tertinggi untuk setiap lokasi.</li>
+</ul></li>
+<li><p><strong>Bandingkan Distribusi Ukuran untuk Kategori Spesifik:</strong></p>
+<ul>
+<li>Fokus pada kategori tertentu (misalnya, kemeja) di semua lokasi.</li>
+<li>Gunakan teknik slicing atau pengindeksan array untuk memilih hanya data penjualan kategori tersebut.</li>
+<li>Hitung total penjualan untuk setiap ukuran (jumlahkan di sepanjang sumbu ukuran).</li>
+<li>Analisa distribusi ukuran (misalnya, ukuran mana yang paling banyak terjual untuk kategori tersebut secara keseluruhan).</li>
+</ul></li>
+<li><p><strong>Temukan Lokasi dengan Penjualan Rendah pada Ukuran Tertentu:</strong></p>
+<ul>
+<li>Tentukan ukuran tertentu (misalnya, XL) yang mungkin perlu diisi ulang stoknya.</li>
+<li>Gunakan masking boolean untuk memilih hanya data penjualan ukuran tersebut dari seluruh array.</li>
+<li>Hitung total penjualan produk dengan ukuran tersebut di setiap lokasi (jumlahkan di sepanjang semua sumbu lainnya).</li>
+<li>Identifikasi lokasi dengan penjualan di bawah ambang batas tertentu untuk produk dengan ukuran tersebut, yang menunjukkan potensi kebutuhan untuk mengisi ulang stok.</li>
+</ul></li>
+</ol>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>data science</category>
+  <category>exercise</category>
+  <category>python</category>
+  <category>numpy</category>
+  <category>basic</category>
+  <guid>https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1.html</guid>
   <pubDate>Sun, 09 Jun 2024 17:00:00 GMT</pubDate>
 </item>
 </channel>
