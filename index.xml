@@ -10,649 +10,10 @@
 <atom:link href="https://sulthankarimov.my.id/myblog/index.xml" rel="self" type="application/rss+xml"/>
 <description>just another attempt to share</description>
 <generator>quarto-1.5.54</generator>
-<lastBuildDate>Mon, 01 Jul 2024 17:00:00 GMT</lastBuildDate>
-<item>
-  <title>kekuatan unik bangsa ini</title>
-  <dc:creator>Sulthan A. Karimov</dc:creator>
-  <link>https://sulthankarimov.my.id/myblog/posts/opinions/salut dengan bangsa indonesia.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="salut-dengan-bangsa-ini" class="level1">
-<h1>Salut dengan Bangsa Ini</h1>
-<p>saya salut sekali dengan bangsa Indonesia dalam menyikapi masalah-masalah yang mencuat baru-baru ini. bagaimana tidak?, gempuran itu datang dari berbagai arah, ekonomi, sosial, budaya, bahkan politik. Bangsa Indonesia ini umurnya sudah tidak muda lagi, lebih tua dari negaranya sendiri. jadi maklum kalau masalah-masalah yang muncul belakangan tak menjadi persoalan sebesar <em>kehancuran sebuah bangsa</em>. paling hanya menjadi riak-riak kecil dalam mewarnai kehidupan bernegara. semoga kondisi ini terus jadi kekuatan untuk seluruh Bangsa Indonesia, sehingga masalah selevel <em>negara</em> tidak bisa mengusik kemakmuran hidup kita.</p>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>opini</category>
-  <category>ngelantur</category>
-  <category>indonesia</category>
-  <guid>https://sulthankarimov.my.id/myblog/posts/opinions/salut dengan bangsa indonesia.html</guid>
-  <pubDate>Mon, 01 Jul 2024 17:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Solusi Tugas numpy 1</title>
-  <dc:creator>sulthan a. karimov</dc:creator>
-  <link>https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1 solution.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<div id="cell-1" class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb1-2"></span>
-<span id="cb1-3">load_file <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> np.loadtxt(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'numpy data1.txt'</span>)</span>
-<span id="cb1-4">data <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> load_file.reshape(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">7</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>)</span></code></pre></div>
-</div>
-<ol type="1">
-<li><strong>Identifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):</strong></li>
-</ol>
-<div class="answer">
-<pre><code>* Gunakan teknik slicing tingkat lanjut dalam NumPy untuk menghitung total penjualan untuk setiap kategori di semua ukuran di setiap lokasi.
-* Petunjuk: Anda dapat menggabungkan slicing dasar (`:`) untuk memilih lokasi tertentu dan masking boolean untuk menjumlahkan di sepanjang sumbu kategori.
-* Identifikasi kategori dengan penjualan tertinggi untuk setiap lokasi.</code></pre>
-<div id="cell-3" class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">data</span></code></pre></div>
-</div>
-<div id="cell-4" class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb4-2"></span>
-<span id="cb4-3"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Asumsikan data penjualan Anda berada dalam array NumPy bernama "sales_data"</span></span>
-<span id="cb4-4"></span>
-<span id="cb4-5"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Langkah 1: Hitung total penjualan per kategori di semua ukuran untuk setiap lokasi</span></span>
-<span id="cb4-6">total_per_kategori <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> data.<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">sum</span>(axis<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>)  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Jumlahkan sepanjang sumbu ukuran (axis=2)</span></span>
-<span id="cb4-7"></span>
-<span id="cb4-8"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Langkah 2: Identifikasi kategori terlaris untuk setiap lokasi</span></span>
-<span id="cb4-9"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Pendekatan tanpa menggunakan argmax</span></span>
-<span id="cb4-10"></span>
-<span id="cb4-11"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Temukan nilai maksimum untuk setiap lokasi</span></span>
-<span id="cb4-12">maks_penjualan_per_lokasi <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> total_per_kategori.<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">max</span>(axis<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Cari nilai maksimum di setiap baris</span></span>
-<span id="cb4-13"></span>
-<span id="cb4-14"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Buat mask untuk kategori terlaris di setiap lokasi</span></span>
-<span id="cb4-15">mask_terlaris <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> total_per_kategori <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> maks_penjualan_per_lokasi[:, np.newaxis]  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Perbandingan elemen-per-elemen</span></span>
-<span id="cb4-16"></span>
-<span id="cb4-17"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Dapatkan indeks kategori untuk kategori terlaris</span></span>
-<span id="cb4-18">kategori_terlaris <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> []</span>
-<span id="cb4-19"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">for</span> mask <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">in</span> mask_terlaris:</span>
-<span id="cb4-20">    <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">in</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">range</span>(<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">len</span>(mask)):</span>
-<span id="cb4-21">        <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">if</span> mask[i] <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="va" style="color: #111111;
-background-color: null;
-font-style: inherit;">True</span>:</span>
-<span id="cb4-22">            kategori_terlaris.append(i)</span>
-<span id="cb4-23">        </span>
-<span id="cb4-24"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Tampilkan hasilnya</span></span>
-<span id="cb4-25"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Kategori Terlaris menurut Lokasi:"</span>, kategori_terlaris)</span></code></pre></div>
-</div>
-</div>
-<ol start="2" type="1">
-<li><strong>Bandingkan Distribusi Ukuran untuk Kategori Spesifik:</strong></li>
-</ol>
-<div class="answer">
-<pre><code>* Fokus pada kategori tertentu (misalnya, kemeja) di semua lokasi.
-* Gunakan teknik slicing atau pengindeksan array untuk memilih hanya data penjualan kategori tersebut.
-* Hitung total penjualan untuk setiap ukuran (jumlahkan di sepanjang sumbu ukuran).
-* Analisa distribusi ukuran (misalnya, ukuran mana yang paling banyak terjual untuk kategori tersebut secara keseluruhan).</code></pre>
-<section id="todo" class="level2">
-<h2 class="anchored" data-anchor-id="todo">TODO</h2>
-<div id="cell-6" class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb6-2"></span>
-<span id="cb6-3"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Asumsikan data penjualan Anda berada dalam array NumPy bernama "sales_data"</span></span>
-<span id="cb6-4"></span>
-<span id="cb6-5"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Langkah 1: Pilih data untuk kategori tertentu (misalnya, kemeja)</span></span>
-<span id="cb6-6"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Ganti "category_index" dengan indeks aktual untuk kemeja</span></span>
-<span id="cb6-7">kategori_yang_diminati <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Misalkan kemeja adalah kategori 0</span></span>
-<span id="cb6-8">penjualan_kemeja <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> data[:, kategori_yang_diminati, :]  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Pilih data untuk kategori ini</span></span>
-<span id="cb6-9"></span>
-<span id="cb6-10"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Langkah 2: Hitung total penjualan untuk setiap ukuran (jumlahkan sepanjang sumbu ukuran)</span></span>
-<span id="cb6-11">total_per_ukuran <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> penjualan_kemeja.<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">sum</span>(axis<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>)  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Jumlahkan di semua lokasi</span></span>
-<span id="cb6-12"></span>
-<span id="cb6-13"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Langkah 3: Analisis distribusi ukuran (tanpa argmax)</span></span>
-<span id="cb6-14"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Temukan nilai maksimum untuk total penjualan tiap ukuran</span></span>
-<span id="cb6-15">maks_penjualan_ukuran <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> total_per_ukuran.<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">max</span>()  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Cari total penjualan maksimum</span></span>
-<span id="cb6-16"></span>
-<span id="cb6-17"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Buat mask untuk ukuran terpopuler</span></span>
-<span id="cb6-18">mask_terpopuler <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> total_per_ukuran <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> maks_penjualan_ukuran  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Bandingkan dengan nilai maksimum</span></span>
-<span id="cb6-19"></span>
-<span id="cb6-20"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Identifikasi ukuran terpopuler (menangani kemungkinan seri)</span></span>
-<span id="cb6-21">ukuran_terpopuler <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> np.where(mask_terpopuler)[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>]  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Dapatkan indeks elemen True</span></span>
-<span id="cb6-22"></span>
-<span id="cb6-23"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Tampilkan hasilnya</span></span>
-<span id="cb6-24"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Total Penjualan Kemeja per Ukuran:"</span>, total_per_ukuran)</span>
-<span id="cb6-25"></span>
-<span id="cb6-26"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Tampilkan ukuran terpopuler (menangani seri)</span></span>
-<span id="cb6-27"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">if</span> <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">len</span>(ukuran_terpopuler) <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>:</span>
-<span id="cb6-28">  <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Ukuran Kemeja Terpopuler:"</span>, ukuran_terpopuler)</span>
-<span id="cb6-29"><span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">else</span>:</span>
-<span id="cb6-30">  <span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Ukuran Kemeja Terpopuler:"</span>, ukuran_terpopuler[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>])</span></code></pre></div>
-</div>
-</section>
-</div>
-<ol start="3" type="1">
-<li><strong>Temukan Lokasi dengan Penjualan Rendah pada Ukuran Tertentu:</strong></li>
-</ol>
-<div class="answer">
-<pre><code>* Tentukan ukuran tertentu (misalnya, XL) yang mungkin perlu diisi ulang stoknya.
-* Gunakan masking boolean untuk memilih hanya data penjualan ukuran tersebut dari seluruh array.
-* Hitung total penjualan produk dengan ukuran tersebut di setiap lokasi (jumlahkan di sepanjang semua sumbu lainnya).
-* Identifikasi lokasi dengan penjualan di bawah ambang batas tertentu untuk produk dengan ukuran tersebut, yang menunjukkan potensi kebutuhan untuk mengisi ulang stok.</code></pre>
-<div id="cell-8" class="cell">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb8-2"></span>
-<span id="cb8-3"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Asumsikan data penjualan Anda berada dalam array NumPy bernama "sales_data"</span></span>
-<span id="cb8-4"></span>
-<span id="cb8-5"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Langkah 1: Pilih data untuk ukuran tertentu (misalnya, XL)</span></span>
-<span id="cb8-6"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Ganti "size_index" dengan indeks aktual untuk XL</span></span>
-<span id="cb8-7">ukuran_yang_dicek <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Misalkan XL adalah ukuran 2</span></span>
-<span id="cb8-8">penjualan_xl <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> data[:, :, ukuran_yang_dicek]  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Pilih data untuk ukuran ini</span></span>
-<span id="cb8-9"></span>
-<span id="cb8-10"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Langkah 2: Hitung total penjualan untuk ukuran XL di setiap lokasi (jumlahkan di semua sumbu lainnya)</span></span>
-<span id="cb8-11">total_penjualan_xl <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> penjualan_xl.<span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">sum</span>(axis<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>))  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Jumlahkan di semua kategori dan ukuran</span></span>
-<span id="cb8-12"></span>
-<span id="cb8-13"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Langkah 3: Identifikasi lokasi dengan potensi stok rendah (ambang batas)</span></span>
-<span id="cb8-14">ambang_penjualan <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Tetapkan ambang batas penjualan untuk stok rendah</span></span>
-<span id="cb8-15">lokasi_stok_rendah <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> total_penjualan_xl <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span> ambang_penjualan</span>
-<span id="cb8-16"></span>
-<span id="cb8-17"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Tampilkan hasilnya</span></span>
-<span id="cb8-18"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Lokasi dengan Penjualan XL Rendah:"</span>, np.where(lokasi_stok_rendah)[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>])</span>
-<span id="cb8-19"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Total Penjualan XL per Lokasi:"</span>, total_penjualan_xl)  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Opsional untuk referensi</span></span></code></pre></div>
-</div>
-</div>
-
-
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>data science</category>
-  <category>exercise</category>
-  <category>python</category>
-  <category>numpy</category>
-  <category>basic</category>
-  <category>solution</category>
-  <guid>https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1 solution.html</guid>
-  <pubDate>Sun, 09 Jun 2024 17:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Latihan Numpy 1</title>
-  <dc:creator>sulthan a. karimov</dc:creator>
-  <link>https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1.html</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<section id="latihan-numpy-1-analisa-penjualan-pakaian-dengan-numpy" class="level1">
-<h1>Latihan Numpy 1 : Analisa Penjualan Pakaian dengan NumPy</h1>
-<section id="skenario" class="level2">
-<h2 class="anchored" data-anchor-id="skenario">Skenario</h2>
-<p>Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L, XL) di berbagai lokasi (toko). Data penjualan disimpan dalam array NumPy bernama <code>sales_data</code> dengan struktur berikut (data dalam struktur hanya contoh):</p>
-<div id="62f26bbc" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb1-2"></span>
-<span id="cb1-3">sales_data <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> np.array([</span>
-<span id="cb1-4">[[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">15</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>],  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Penjualan Lokasi 1</span></span>
-<span id="cb1-5"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">18</span>],</span>
-<span id="cb1-6"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">18</span>],</span>
-<span id="cb1-7"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">18</span>],</span>
-<span id="cb1-8"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">18</span>],</span>
-<span id="cb1-9"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">18</span>],</span>
-<span id="cb1-10"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">5</span>,  <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">12</span>]],</span>
-<span id="cb1-11"></span>
-<span id="cb1-12">[[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">12</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">18</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">15</span>],  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Penjualan Lokasi 2</span></span>
-<span id="cb1-13"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>],</span>
-<span id="cb1-14"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>],</span>
-<span id="cb1-15"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>],</span>
-<span id="cb1-16"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>],</span>
-<span id="cb1-17"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">20</span>],</span>
-<span id="cb1-18"> [<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">7</span>,  <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">11</span>]]</span>
-<span id="cb1-19">])</span>
-<span id="cb1-20"></span>
-<span id="cb1-21"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># sales_data.shape = (jumlah_lokasi, jumlah_kategori, jumlah_ukuran)</span></span></code></pre></div>
-</div>
-<pre class="{note}"><code>file tugas bisa didownload [di sini](https://github.com/sakarimov/my-personal-blog/raw/main/mybook/notes/numpy%231.txt)
-</code></pre>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>untuk membuka file ini ikuti petunjuk berikut:</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb3-2"></span>
-<span id="cb3-3">load_file <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> np.loadtxt(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">'path/to/the/file/you/download'</span>)</span>
-<span id="cb3-4">load_original <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> load_file.reshape(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">7</span>,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>)</span></code></pre></div>
-</div>
-</div>
-</section>
-<section id="tugas" class="level2">
-<h2 class="anchored" data-anchor-id="tugas">Tugas</h2>
-<ol type="1">
-<li><p><strong>Identifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):</strong></p>
-<ul>
-<li>Gunakan teknik slicing tingkat lanjut dalam NumPy untuk menghitung total penjualan untuk setiap kategori di semua ukuran di setiap lokasi.</li>
-<li>Petunjuk: Anda dapat menggabungkan slicing dasar (<code>:</code>) untuk memilih lokasi tertentu dan masking boolean untuk menjumlahkan di sepanjang sumbu kategori.</li>
-<li>Identifikasi kategori dengan penjualan tertinggi untuk setiap lokasi.</li>
-</ul></li>
-<li><p><strong>Bandingkan Distribusi Ukuran untuk Kategori Spesifik:</strong></p>
-<ul>
-<li>Fokus pada kategori tertentu (misalnya, kemeja) di semua lokasi.</li>
-<li>Gunakan teknik slicing atau pengindeksan array untuk memilih hanya data penjualan kategori tersebut.</li>
-<li>Hitung total penjualan untuk setiap ukuran (jumlahkan di sepanjang sumbu ukuran).</li>
-<li>Analisa distribusi ukuran (misalnya, ukuran mana yang paling banyak terjual untuk kategori tersebut secara keseluruhan).</li>
-</ul></li>
-<li><p><strong>Temukan Lokasi dengan Penjualan Rendah pada Ukuran Tertentu:</strong></p>
-<ul>
-<li>Tentukan ukuran tertentu (misalnya, XL) yang mungkin perlu diisi ulang stoknya.</li>
-<li>Gunakan masking boolean untuk memilih hanya data penjualan ukuran tersebut dari seluruh array.</li>
-<li>Hitung total penjualan produk dengan ukuran tersebut di setiap lokasi (jumlahkan di sepanjang semua sumbu lainnya).</li>
-<li>Identifikasi lokasi dengan penjualan di bawah ambang batas tertentu untuk produk dengan ukuran tersebut, yang menunjukkan potensi kebutuhan untuk mengisi ulang stok.</li>
-</ul></li>
-</ol>
-
-
-</section>
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>data science</category>
-  <category>exercise</category>
-  <category>python</category>
-  <category>numpy</category>
-  <category>basic</category>
-  <guid>https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1.html</guid>
-  <pubDate>Sun, 09 Jun 2024 17:00:00 GMT</pubDate>
-</item>
+<lastBuildDate>Tue, 16 Jul 2024 17:00:00 GMT</lastBuildDate>
 <item>
   <title>Machine Learning - Supervised Learning</title>
+  <dc:creator>sulthan a. karimov</dc:creator>
   <link>https://sulthankarimov.my.id/myblog/posts/Data Science/Machine Learning/ML - Supervised Learning.html</link>
   <description><![CDATA[ 
 
@@ -660,14 +21,6 @@ font-style: inherit;">4</span>)</span></code></pre></div>
 
 
 
-<p>One of Machine Learning models is Supervised Learning. as named, this model need human supervision to achieve it’s goal. if the goal is classifying bunch of objects to several categories, this model needs human to tell whether it’s category A, B, or C etc. given that labels the model try to find the best possible pattern of data to be determined as one of those categories.</p>
-<p>there are several kind of Supervised Learning Model ML, one of those and the most simple is Classification. to know more about Classification check this out.</p>
-<section id="classification" class="level2">
-<h2 class="anchored" data-anchor-id="classification">Classification</h2>
-<p>there are three kind of classification model, binary classification model that will give boolean like output, 0 or 1, A or B. The second is Multiclass Classification model, the name tells it’s mean, it will give any value of the classification targets. The last is Decision Tree model, this model will give multiclass like output, but the algorithm is a little bit different, it tries to create trees of multiple decision with it’s own priority, the priority fetch from the data feed to the model to train.</p>
-<section id="decision-tree-classification" class="level3">
-<h3 class="anchored" data-anchor-id="decision-tree-classification">Decision Tree Classification</h3>
-<p>Below is example of Decision Tree Classification Model Implementation. we will use Iris data, as it’s very popular and representative enough for this subject, let’s get going.</p>
 <div id="217c3f57-d034-4cf3-ab10-cea59dad3c7c" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
@@ -993,8 +346,6 @@ font-style: inherit;"># With defined train test split</span></span>
 background-color: null;
 font-style: inherit;">=</span> clf.fit(X_train, y_train)</span></code></pre></div>
 </div>
-</section>
-</section>
 <section id="conclusion-on-cross_val_score" class="level1">
 <h1>conclusion on cross_val_score</h1>
 <p><em>cross_val_score</em> is for validating the quality of data set, it’s consider good if it’s more than 0.85</p>
@@ -2561,8 +1912,654 @@ font-style: inherit;"># examine model accuracy</span></span>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>data science</category>
+  <category>machine learning</category>
+  <category>AI</category>
+  <category>python</category>
+  <category>basic</category>
+  <category>supervised learning</category>
   <guid>https://sulthankarimov.my.id/myblog/posts/Data Science/Machine Learning/ML - Supervised Learning.html</guid>
-  <pubDate>Wed, 17 Jul 2024 01:41:10 GMT</pubDate>
+  <pubDate>Tue, 16 Jul 2024 17:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>kekuatan unik bangsa ini</title>
+  <dc:creator>Sulthan A. Karimov</dc:creator>
+  <link>https://sulthankarimov.my.id/myblog/posts/opinions/salut dengan bangsa indonesia.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="salut-dengan-bangsa-ini" class="level1">
+<h1>Salut dengan Bangsa Ini</h1>
+<p>saya salut sekali dengan bangsa Indonesia dalam menyikapi masalah-masalah yang mencuat baru-baru ini. bagaimana tidak?, gempuran itu datang dari berbagai arah, ekonomi, sosial, budaya, bahkan politik. Bangsa Indonesia ini umurnya sudah tidak muda lagi, lebih tua dari negaranya sendiri. jadi maklum kalau masalah-masalah yang muncul belakangan tak menjadi persoalan sebesar <em>kehancuran sebuah bangsa</em>. paling hanya menjadi riak-riak kecil dalam mewarnai kehidupan bernegara. semoga kondisi ini terus jadi kekuatan untuk seluruh Bangsa Indonesia, sehingga masalah selevel <em>negara</em> tidak bisa mengusik kemakmuran hidup kita.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>opini</category>
+  <category>ngelantur</category>
+  <category>indonesia</category>
+  <guid>https://sulthankarimov.my.id/myblog/posts/opinions/salut dengan bangsa indonesia.html</guid>
+  <pubDate>Mon, 01 Jul 2024 17:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Solusi Tugas numpy 1</title>
+  <dc:creator>sulthan a. karimov</dc:creator>
+  <link>https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1 solution.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div id="cell-1" class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-2"></span>
+<span id="cb1-3">load_file <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.loadtxt(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'numpy data1.txt'</span>)</span>
+<span id="cb1-4">data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> load_file.reshape(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)</span></code></pre></div>
+</div>
+<ol type="1">
+<li><strong>Identifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):</strong></li>
+</ol>
+<div class="answer">
+<pre><code>* Gunakan teknik slicing tingkat lanjut dalam NumPy untuk menghitung total penjualan untuk setiap kategori di semua ukuran di setiap lokasi.
+* Petunjuk: Anda dapat menggabungkan slicing dasar (`:`) untuk memilih lokasi tertentu dan masking boolean untuk menjumlahkan di sepanjang sumbu kategori.
+* Identifikasi kategori dengan penjualan tertinggi untuk setiap lokasi.</code></pre>
+<div id="cell-3" class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">data</span></code></pre></div>
+</div>
+<div id="cell-4" class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb4-2"></span>
+<span id="cb4-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Asumsikan data penjualan Anda berada dalam array NumPy bernama "sales_data"</span></span>
+<span id="cb4-4"></span>
+<span id="cb4-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Langkah 1: Hitung total penjualan per kategori di semua ukuran untuk setiap lokasi</span></span>
+<span id="cb4-6">total_per_kategori <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> data.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>(axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Jumlahkan sepanjang sumbu ukuran (axis=2)</span></span>
+<span id="cb4-7"></span>
+<span id="cb4-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Langkah 2: Identifikasi kategori terlaris untuk setiap lokasi</span></span>
+<span id="cb4-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Pendekatan tanpa menggunakan argmax</span></span>
+<span id="cb4-10"></span>
+<span id="cb4-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Temukan nilai maksimum untuk setiap lokasi</span></span>
+<span id="cb4-12">maks_penjualan_per_lokasi <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> total_per_kategori.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">max</span>(axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cari nilai maksimum di setiap baris</span></span>
+<span id="cb4-13"></span>
+<span id="cb4-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Buat mask untuk kategori terlaris di setiap lokasi</span></span>
+<span id="cb4-15">mask_terlaris <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> total_per_kategori <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> maks_penjualan_per_lokasi[:, np.newaxis]  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Perbandingan elemen-per-elemen</span></span>
+<span id="cb4-16"></span>
+<span id="cb4-17"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Dapatkan indeks kategori untuk kategori terlaris</span></span>
+<span id="cb4-18">kategori_terlaris <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> []</span>
+<span id="cb4-19"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> mask <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> mask_terlaris:</span>
+<span id="cb4-20">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> i <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(mask)):</span>
+<span id="cb4-21">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> mask[i] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>:</span>
+<span id="cb4-22">            kategori_terlaris.append(i)</span>
+<span id="cb4-23">        </span>
+<span id="cb4-24"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Tampilkan hasilnya</span></span>
+<span id="cb4-25"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Kategori Terlaris menurut Lokasi:"</span>, kategori_terlaris)</span></code></pre></div>
+</div>
+</div>
+<ol start="2" type="1">
+<li><strong>Bandingkan Distribusi Ukuran untuk Kategori Spesifik:</strong></li>
+</ol>
+<div class="answer">
+<pre><code>* Fokus pada kategori tertentu (misalnya, kemeja) di semua lokasi.
+* Gunakan teknik slicing atau pengindeksan array untuk memilih hanya data penjualan kategori tersebut.
+* Hitung total penjualan untuk setiap ukuran (jumlahkan di sepanjang sumbu ukuran).
+* Analisa distribusi ukuran (misalnya, ukuran mana yang paling banyak terjual untuk kategori tersebut secara keseluruhan).</code></pre>
+<section id="todo" class="level2">
+<h2 class="anchored" data-anchor-id="todo">TODO</h2>
+<div id="cell-6" class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb6-2"></span>
+<span id="cb6-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Asumsikan data penjualan Anda berada dalam array NumPy bernama "sales_data"</span></span>
+<span id="cb6-4"></span>
+<span id="cb6-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Langkah 1: Pilih data untuk kategori tertentu (misalnya, kemeja)</span></span>
+<span id="cb6-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Ganti "category_index" dengan indeks aktual untuk kemeja</span></span>
+<span id="cb6-7">kategori_yang_diminati <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Misalkan kemeja adalah kategori 0</span></span>
+<span id="cb6-8">penjualan_kemeja <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> data[:, kategori_yang_diminati, :]  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Pilih data untuk kategori ini</span></span>
+<span id="cb6-9"></span>
+<span id="cb6-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Langkah 2: Hitung total penjualan untuk setiap ukuran (jumlahkan sepanjang sumbu ukuran)</span></span>
+<span id="cb6-11">total_per_ukuran <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> penjualan_kemeja.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>(axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Jumlahkan di semua lokasi</span></span>
+<span id="cb6-12"></span>
+<span id="cb6-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Langkah 3: Analisis distribusi ukuran (tanpa argmax)</span></span>
+<span id="cb6-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Temukan nilai maksimum untuk total penjualan tiap ukuran</span></span>
+<span id="cb6-15">maks_penjualan_ukuran <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> total_per_ukuran.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">max</span>()  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cari total penjualan maksimum</span></span>
+<span id="cb6-16"></span>
+<span id="cb6-17"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Buat mask untuk ukuran terpopuler</span></span>
+<span id="cb6-18">mask_terpopuler <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> total_per_ukuran <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> maks_penjualan_ukuran  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Bandingkan dengan nilai maksimum</span></span>
+<span id="cb6-19"></span>
+<span id="cb6-20"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Identifikasi ukuran terpopuler (menangani kemungkinan seri)</span></span>
+<span id="cb6-21">ukuran_terpopuler <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.where(mask_terpopuler)[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>]  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Dapatkan indeks elemen True</span></span>
+<span id="cb6-22"></span>
+<span id="cb6-23"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Tampilkan hasilnya</span></span>
+<span id="cb6-24"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Total Penjualan Kemeja per Ukuran:"</span>, total_per_ukuran)</span>
+<span id="cb6-25"></span>
+<span id="cb6-26"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Tampilkan ukuran terpopuler (menangani seri)</span></span>
+<span id="cb6-27"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(ukuran_terpopuler) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>:</span>
+<span id="cb6-28">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Ukuran Kemeja Terpopuler:"</span>, ukuran_terpopuler)</span>
+<span id="cb6-29"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span>:</span>
+<span id="cb6-30">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Ukuran Kemeja Terpopuler:"</span>, ukuran_terpopuler[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>])</span></code></pre></div>
+</div>
+</section>
+</div>
+<ol start="3" type="1">
+<li><strong>Temukan Lokasi dengan Penjualan Rendah pada Ukuran Tertentu:</strong></li>
+</ol>
+<div class="answer">
+<pre><code>* Tentukan ukuran tertentu (misalnya, XL) yang mungkin perlu diisi ulang stoknya.
+* Gunakan masking boolean untuk memilih hanya data penjualan ukuran tersebut dari seluruh array.
+* Hitung total penjualan produk dengan ukuran tersebut di setiap lokasi (jumlahkan di sepanjang semua sumbu lainnya).
+* Identifikasi lokasi dengan penjualan di bawah ambang batas tertentu untuk produk dengan ukuran tersebut, yang menunjukkan potensi kebutuhan untuk mengisi ulang stok.</code></pre>
+<div id="cell-8" class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb8-2"></span>
+<span id="cb8-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Asumsikan data penjualan Anda berada dalam array NumPy bernama "sales_data"</span></span>
+<span id="cb8-4"></span>
+<span id="cb8-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Langkah 1: Pilih data untuk ukuran tertentu (misalnya, XL)</span></span>
+<span id="cb8-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Ganti "size_index" dengan indeks aktual untuk XL</span></span>
+<span id="cb8-7">ukuran_yang_dicek <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Misalkan XL adalah ukuran 2</span></span>
+<span id="cb8-8">penjualan_xl <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> data[:, :, ukuran_yang_dicek]  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Pilih data untuk ukuran ini</span></span>
+<span id="cb8-9"></span>
+<span id="cb8-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Langkah 2: Hitung total penjualan untuk ukuran XL di setiap lokasi (jumlahkan di semua sumbu lainnya)</span></span>
+<span id="cb8-11">total_penjualan_xl <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> penjualan_xl.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>(axis<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Jumlahkan di semua kategori dan ukuran</span></span>
+<span id="cb8-12"></span>
+<span id="cb8-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Langkah 3: Identifikasi lokasi dengan potensi stok rendah (ambang batas)</span></span>
+<span id="cb8-14">ambang_penjualan <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Tetapkan ambang batas penjualan untuk stok rendah</span></span>
+<span id="cb8-15">lokasi_stok_rendah <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> total_penjualan_xl <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> ambang_penjualan</span>
+<span id="cb8-16"></span>
+<span id="cb8-17"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Tampilkan hasilnya</span></span>
+<span id="cb8-18"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Lokasi dengan Penjualan XL Rendah:"</span>, np.where(lokasi_stok_rendah)[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>])</span>
+<span id="cb8-19"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Total Penjualan XL per Lokasi:"</span>, total_penjualan_xl)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Opsional untuk referensi</span></span></code></pre></div>
+</div>
+</div>
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>data science</category>
+  <category>exercise</category>
+  <category>python</category>
+  <category>numpy</category>
+  <category>basic</category>
+  <category>solution</category>
+  <guid>https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1 solution.html</guid>
+  <pubDate>Sun, 09 Jun 2024 17:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Latihan Numpy 1</title>
+  <dc:creator>sulthan a. karimov</dc:creator>
+  <link>https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="latihan-numpy-1-analisa-penjualan-pakaian-dengan-numpy" class="level1">
+<h1>Latihan Numpy 1 : Analisa Penjualan Pakaian dengan NumPy</h1>
+<section id="skenario" class="level2">
+<h2 class="anchored" data-anchor-id="skenario">Skenario</h2>
+<p>Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L, XL) di berbagai lokasi (toko). Data penjualan disimpan dalam array NumPy bernama <code>sales_data</code> dengan struktur berikut (data dalam struktur hanya contoh):</p>
+<div id="62f26bbc" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-2"></span>
+<span id="cb1-3">sales_data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.array([</span>
+<span id="cb1-4">[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>],  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Penjualan Lokasi 1</span></span>
+<span id="cb1-5"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>],</span>
+<span id="cb1-6"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>],</span>
+<span id="cb1-7"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>],</span>
+<span id="cb1-8"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>],</span>
+<span id="cb1-9"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">25</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>],</span>
+<span id="cb1-10"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>,  <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>]],</span>
+<span id="cb1-11"></span>
+<span id="cb1-12">[[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>],  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Penjualan Lokasi 2</span></span>
+<span id="cb1-13"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>],</span>
+<span id="cb1-14"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>],</span>
+<span id="cb1-15"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>],</span>
+<span id="cb1-16"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>],</span>
+<span id="cb1-17"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>],</span>
+<span id="cb1-18"> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>,  <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">35</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11</span>]]</span>
+<span id="cb1-19">])</span>
+<span id="cb1-20"></span>
+<span id="cb1-21"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># sales_data.shape = (jumlah_lokasi, jumlah_kategori, jumlah_ukuran)</span></span></code></pre></div>
+</div>
+<pre class="{note}"><code>file tugas bisa didownload [di sini](https://github.com/sakarimov/my-personal-blog/raw/main/mybook/notes/numpy%231.txt)
+</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>untuk membuka file ini ikuti petunjuk berikut:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb3-2"></span>
+<span id="cb3-3">load_file <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.loadtxt(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'path/to/the/file/you/download'</span>)</span>
+<span id="cb3-4">load_original <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> load_file.reshape(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)</span></code></pre></div>
+</div>
+</div>
+</section>
+<section id="tugas" class="level2">
+<h2 class="anchored" data-anchor-id="tugas">Tugas</h2>
+<ol type="1">
+<li><p><strong>Identifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):</strong></p>
+<ul>
+<li>Gunakan teknik slicing tingkat lanjut dalam NumPy untuk menghitung total penjualan untuk setiap kategori di semua ukuran di setiap lokasi.</li>
+<li>Petunjuk: Anda dapat menggabungkan slicing dasar (<code>:</code>) untuk memilih lokasi tertentu dan masking boolean untuk menjumlahkan di sepanjang sumbu kategori.</li>
+<li>Identifikasi kategori dengan penjualan tertinggi untuk setiap lokasi.</li>
+</ul></li>
+<li><p><strong>Bandingkan Distribusi Ukuran untuk Kategori Spesifik:</strong></p>
+<ul>
+<li>Fokus pada kategori tertentu (misalnya, kemeja) di semua lokasi.</li>
+<li>Gunakan teknik slicing atau pengindeksan array untuk memilih hanya data penjualan kategori tersebut.</li>
+<li>Hitung total penjualan untuk setiap ukuran (jumlahkan di sepanjang sumbu ukuran).</li>
+<li>Analisa distribusi ukuran (misalnya, ukuran mana yang paling banyak terjual untuk kategori tersebut secara keseluruhan).</li>
+</ul></li>
+<li><p><strong>Temukan Lokasi dengan Penjualan Rendah pada Ukuran Tertentu:</strong></p>
+<ul>
+<li>Tentukan ukuran tertentu (misalnya, XL) yang mungkin perlu diisi ulang stoknya.</li>
+<li>Gunakan masking boolean untuk memilih hanya data penjualan ukuran tersebut dari seluruh array.</li>
+<li>Hitung total penjualan produk dengan ukuran tersebut di setiap lokasi (jumlahkan di sepanjang semua sumbu lainnya).</li>
+<li>Identifikasi lokasi dengan penjualan di bawah ambang batas tertentu untuk produk dengan ukuran tersebut, yang menunjukkan potensi kebutuhan untuk mengisi ulang stok.</li>
+</ul></li>
+</ol>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>data science</category>
+  <category>exercise</category>
+  <category>python</category>
+  <category>numpy</category>
+  <category>basic</category>
+  <guid>https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1.html</guid>
+  <pubDate>Sun, 09 Jun 2024 17:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
