@@ -11,3 +11,15 @@
   max-height: 100px
 }
 
+/* Target the language switch button directly */
+#languages-button {
+  background-color: #517699 !important; /* teal background */
+  color: white !important;
+  border-color: #517699 !important;
+}
+
+/* Optional: On hover */
+#languages-button:hover {
+  background-color: #405e7b !important;
+  color: #fff !important;
+}
