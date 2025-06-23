@@ -11,9 +11,6 @@ listing:
     categories: [rss]
 page-layout: full
 title-block-banner: false
-format:
-  html:
-    backgroundcolor: "#f8f8f8"
 ---
 
 ## Welcome. Peace be upon you.
@@ -35,5 +32,5 @@ Bismillah — let’s build, reflect, and learn together.
 
 **— Sulthan A. Karimov —**
 
-![](assets/img/index.png)
+![](assets/img/index_clean.png)
 
