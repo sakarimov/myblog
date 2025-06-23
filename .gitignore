@@ -10,3 +10,4 @@
 libs/
 _site/
 .quarto/
+.aider*

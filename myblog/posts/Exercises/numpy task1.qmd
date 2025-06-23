@@ -3,6 +3,10 @@ title: Latihan Numpy 1
 date: 2024-06-10
 author: sulthan a. karimov
 categories: [data science, exercise, python, numpy, basic]
+html:
+  other-links:
+    - text: download Data
+      href: https://raw.githubusercontent.com/sakarimov/myblog/main/myblog/posts/notes/numpy%20data1.txt
 ---
 # Latihan Numpy 1 : Analisa Penjualan Pakaian dengan NumPy
 
@@ -30,15 +34,16 @@ sales_data = np.array([
  [22, 35, 28, 20],
  [7,  35, 9, 11]]
 ])
+print(sales_data)
 
 # sales_data.shape = (jumlah_lokasi, jumlah_kategori, jumlah_ukuran)
 ```
 
 ```{note}
-file tugas bisa didownload [di sini](https://raw.githubusercontent.com/sakarimov/myblog/main/myblog/posts/notes/numpy%20data1.txt)
+
+file tugas bisa didownload dari link di sidebar
 
 ```
-
 
 ::: {.callout-note}
 untuk membuka file ini ikuti petunjuk berikut:

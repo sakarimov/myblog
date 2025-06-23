@@ -1,0 +1,13 @@
+/*.quarto-title > h1.title {
+  opacity: 0 !important;
+}*/
+
+.sidebar-item {
+  margin-bottom: 0.8em;
+  line-height: 1.3rem;
+}
+
+.navbar-logo {
+  max-height: 100px
+}
+

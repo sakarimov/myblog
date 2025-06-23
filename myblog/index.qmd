@@ -1,16 +1,37 @@
 ---
-title: "Just Another Attempt to Share"
+title: "Just Another Attempt to Contribute"
 listing:
   contents: posts
   sort: "date desc"
-  type: default
+  type: grid
   categories: true
   sort-ui: true
   filter-ui: true
   feed:
     categories: [rss]
 page-layout: full
-title-block-banner: true
+title-block-banner: false
+format:
+  html:
+    backgroundcolor: "#f8f8f8"
 ---
 
+## Welcome. Peace be upon you.
+
+This is my little corner of the web where I share thoughts, projects, and lessons from my journey as a programmer, builder, and believer.
+
+I used to hold back from sharing, afraid of saying the wrong thing or not being “good enough.” But I realized: growth happens when we share — not when we're perfect, but when we're sincere.
+
+Inspired by the example of Prophet Muhammad ﷺ, who shared truth with wisdom and humility, I hope to offer what I can, no matter how small. Whether it’s a piece of code, a reflection, or a simple idea — I share it here with the hope that it brings benefit.
+
+“Convey from me, even if it is one verse.” — Prophet Muhammad ﷺ
+
+If something here helps you, inspires you, or even makes you curious, alhamdulillah.
+If not, that’s okay too — I’m still learning, still growing, and I’m grateful you stopped by.
+
+Bismillah — let’s build, reflect, and learn together.
+
+**— Sulthan A. Karimov —**
+
+![](assets/img/index.png)
 

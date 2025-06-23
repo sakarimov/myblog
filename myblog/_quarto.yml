@@ -2,10 +2,11 @@ project:
   type: website
 
 website:
-  title: "Sulthan A. Karimov"
+  title: ""
   site-url: https://sulthankarimov.my.id/myblog
-  description: "just another attempt to share"
+  favicon: assets/img/logo.png
   navbar:
+    logo: assets/img/logo_cropped.png
     search: true
     right:
       - about.qmd
@@ -24,8 +25,22 @@ website:
   reader-mode: true
 format:
   html:
-    theme: litera
-    css: styles.css
+    theme: brite
+    css: assets/css/styles.css
+    toc: true
+    toc-depth: 4
+    toc-location: right
+    title-block-categories: false
 
-
-
+babelquarto:
+  languagecodes:
+  - name: id
+    text: "Bahasa"
+  - name: en
+    text: "English"
+  mainlanguage: 'en'
+  languages: ['id']
+title-id: ""
+description-id: ""
+author-id: Sulthan A. Karimov
+lang: en
