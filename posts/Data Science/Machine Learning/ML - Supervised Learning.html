@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<link rel="alternate" hreflang="en" href="https://sulthankarimov.my.id/myblog/posts/Data Science/Machine Learning/ML - Supervised Learning.html" />
+<link rel="alternate" hreflang="id" href="https://sulthankarimov.my.id/myblog/id/posts/Data Science/Machine Learning/ML - Supervised Learning.id.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
-
+<meta name="generator" content="quarto-1.4.550">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="sulthan a. karimov">
 <meta name="dcterms.date" content="2024-07-17">
-
-<title>Machine Learning - Supervised Learning – Sulthan A. Karimov</title>
+<title>Machine Learning - Supervised Learning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -57,23 +57,11 @@ div.sourceCode
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../../site_libs/quarto-nav/headroom.min.js"></script><script src="../../../site_libs/clipboard/clipboard.min.js"></script><script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../../site_libs/quarto-search/fuse.min.js"></script><script src="../../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../../">
+<link href="../../../assets/img/logo.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script><script src="../../../site_libs/quarto-html/popper.min.js"></script><script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../../site_libs/quarto-html/anchor.min.js"></script><link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -101,33 +89,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
-
-<link rel="stylesheet" href="../../../styles.css">
+}</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script><script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script><link rel="stylesheet" href="../../../assets/css/styles.css">
 </head>
-
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title">Sulthan A. Karimov</span>
-    </a>
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../assets/img/logo_cropped.png" alt="" class="navbar-logo"></a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
+<li class="nav-item"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i></button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://sulthankarimov.my.id/myblog/id/posts/Data%20Science/Machine%20Learning/ML%20-%20Supervised%20Learning.html" id="language-link-id">Bahasa</a></li></ul>
+</div></li>
+<li class="nav-item">
     <a class="nav-link active" href="../../../about.html" aria-current="page"> 
 <span class="menu-text">About</span></a>
   </li>  
@@ -152,8 +133,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text"></span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+</div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -161,32 +142,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li><li class="breadcrumb-item">Data Science</li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/CNN.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/ML - Supervised Learning.html">Machine Learning - Supervised Learning</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item">Posts</li>
+<li class="breadcrumb-item">Data Science</li>
+<li class="breadcrumb-item"><a href="../../../posts/Data%20Science/Machine%20Learning/CNN.html">Machine Learning</a></li>
+<li class="breadcrumb-item"><a href="../../../posts/Data%20Science/Machine%20Learning/ML%20-%20Supervised%20Learning.html">Machine Learning - Supervised Learning</a></li>
+</ol></nav><a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li><li class="breadcrumb-item">Data Science</li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/CNN.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/ML - Supervised Learning.html">Machine Learning - Supervised Learning</a></li></ol></nav>
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item">Posts</li>
+<li class="breadcrumb-item">Data Science</li>
+<li class="breadcrumb-item"><a href="../../../posts/Data%20Science/Machine%20Learning/CNN.html">Machine Learning</a></li>
+<li class="breadcrumb-item"><a href="../../../posts/Data%20Science/Machine%20Learning/ML%20-%20Supervised%20Learning.html">Machine Learning - Supervised Learning</a></li>
+</ol></nav><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
       <h1 class="title">Machine Learning - Supervised Learning</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">data science</div>
-                <div class="quarto-category">machine learning</div>
-                <div class="quarto-category">AI</div>
-                <div class="quarto-category">python</div>
-                <div class="quarto-category">basic</div>
-                <div class="quarto-category">supervised learning</div>
-              </div>
-                  </div>
+                                    </div>
   </div>
     
   
@@ -212,10 +188,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../about.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
@@ -223,119 +198,191 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Posts</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Data Science</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item sidebar-item-section">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">
+<li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">Data Processing</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">  
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Machine Learning</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/ML - Supervised Learning.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Machine Learning - Supervised Learning</span></a>
+  <a href="../../../posts/Data%20Science/Data%20Processing/data%20cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">common data processing practices</span></a>
   </div>
 </li>
       </ul>
-  </li>
-      </ul>
-  </li>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
- <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Data%20Science/Machine%20Learning/CNN.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convolutional Neural Network (CNN)</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Exercises/numpy task1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../posts/Data%20Science/Machine%20Learning/Dimensionality%20Reduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dimensionality Reduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Data%20Science/Machine%20Learning/JanKenPon%20CNN%20Feature%20Extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Student Name</strong> : Sulthan A. Karimov</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Data%20Science/Machine%20Learning/ML%20-%20Supervised%20Learning.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Machine Learning - Supervised Learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Data%20Science/Machine%20Learning/ML%20-%20Unsupervised%20Learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ML - Unsupervised Learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Data%20Science/Machine%20Learning/Submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Student Name</strong> : Sulthan A. Karimov</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Data%20Science/Machine%20Learning/Submission-colab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transfer Learning on Jankenpon Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Data%20Science/Machine%20Learning/Transfer%20Learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">import the necessary packages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Data%20Science/Machine%20Learning/Transfer%20Learning%20with%20CNN.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transfer Learning with CNN</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Data%20Science/Machine%20Learning/Untitled.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Untitled</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+      </ul>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Exercises</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Exercises/numpy%20task1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Latihan Numpy 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Exercises/numpy task1 solution.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../posts/Exercises/numpy%20task1%20solution.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Solusi Tugas numpy 1</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
  <span class="menu-text">Livekit</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/livekit/1_first_encounter_with_livekit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">my first encounter with webrtc and livekit agents</span></a>
+  </div>
+</li>
       </ul>
-  </li>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
  <span class="menu-text">Opinions</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/opinions/salut dengan bangsa indonesia.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../posts/opinions/salut%20dengan%20bangsa%20indonesia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">kekuatan unik bangsa ini</span></a>
   </div>
 </li>
       </ul>
-  </li>
+</li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#conclusion-on-cross_val_score" id="toc-conclusion-on-cross_val_score" class="nav-link active" data-scroll-target="#conclusion-on-cross_val_score">conclusion on cross_val_score</a></li>
+  <li>
+<a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression">Regression</a>
+  <ul>
+<li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">Linear Regression</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic Regression</a></li>
+  </ul>
+</li>
+  </ul></nav>
+</div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-
-
-
-
-<div id="217c3f57-d034-4cf3-ab10-cea59dad3c7c" class="cell" data-execution_count="52">
+<main class="content quarto-banner-title-block" id="quarto-document-content"><div id="217c3f57-d034-4cf3-ab10-cea59dad3c7c" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> graphviz</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This output is generated from the model</span></span>
@@ -344,8 +391,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>graphviz.Source.from_file(<span class="st">'cache/iristree.dot'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="52">
 <div>
-<figure class="figure">
-<p><img src="ML - Supervised Learning_files/figure-html/cell-2-output-1.svg" class="img-fluid figure-img"></p>
+<figure class="figure"><p><img src="ML%20-%20Supervised%20Learning_files/figure-html/cell-2-output-1.svg" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -361,11 +407,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>iris</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
+<div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead><tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">Id</th>
 <th data-quarto-table-cell-role="th">SepalLengthCm</th>
@@ -373,8 +419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th">PetalLengthCm</th>
 <th data-quarto-table-cell-role="th">PetalWidthCm</th>
 <th data-quarto-table-cell-role="th">Species</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
@@ -477,8 +522,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-
 <p>150 rows × 6 columns</p>
+</div>
 </div>
 </div>
 </div>
@@ -507,11 +552,11 @@ memory usage: 7.2+ KB</code></pre>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>iris.drop(<span class="st">'Id'</span>, axis<span class="op">=</span><span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
+<div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead><tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">Id</th>
 <th data-quarto-table-cell-role="th">SepalLengthCm</th>
@@ -519,8 +564,7 @@ memory usage: 7.2+ KB</code></pre>
 <th data-quarto-table-cell-role="th">PetalLengthCm</th>
 <th data-quarto-table-cell-role="th">PetalWidthCm</th>
 <th data-quarto-table-cell-role="th">Species</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
@@ -569,7 +613,7 @@ memory usage: 7.2+ KB</code></pre>
 </tr>
 </tbody>
 </table>
-
+</div>
 </div>
 </div>
 </div>
@@ -592,8 +636,7 @@ memory usage: 7.2+ KB</code></pre>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>clf <span class="op">=</span> clf.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="conclusion-on-cross_val_score" class="level1">
-<h1>conclusion on cross_val_score</h1>
+<section id="conclusion-on-cross_val_score" class="level1"><h1>conclusion on cross_val_score</h1>
 <p><em>cross_val_score</em> is for validating the quality of data set, it’s consider good if it’s more than 0.85</p>
 <div id="6fa2b620-8e4d-4bdc-baf8-674e69063a60" class="cell" data-execution_count="81">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># with cross validation</span></span>
@@ -656,11 +699,8 @@ accuracy 0.933</code></pre>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    rounded<span class="op">=</span> <span class="va">True</span>,</span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    filled <span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="regression" class="level1">
-<h1>Regression</h1>
-<section id="linear-regression" class="level2">
-<h2 class="anchored" data-anchor-id="linear-regression">Linear Regression</h2>
+</section><section id="regression" class="level1"><h1>Regression</h1>
+<section id="linear-regression" class="level2"><h2 class="anchored" data-anchor-id="linear-regression">Linear Regression</h2>
 <div id="b175c2d5-489d-402e-a895-fc3365346183" class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -678,8 +718,7 @@ accuracy 0.933</code></pre>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>plt.scatter(bedrooms, house_price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="ML - Supervised Learning_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+<figure class="figure"><p><img src="ML%20-%20Supervised%20Learning_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1096,7 +1135,15 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</a></style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LinearRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div>
+</a></style>
+<div id="sk-container-id-1" class="sk-top-container">
+<div class="sk-text-repr-fallback">
+<pre>LinearRegression()</pre>
+<b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b>
+</div>
+<div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable">
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">  LinearRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div>
+</div>
 </div>
 </div>
 <div id="53fbab31-7fae-4549-813c-b909449f0109" class="cell" data-execution_count="57">
@@ -1105,15 +1152,12 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>plt.plot(bedrooms, linreg.predict(bedrooms))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="ML - Supervised Learning_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+<figure class="figure"><p><img src="ML%20-%20Supervised%20Learning_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="logistic-regression" class="level2">
-<h2 class="anchored" data-anchor-id="logistic-regression">Logistic Regression</h2>
+</section><section id="logistic-regression" class="level2"><h2 class="anchored" data-anchor-id="logistic-regression">Logistic Regression</h2>
 <div id="8007161e-606e-4169-b1dc-ee16b52ab94e" class="cell" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1121,19 +1165,18 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="58">
 <div>
+<div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead><tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">User ID</th>
 <th data-quarto-table-cell-role="th">Gender</th>
 <th data-quarto-table-cell-role="th">Age</th>
 <th data-quarto-table-cell-role="th">EstimatedSalary</th>
 <th data-quarto-table-cell-role="th">Purchased</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
@@ -1225,8 +1268,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </tr>
 </tbody>
 </table>
-
 <p>400 rows × 5 columns</p>
+</div>
 </div>
 </div>
 </div>
@@ -1254,19 +1297,18 @@ memory usage: 15.8+ KB</code></pre>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="62">
 <div>
+<div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead><tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">Age</th>
 <th data-quarto-table-cell-role="th">EstimatedSalary</th>
 <th data-quarto-table-cell-role="th">Purchased</th>
 <th data-quarto-table-cell-role="th">Gender_Female</th>
 <th data-quarto-table-cell-role="th">Gender_Male</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
@@ -1358,8 +1400,8 @@ memory usage: 15.8+ KB</code></pre>
 </tr>
 </tbody>
 </table>
-
 <p>400 rows × 5 columns</p>
+</div>
 </div>
 </div>
 </div>
@@ -1379,18 +1421,17 @@ memory usage: 15.8+ KB</code></pre>
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>scaled_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="66">
 <div>
+<div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead><tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">Age</th>
 <th data-quarto-table-cell-role="th">EstimatedSalary</th>
 <th data-quarto-table-cell-role="th">Gender_Female</th>
 <th data-quarto-table-cell-role="th">Gender_Male</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
@@ -1471,8 +1512,8 @@ memory usage: 15.8+ KB</code></pre>
 </tr>
 </tbody>
 </table>
-
 <p>400 rows × 4 columns</p>
+</div>
 </div>
 </div>
 </div>
@@ -1902,7 +1943,15 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</a></style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked=""><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LogisticRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression()</pre></div> </div></div></div></div>
+</a></style>
+<div id="sk-container-id-2" class="sk-top-container">
+<div class="sk-text-repr-fallback">
+<pre>LogisticRegression()</pre>
+<b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b>
+</div>
+<div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable">
+<input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">  LogisticRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression()</pre></div> </div></div></div>
+</div>
 </div>
 </div>
 <div id="af2af5e1-bf0b-43f7-a8d6-9cec1bb959e9" class="cell" data-execution_count="79">
@@ -1914,11 +1963,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 
 
-</section>
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1953,7 +1998,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1985,47 +2041,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/sulthankarimov\.my\.id\/myblog");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -2060,11 +2076,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -2343,4 +2355,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+</body>
+</html>

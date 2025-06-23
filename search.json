@@ -1,17 +1,46 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Just Another Attempt to Share",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nMachine Learning - Supervised Learning\n\n\n\n\n\n\ndata science\n\n\nmachine learning\n\n\nAI\n\n\npython\n\n\nbasic\n\n\nsupervised learning\n\n\n\n\n\n\n\n\n\nJul 17, 2024\n\n\nsulthan a. karimov\n\n\n\n\n\n\n\n\n\n\n\n\nkekuatan unik bangsa ini\n\n\n\n\n\n\nopini\n\n\nngelantur\n\n\nindonesia\n\n\n\nsebuah opini kebangsaan\n\n\n\n\n\nJul 2, 2024\n\n\nSulthan A. Karimov\n\n\n\n\n\n\n\n\n\n\n\n\nSolusi Tugas numpy 1\n\n\n\n\n\n\ndata science\n\n\nexercise\n\n\npython\n\n\nnumpy\n\n\nbasic\n\n\nsolution\n\n\n\n\n\n\n\n\n\nJun 10, 2024\n\n\nsulthan a. karimov\n\n\n\n\n\n\n\n\n\n\n\n\nLatihan Numpy 1\n\n\n\n\n\n\ndata science\n\n\nexercise\n\n\npython\n\n\nnumpy\n\n\nbasic\n\n\n\n\n\n\n\n\n\nJun 10, 2024\n\n\nsulthan a. karimov\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Just Another Attempt to Share\nIlmu memang memberi kita pengetahuan, tetapi hanya filsafat yang bisa memberi kita kebijaksanaan.\nWill Durant\n\n\n\n Back to top",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "posts/Exercises/numpy task1 solution.html",
+    "href": "posts/Exercises/numpy task1 solution.html",
+    "title": "Solusi Tugas numpy 1",
+    "section": "",
+    "text": "import numpy as np\n\nload_file = np.loadtxt('numpy data1.txt')\ndata = load_file.reshape(4,7,4)",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Exercises",
+      "Solusi Tugas numpy 1"
+    ]
+  },
+  {
+    "objectID": "posts/Exercises/numpy task1 solution.html#todo",
+    "href": "posts/Exercises/numpy task1 solution.html#todo",
+    "title": "Solusi Tugas numpy 1",
+    "section": "TODO",
+    "text": "TODO\n\nimport numpy as np\n\n# Asumsikan data penjualan Anda berada dalam array NumPy bernama \"sales_data\"\n\n# Langkah 1: Pilih data untuk kategori tertentu (misalnya, kemeja)\n# Ganti \"category_index\" dengan indeks aktual untuk kemeja\nkategori_yang_diminati = 0  # Misalkan kemeja adalah kategori 0\npenjualan_kemeja = data[:, kategori_yang_diminati, :]  # Pilih data untuk kategori ini\n\n# Langkah 2: Hitung total penjualan untuk setiap ukuran (jumlahkan sepanjang sumbu ukuran)\ntotal_per_ukuran = penjualan_kemeja.sum(axis=0)  # Jumlahkan di semua lokasi\n\n# Langkah 3: Analisis distribusi ukuran (tanpa argmax)\n# Temukan nilai maksimum untuk total penjualan tiap ukuran\nmaks_penjualan_ukuran = total_per_ukuran.max()  # Cari total penjualan maksimum\n\n# Buat mask untuk ukuran terpopuler\nmask_terpopuler = total_per_ukuran == maks_penjualan_ukuran  # Bandingkan dengan nilai maksimum\n\n# Identifikasi ukuran terpopuler (menangani kemungkinan seri)\nukuran_terpopuler = np.where(mask_terpopuler)[0]  # Dapatkan indeks elemen True\n\n# Tampilkan hasilnya\nprint(\"Total Penjualan Kemeja per Ukuran:\", total_per_ukuran)\n\n# Tampilkan ukuran terpopuler (menangani seri)\nif len(ukuran_terpopuler) &gt; 1:\n  print(\"Ukuran Kemeja Terpopuler:\", ukuran_terpopuler)\nelse:\n  print(\"Ukuran Kemeja Terpopuler:\", ukuran_terpopuler[0])",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Exercises",
+      "Solusi Tugas numpy 1"
+    ]
   },
   {
     "objectID": "posts/Data Science/Machine Learning/ML - Supervised Learning.html",
     "href": "posts/Data Science/Machine Learning/ML - Supervised Learning.html",
     "title": "Machine Learning - Supervised Learning",
     "section": "",
-    "text": "import graphviz\n\n# This output is generated from the model\n# as you can see, there are several decisions \n# to make, and the hyrarchy can be compiled like a tree\ngraphviz.Source.from_file('cache/iristree.dot')\nfirst we need to import pandas and load the data with pd.read_csv(file)\nimport pandas as pd\n\niris = pd.read_csv('datasets/iris/Iris.csv')\nthis is the overview of the data\niris\n\n\n\n\n\n\n\n\nId\nSepalLengthCm\nSepalWidthCm\nPetalLengthCm\nPetalWidthCm\nSpecies\n\n\n\n\n0\n1\n5.1\n3.5\n1.4\n0.2\nIris-setosa\n\n\n1\n2\n4.9\n3.0\n1.4\n0.2\nIris-setosa\n\n\n2\n3\n4.7\n3.2\n1.3\n0.2\nIris-setosa\n\n\n3\n4\n4.6\n3.1\n1.5\n0.2\nIris-setosa\n\n\n4\n5\n5.0\n3.6\n1.4\n0.2\nIris-setosa\n\n\n...\n...\n...\n...\n...\n...\n...\n\n\n145\n146\n6.7\n3.0\n5.2\n2.3\nIris-virginica\n\n\n146\n147\n6.3\n2.5\n5.0\n1.9\nIris-virginica\n\n\n147\n148\n6.5\n3.0\n5.2\n2.0\nIris-virginica\n\n\n148\n149\n6.2\n3.4\n5.4\n2.3\nIris-virginica\n\n\n149\n150\n5.9\n3.0\n5.1\n1.8\nIris-virginica\n\n\n\n\n150 rows × 6 columns\nif we wan to check detail about the data, use data.info()\niris.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 150 entries, 0 to 149\nData columns (total 6 columns):\n #   Column         Non-Null Count  Dtype  \n---  ------         --------------  -----  \n 0   Id             150 non-null    int64  \n 1   SepalLengthCm  150 non-null    float64\n 2   SepalWidthCm   150 non-null    float64\n 3   PetalLengthCm  150 non-null    float64\n 4   PetalWidthCm   150 non-null    float64\n 5   Species        150 non-null    object \ndtypes: float64(4), int64(1), object(1)\nmemory usage: 7.2+ KB\nthe Id is not needed in this case, therefore we can just drop it\n# stropping unneeded data\niris.drop('Id', axis=1, inplace=True)\n\n\n\n\n\n\n\n\nId\nSepalLengthCm\nSepalWidthCm\nPetalLengthCm\nPetalWidthCm\nSpecies\n\n\n\n\n0\n1\n5.1\n3.5\n1.4\n0.2\nIris-setosa\n\n\n1\n2\n4.9\n3.0\n1.4\n0.2\nIris-setosa\n\n\n2\n3\n4.7\n3.2\n1.3\n0.2\nIris-setosa\n\n\n3\n4\n4.6\n3.1\n1.5\n0.2\nIris-setosa\n\n\n4\n5\n5.0\n3.6\n1.4\n0.2\nIris-setosa\nnow, we separate the data label from its features, and save it to X and y, we need also to separate the data to train and split\nX = iris[['SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm']]\ny = iris['Species']\n\nfrom sklearn.model_selection import train_test_split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=123)\nwe prepare the model by calling it from sklearn.tree\nfrom sklearn import tree\n\nclf = tree.DecisionTreeClassifier()\n# With defined train test split\n\nclf = clf.fit(X_train, y_train)",
+    "text": "import graphviz\n\n# This output is generated from the model\n# as you can see, there are several decisions \n# to make, and the hyrarchy can be compiled like a tree\ngraphviz.Source.from_file('cache/iristree.dot')\nfirst we need to import pandas and load the data with pd.read_csv(file)\nimport pandas as pd\n\niris = pd.read_csv('datasets/iris/Iris.csv')\nthis is the overview of the data\niris\n\n\n\n\n\n\n\n\n\nId\nSepalLengthCm\nSepalWidthCm\nPetalLengthCm\nPetalWidthCm\nSpecies\n\n\n\n\n0\n1\n5.1\n3.5\n1.4\n0.2\nIris-setosa\n\n\n1\n2\n4.9\n3.0\n1.4\n0.2\nIris-setosa\n\n\n2\n3\n4.7\n3.2\n1.3\n0.2\nIris-setosa\n\n\n3\n4\n4.6\n3.1\n1.5\n0.2\nIris-setosa\n\n\n4\n5\n5.0\n3.6\n1.4\n0.2\nIris-setosa\n\n\n...\n...\n...\n...\n...\n...\n...\n\n\n145\n146\n6.7\n3.0\n5.2\n2.3\nIris-virginica\n\n\n146\n147\n6.3\n2.5\n5.0\n1.9\nIris-virginica\n\n\n147\n148\n6.5\n3.0\n5.2\n2.0\nIris-virginica\n\n\n148\n149\n6.2\n3.4\n5.4\n2.3\nIris-virginica\n\n\n149\n150\n5.9\n3.0\n5.1\n1.8\nIris-virginica\n\n\n\n\n150 rows × 6 columns\nif we wan to check detail about the data, use data.info()\niris.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 150 entries, 0 to 149\nData columns (total 6 columns):\n #   Column         Non-Null Count  Dtype  \n---  ------         --------------  -----  \n 0   Id             150 non-null    int64  \n 1   SepalLengthCm  150 non-null    float64\n 2   SepalWidthCm   150 non-null    float64\n 3   PetalLengthCm  150 non-null    float64\n 4   PetalWidthCm   150 non-null    float64\n 5   Species        150 non-null    object \ndtypes: float64(4), int64(1), object(1)\nmemory usage: 7.2+ KB\nthe Id is not needed in this case, therefore we can just drop it\n# stropping unneeded data\niris.drop('Id', axis=1, inplace=True)\n\n\n\n\n\n\n\n\n\nId\nSepalLengthCm\nSepalWidthCm\nPetalLengthCm\nPetalWidthCm\nSpecies\n\n\n\n\n0\n1\n5.1\n3.5\n1.4\n0.2\nIris-setosa\n\n\n1\n2\n4.9\n3.0\n1.4\n0.2\nIris-setosa\n\n\n2\n3\n4.7\n3.2\n1.3\n0.2\nIris-setosa\n\n\n3\n4\n4.6\n3.1\n1.5\n0.2\nIris-setosa\n\n\n4\n5\n5.0\n3.6\n1.4\n0.2\nIris-setosa\nnow, we separate the data label from its features, and save it to X and y, we need also to separate the data to train and split\nX = iris[['SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm']]\ny = iris['Species']\n\nfrom sklearn.model_selection import train_test_split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=123)\nwe prepare the model by calling it from sklearn.tree\nfrom sklearn import tree\n\nclf = tree.DecisionTreeClassifier()\n# With defined train test split\n\nclf = clf.fit(X_train, y_train)",
     "crumbs": [
       "About",
       "Posts",
@@ -39,7 +68,7 @@
     "href": "posts/Data Science/Machine Learning/ML - Supervised Learning.html#logistic-regression",
     "title": "Machine Learning - Supervised Learning",
     "section": "Logistic Regression",
-    "text": "Logistic Regression\n\nimport pandas as pd\n\ndf = pd.read_csv('datasets/socmedAds/Social_Network_Ads.csv')\ndf\n\n\n\n\n\n\n\n\nUser ID\nGender\nAge\nEstimatedSalary\nPurchased\n\n\n\n\n0\n15624510\nMale\n19\n19000\n0\n\n\n1\n15810944\nMale\n35\n20000\n0\n\n\n2\n15668575\nFemale\n26\n43000\n0\n\n\n3\n15603246\nFemale\n27\n57000\n0\n\n\n4\n15804002\nMale\n19\n76000\n0\n\n\n...\n...\n...\n...\n...\n...\n\n\n395\n15691863\nFemale\n46\n41000\n1\n\n\n396\n15706071\nMale\n51\n23000\n1\n\n\n397\n15654296\nFemale\n50\n20000\n1\n\n\n398\n15755018\nMale\n36\n33000\n0\n\n\n399\n15594041\nFemale\n49\n36000\n1\n\n\n\n\n400 rows × 5 columns\n\n\n\n\ndf.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 400 entries, 0 to 399\nData columns (total 5 columns):\n #   Column           Non-Null Count  Dtype \n---  ------           --------------  ----- \n 0   User ID          400 non-null    int64 \n 1   Gender           400 non-null    object\n 2   Age              400 non-null    int64 \n 3   EstimatedSalary  400 non-null    int64 \n 4   Purchased        400 non-null    int64 \ndtypes: int64(4), object(1)\nmemory usage: 15.8+ KB\n\n\n\ndata = df.drop(columns=['User ID'])\n\ndata = pd.get_dummies(data)\ndata\n\n\n\n\n\n\n\n\nAge\nEstimatedSalary\nPurchased\nGender_Female\nGender_Male\n\n\n\n\n0\n19\n19000\n0\nFalse\nTrue\n\n\n1\n35\n20000\n0\nFalse\nTrue\n\n\n2\n26\n43000\n0\nTrue\nFalse\n\n\n3\n27\n57000\n0\nTrue\nFalse\n\n\n4\n19\n76000\n0\nFalse\nTrue\n\n\n...\n...\n...\n...\n...\n...\n\n\n395\n46\n41000\n1\nTrue\nFalse\n\n\n396\n51\n23000\n1\nFalse\nTrue\n\n\n397\n50\n20000\n1\nTrue\nFalse\n\n\n398\n36\n33000\n0\nFalse\nTrue\n\n\n399\n49\n36000\n1\nTrue\nFalse\n\n\n\n\n400 rows × 5 columns\n\n\n\n\nX = data[['Age', 'EstimatedSalary', 'Gender_Female', 'Gender_Male']]\ny = data['Purchased']\n\n\n# data normalization\nfrom sklearn.preprocessing import StandardScaler\nscaler = StandardScaler()\n# calculating the mean and standard deviation of every attribute column\n# to be used on every transform function\nscaler.fit(X)\nscaled_data = scaler.transform(X)\nscaled_data = pd.DataFrame(scaled_data, columns=X.columns)\nscaled_data\n\n\n\n\n\n\n\n\nAge\nEstimatedSalary\nGender_Female\nGender_Male\n\n\n\n\n0\n-1.781797\n-1.490046\n-1.020204\n1.020204\n\n\n1\n-0.253587\n-1.460681\n-1.020204\n1.020204\n\n\n2\n-1.113206\n-0.785290\n0.980196\n-0.980196\n\n\n3\n-1.017692\n-0.374182\n0.980196\n-0.980196\n\n\n4\n-1.781797\n0.183751\n-1.020204\n1.020204\n\n\n...\n...\n...\n...\n...\n\n\n395\n0.797057\n-0.844019\n0.980196\n-0.980196\n\n\n396\n1.274623\n-1.372587\n-1.020204\n1.020204\n\n\n397\n1.179110\n-1.460681\n0.980196\n-0.980196\n\n\n398\n-0.158074\n-1.078938\n-1.020204\n1.020204\n\n\n399\n1.083596\n-0.990844\n0.980196\n-0.980196\n\n\n\n\n400 rows × 4 columns\n\n\n\n\n# validation with cross validation\nfrom sklearn.model_selection import cross_val_score\nfrom sklearn import linear_model\n\nmodel = linear_model.LogisticRegression()\nscores = cross_val_score(model, scaled_data, y, cv=5)\n\n\nscores\n\narray([0.7   , 0.95  , 0.9375, 0.8125, 0.7   ])\n\n\n\nfrom sklearn.model_selection import train_test_split\n \nX_train, X_test, y_train, y_test = train_test_split(scaled_data, y, test_size=0.2, random_state=1)\n\n\nmodel.fit(X_train, y_train)\n\nLogisticRegression()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  LogisticRegression?Documentation for LogisticRegressioniFittedLogisticRegression() \n\n\n\n# examine model accuracy\nmodel.score(X_test, y_test)\n\n0.825",
+    "text": "Logistic Regression\n\nimport pandas as pd\n\ndf = pd.read_csv('datasets/socmedAds/Social_Network_Ads.csv')\ndf\n\n\n\n\n\n\n\n\n\nUser ID\nGender\nAge\nEstimatedSalary\nPurchased\n\n\n\n\n0\n15624510\nMale\n19\n19000\n0\n\n\n1\n15810944\nMale\n35\n20000\n0\n\n\n2\n15668575\nFemale\n26\n43000\n0\n\n\n3\n15603246\nFemale\n27\n57000\n0\n\n\n4\n15804002\nMale\n19\n76000\n0\n\n\n...\n...\n...\n...\n...\n...\n\n\n395\n15691863\nFemale\n46\n41000\n1\n\n\n396\n15706071\nMale\n51\n23000\n1\n\n\n397\n15654296\nFemale\n50\n20000\n1\n\n\n398\n15755018\nMale\n36\n33000\n0\n\n\n399\n15594041\nFemale\n49\n36000\n1\n\n\n\n\n400 rows × 5 columns\n\n\n\n\n\ndf.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 400 entries, 0 to 399\nData columns (total 5 columns):\n #   Column           Non-Null Count  Dtype \n---  ------           --------------  ----- \n 0   User ID          400 non-null    int64 \n 1   Gender           400 non-null    object\n 2   Age              400 non-null    int64 \n 3   EstimatedSalary  400 non-null    int64 \n 4   Purchased        400 non-null    int64 \ndtypes: int64(4), object(1)\nmemory usage: 15.8+ KB\n\n\n\ndata = df.drop(columns=['User ID'])\n\ndata = pd.get_dummies(data)\ndata\n\n\n\n\n\n\n\n\n\nAge\nEstimatedSalary\nPurchased\nGender_Female\nGender_Male\n\n\n\n\n0\n19\n19000\n0\nFalse\nTrue\n\n\n1\n35\n20000\n0\nFalse\nTrue\n\n\n2\n26\n43000\n0\nTrue\nFalse\n\n\n3\n27\n57000\n0\nTrue\nFalse\n\n\n4\n19\n76000\n0\nFalse\nTrue\n\n\n...\n...\n...\n...\n...\n...\n\n\n395\n46\n41000\n1\nTrue\nFalse\n\n\n396\n51\n23000\n1\nFalse\nTrue\n\n\n397\n50\n20000\n1\nTrue\nFalse\n\n\n398\n36\n33000\n0\nFalse\nTrue\n\n\n399\n49\n36000\n1\nTrue\nFalse\n\n\n\n\n400 rows × 5 columns\n\n\n\n\n\nX = data[['Age', 'EstimatedSalary', 'Gender_Female', 'Gender_Male']]\ny = data['Purchased']\n\n\n# data normalization\nfrom sklearn.preprocessing import StandardScaler\nscaler = StandardScaler()\n# calculating the mean and standard deviation of every attribute column\n# to be used on every transform function\nscaler.fit(X)\nscaled_data = scaler.transform(X)\nscaled_data = pd.DataFrame(scaled_data, columns=X.columns)\nscaled_data\n\n\n\n\n\n\n\n\n\nAge\nEstimatedSalary\nGender_Female\nGender_Male\n\n\n\n\n0\n-1.781797\n-1.490046\n-1.020204\n1.020204\n\n\n1\n-0.253587\n-1.460681\n-1.020204\n1.020204\n\n\n2\n-1.113206\n-0.785290\n0.980196\n-0.980196\n\n\n3\n-1.017692\n-0.374182\n0.980196\n-0.980196\n\n\n4\n-1.781797\n0.183751\n-1.020204\n1.020204\n\n\n...\n...\n...\n...\n...\n\n\n395\n0.797057\n-0.844019\n0.980196\n-0.980196\n\n\n396\n1.274623\n-1.372587\n-1.020204\n1.020204\n\n\n397\n1.179110\n-1.460681\n0.980196\n-0.980196\n\n\n398\n-0.158074\n-1.078938\n-1.020204\n1.020204\n\n\n399\n1.083596\n-0.990844\n0.980196\n-0.980196\n\n\n\n\n400 rows × 4 columns\n\n\n\n\n\n# validation with cross validation\nfrom sklearn.model_selection import cross_val_score\nfrom sklearn import linear_model\n\nmodel = linear_model.LogisticRegression()\nscores = cross_val_score(model, scaled_data, y, cv=5)\n\n\nscores\n\narray([0.7   , 0.95  , 0.9375, 0.8125, 0.7   ])\n\n\n\nfrom sklearn.model_selection import train_test_split\n \nX_train, X_test, y_train, y_test = train_test_split(scaled_data, y, test_size=0.2, random_state=1)\n\n\nmodel.fit(X_train, y_train)\n\nLogisticRegression()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  LogisticRegression?Documentation for LogisticRegressioniFittedLogisticRegression() \n\n\n\n# examine model accuracy\nmodel.score(X_test, y_test)\n\n0.825",
     "crumbs": [
       "About",
       "Posts",
@@ -49,29 +78,16 @@
     ]
   },
   {
-    "objectID": "posts/Exercises/numpy task1 solution.html",
-    "href": "posts/Exercises/numpy task1 solution.html",
-    "title": "Solusi Tugas numpy 1",
+    "objectID": "posts/opinions/salut dengan bangsa indonesia.html",
+    "href": "posts/opinions/salut dengan bangsa indonesia.html",
+    "title": "kekuatan unik bangsa ini",
     "section": "",
-    "text": "import numpy as np\n\nload_file = np.loadtxt('numpy data1.txt')\ndata = load_file.reshape(4,7,4)",
+    "text": "Salut dengan Bangsa Ini\nsaya salut sekali dengan bangsa Indonesia dalam menyikapi masalah-masalah yang mencuat baru-baru ini. bagaimana tidak?, gempuran itu datang dari berbagai arah, ekonomi, sosial, budaya, bahkan politik. Bangsa Indonesia ini umurnya sudah tidak muda lagi, lebih tua dari negaranya sendiri. jadi maklum kalau masalah-masalah yang muncul belakangan tak menjadi persoalan sebesar kehancuran sebuah bangsa. paling hanya menjadi riak-riak kecil dalam mewarnai kehidupan bernegara. semoga kondisi ini terus jadi kekuatan untuk seluruh Bangsa Indonesia, sehingga masalah selevel negara tidak bisa mengusik kemakmuran hidup kita.\n\n\n\n\n Back to top",
     "crumbs": [
       "About",
       "Posts",
-      "Exercises",
-      "Solusi Tugas numpy 1"
-    ]
-  },
-  {
-    "objectID": "posts/Exercises/numpy task1 solution.html#todo",
-    "href": "posts/Exercises/numpy task1 solution.html#todo",
-    "title": "Solusi Tugas numpy 1",
-    "section": "TODO",
-    "text": "TODO\n\nimport numpy as np\n\n# Asumsikan data penjualan Anda berada dalam array NumPy bernama \"sales_data\"\n\n# Langkah 1: Pilih data untuk kategori tertentu (misalnya, kemeja)\n# Ganti \"category_index\" dengan indeks aktual untuk kemeja\nkategori_yang_diminati = 0  # Misalkan kemeja adalah kategori 0\npenjualan_kemeja = data[:, kategori_yang_diminati, :]  # Pilih data untuk kategori ini\n\n# Langkah 2: Hitung total penjualan untuk setiap ukuran (jumlahkan sepanjang sumbu ukuran)\ntotal_per_ukuran = penjualan_kemeja.sum(axis=0)  # Jumlahkan di semua lokasi\n\n# Langkah 3: Analisis distribusi ukuran (tanpa argmax)\n# Temukan nilai maksimum untuk total penjualan tiap ukuran\nmaks_penjualan_ukuran = total_per_ukuran.max()  # Cari total penjualan maksimum\n\n# Buat mask untuk ukuran terpopuler\nmask_terpopuler = total_per_ukuran == maks_penjualan_ukuran  # Bandingkan dengan nilai maksimum\n\n# Identifikasi ukuran terpopuler (menangani kemungkinan seri)\nukuran_terpopuler = np.where(mask_terpopuler)[0]  # Dapatkan indeks elemen True\n\n# Tampilkan hasilnya\nprint(\"Total Penjualan Kemeja per Ukuran:\", total_per_ukuran)\n\n# Tampilkan ukuran terpopuler (menangani seri)\nif len(ukuran_terpopuler) &gt; 1:\n  print(\"Ukuran Kemeja Terpopuler:\", ukuran_terpopuler)\nelse:\n  print(\"Ukuran Kemeja Terpopuler:\", ukuran_terpopuler[0])",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Exercises",
-      "Solusi Tugas numpy 1"
+      "Opinions",
+      "kekuatan unik bangsa ini"
     ]
   },
   {
@@ -114,26 +130,17 @@
     ]
   },
   {
-    "objectID": "posts/opinions/salut dengan bangsa indonesia.html",
-    "href": "posts/opinions/salut dengan bangsa indonesia.html",
-    "title": "kekuatan unik bangsa ini",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Just Another Attempt to Contribute",
     "section": "",
-    "text": "Salut dengan Bangsa Ini\nsaya salut sekali dengan bangsa Indonesia dalam menyikapi masalah-masalah yang mencuat baru-baru ini. bagaimana tidak?, gempuran itu datang dari berbagai arah, ekonomi, sosial, budaya, bahkan politik. Bangsa Indonesia ini umurnya sudah tidak muda lagi, lebih tua dari negaranya sendiri. jadi maklum kalau masalah-masalah yang muncul belakangan tak menjadi persoalan sebesar kehancuran sebuah bangsa. paling hanya menjadi riak-riak kecil dalam mewarnai kehidupan bernegara. semoga kondisi ini terus jadi kekuatan untuk seluruh Bangsa Indonesia, sehingga masalah selevel negara tidak bisa mengusik kemakmuran hidup kita.\n\n\n\n\n Back to top",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Opinions",
-      "kekuatan unik bangsa ini"
-    ]
+    "text": "This is my little corner of the web where I share thoughts, projects, and lessons from my journey as a programmer, builder, and believer.\nI used to hold back from sharing, afraid of saying the wrong thing or not being “good enough.” But I realized: growth happens when we share — not when we’re perfect, but when we’re sincere.\n\nThough this I hope to offer what I can, no matter how small. Whether it’s a piece of code, a reflection, or a simple idea — I share it here with the hope that it brings benefit.\n\nBocah Angon Penekno Blimbing Kuwi\nLunyu Lunyu Penekno Kanggo Mbasuh Dodot Iro\n\nIf something here helps you, inspires you, or even makes you curious, i’ll be happy to hear you out. Otherwise If not, that’s okay too — I’m still learning, still growing, and I’m grateful you stopped by.\nBismillah — let’s build, reflect, and learn together.\n— Sulthan A. Karimov —"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html#welcome.-peace-be-upon-you.",
+    "href": "index.html#welcome.-peace-be-upon-you.",
+    "title": "Just Another Attempt to Contribute",
     "section": "",
-    "text": "Just Another Attempt to Share\nIlmu memang memberi kita pengetahuan, tetapi hanya filsafat yang bisa memberi kita kebijaksanaan.\nWill Durant\n\n\n\n Back to top",
-    "crumbs": [
-      "About"
-    ]
+    "text": "This is my little corner of the web where I share thoughts, projects, and lessons from my journey as a programmer, builder, and believer.\nI used to hold back from sharing, afraid of saying the wrong thing or not being “good enough.” But I realized: growth happens when we share — not when we’re perfect, but when we’re sincere.\n\nThough this I hope to offer what I can, no matter how small. Whether it’s a piece of code, a reflection, or a simple idea — I share it here with the hope that it brings benefit.\n\nBocah Angon Penekno Blimbing Kuwi\nLunyu Lunyu Penekno Kanggo Mbasuh Dodot Iro\n\nIf something here helps you, inspires you, or even makes you curious, i’ll be happy to hear you out. Otherwise If not, that’s okay too — I’m still learning, still growing, and I’m grateful you stopped by.\nBismillah — let’s build, reflect, and learn together.\n— Sulthan A. Karimov —"
   }
 ]
