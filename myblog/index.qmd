@@ -22,12 +22,14 @@ This is my little corner of the web where I share thoughts, projects, and lesson
 
 I used to hold back from sharing, afraid of saying the wrong thing or not being “good enough.” But I realized: growth happens when we share — not when we're perfect, but when we're sincere.
 
-Inspired by the example of Prophet Muhammad ﷺ, who shared truth with wisdom and humility, I hope to offer what I can, no matter how small. Whether it’s a piece of code, a reflection, or a simple idea — I share it here with the hope that it brings benefit.
+<!--# Inspired by the example of Prophet Muhammad ﷺ, who shared truth with wisdom and humility, -->Though this I hope to offer what I can, no matter how small. Whether it’s a piece of code, a reflection, or a simple idea — I share it here with the hope that it brings benefit.
 
-“Convey from me, even if it is one verse.” — Prophet Muhammad ﷺ
+> Bocah Angon Penekno Blimbing Kuwi
+>
+> Lunyu Lunyu Penekno Kanggo Mbasuh Dodot Iro
 
-If something here helps you, inspires you, or even makes you curious, alhamdulillah.
-If not, that’s okay too — I’m still learning, still growing, and I’m grateful you stopped by.
+If something here helps you, inspires you, or even makes you curious, i'll be happy to hear you out.
+Otherwise If not, that’s okay too — I’m still learning, still growing, and I’m grateful you stopped by.
 
 Bismillah — let’s build, reflect, and learn together.
 

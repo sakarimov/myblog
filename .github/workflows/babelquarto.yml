@@ -20,12 +20,12 @@ jobs:
           packages: |
             github::ropensci-review-tools/babelquarto@a485fea
       - name: Render Website with babelquarto
-        run: Rscript -e 'babelquarto::render_website('myblog')'
+        run: Rscript -e 'babelquarto::render_website()'
       - name: Achive book render
         uses: actions/upload-artifact@v4
         with:
           name: book_render
-          path: myblog/_site/
+          path: _site/
       - name: Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
