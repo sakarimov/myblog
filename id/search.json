@@ -1,27 +1,17 @@
 [
   {
-    "objectID": "posts/Exercises/numpy task1 solution.html",
-    "href": "posts/Exercises/numpy task1 solution.html",
-    "title": "Solusi Tugas numpy 1",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Just Another Attempt to Contribute",
     "section": "",
-    "text": "import numpy as np\n\nload_file = np.loadtxt('numpy data1.txt')\ndata = load_file.reshape(4,7,4)",
-    "crumbs": [
-      "Posts",
-      "Exercises",
-      "Solusi Tugas numpy 1"
-    ]
+    "text": "Ini adalah ruang kecil milik saya di internet, tempat saya berbagi pemikiran, proyek, dan pelajaran dari perjalanan saya sebagai programmer, pembelajar, dan seorang muslim.\nDulu saya sering ragu untuk berbagi — takut salah, takut tidak cukup baik. Tapi saya sadar: pertumbuhan terjadi ketika kita berbagi — bukan karena kita sempurna, tapi karena kita tulus.\nDari sinilah saya ingin membagikan apa pun yang bisa saya bagi, sekecil apa pun. Baik itu potongan kode, refleksi, atau ide sederhana — saya niatkan semua ini untuk memberi manfaat.\n\nBocah Angon Penekno Blimbing Kuwi\nLunyu Lunyu Penekno Kanggo Mbasuh Dodot Iro\n\nJika ada yang Anda temukan di sini dan itu bermanfaat atau menginspirasi — alhamdulillah. Jika belum, tidak apa-apa — saya masih belajar, masih tumbuh, dan saya bersyukur Anda telah mampir.\nBismillah — mari kita membangun, merenung, dan belajar bersama.\n— Sulthan A. Karimov —"
   },
   {
-    "objectID": "posts/Exercises/numpy task1 solution.html#todo",
-    "href": "posts/Exercises/numpy task1 solution.html#todo",
-    "title": "Solusi Tugas numpy 1",
-    "section": "TODO",
-    "text": "TODO\n\nimport numpy as np\n\n# Asumsikan data penjualan Anda berada dalam array NumPy bernama \"sales_data\"\n\n# Langkah 1: Pilih data untuk kategori tertentu (misalnya, kemeja)\n# Ganti \"category_index\" dengan indeks aktual untuk kemeja\nkategori_yang_diminati = 0  # Misalkan kemeja adalah kategori 0\npenjualan_kemeja = data[:, kategori_yang_diminati, :]  # Pilih data untuk kategori ini\n\n# Langkah 2: Hitung total penjualan untuk setiap ukuran (jumlahkan sepanjang sumbu ukuran)\ntotal_per_ukuran = penjualan_kemeja.sum(axis=0)  # Jumlahkan di semua lokasi\n\n# Langkah 3: Analisis distribusi ukuran (tanpa argmax)\n# Temukan nilai maksimum untuk total penjualan tiap ukuran\nmaks_penjualan_ukuran = total_per_ukuran.max()  # Cari total penjualan maksimum\n\n# Buat mask untuk ukuran terpopuler\nmask_terpopuler = total_per_ukuran == maks_penjualan_ukuran  # Bandingkan dengan nilai maksimum\n\n# Identifikasi ukuran terpopuler (menangani kemungkinan seri)\nukuran_terpopuler = np.where(mask_terpopuler)[0]  # Dapatkan indeks elemen True\n\n# Tampilkan hasilnya\nprint(\"Total Penjualan Kemeja per Ukuran:\", total_per_ukuran)\n\n# Tampilkan ukuran terpopuler (menangani seri)\nif len(ukuran_terpopuler) &gt; 1:\n  print(\"Ukuran Kemeja Terpopuler:\", ukuran_terpopuler)\nelse:\n  print(\"Ukuran Kemeja Terpopuler:\", ukuran_terpopuler[0])",
-    "crumbs": [
-      "Posts",
-      "Exercises",
-      "Solusi Tugas numpy 1"
-    ]
+    "objectID": "index.html#selamat-datang",
+    "href": "index.html#selamat-datang",
+    "title": "Just Another Attempt to Contribute",
+    "section": "",
+    "text": "Ini adalah ruang kecil milik saya di internet, tempat saya berbagi pemikiran, proyek, dan pelajaran dari perjalanan saya sebagai programmer, pembelajar, dan seorang muslim.\nDulu saya sering ragu untuk berbagi — takut salah, takut tidak cukup baik. Tapi saya sadar: pertumbuhan terjadi ketika kita berbagi — bukan karena kita sempurna, tapi karena kita tulus.\nDari sinilah saya ingin membagikan apa pun yang bisa saya bagi, sekecil apa pun. Baik itu potongan kode, refleksi, atau ide sederhana — saya niatkan semua ini untuk memberi manfaat.\n\nBocah Angon Penekno Blimbing Kuwi\nLunyu Lunyu Penekno Kanggo Mbasuh Dodot Iro\n\nJika ada yang Anda temukan di sini dan itu bermanfaat atau menginspirasi — alhamdulillah. Jika belum, tidak apa-apa — saya masih belajar, masih tumbuh, dan saya bersyukur Anda telah mampir.\nBismillah — mari kita membangun, merenung, dan belajar bersama.\n— Sulthan A. Karimov —"
   },
   {
     "objectID": "posts/Data Science/Machine Learning/ML - Supervised Learning.html",
@@ -60,6 +50,30 @@
       "Data Science",
       "Machine Learning",
       "Machine Learning - Supervised Learning"
+    ]
+  },
+  {
+    "objectID": "posts/Exercises/numpy task1 solution.html",
+    "href": "posts/Exercises/numpy task1 solution.html",
+    "title": "Solusi Tugas numpy 1",
+    "section": "",
+    "text": "import numpy as np\n\nload_file = np.loadtxt('numpy data1.txt')\ndata = load_file.reshape(4,7,4)",
+    "crumbs": [
+      "Posts",
+      "Exercises",
+      "Solusi Tugas numpy 1"
+    ]
+  },
+  {
+    "objectID": "posts/Exercises/numpy task1 solution.html#todo",
+    "href": "posts/Exercises/numpy task1 solution.html#todo",
+    "title": "Solusi Tugas numpy 1",
+    "section": "TODO",
+    "text": "TODO\n\nimport numpy as np\n\n# Asumsikan data penjualan Anda berada dalam array NumPy bernama \"sales_data\"\n\n# Langkah 1: Pilih data untuk kategori tertentu (misalnya, kemeja)\n# Ganti \"category_index\" dengan indeks aktual untuk kemeja\nkategori_yang_diminati = 0  # Misalkan kemeja adalah kategori 0\npenjualan_kemeja = data[:, kategori_yang_diminati, :]  # Pilih data untuk kategori ini\n\n# Langkah 2: Hitung total penjualan untuk setiap ukuran (jumlahkan sepanjang sumbu ukuran)\ntotal_per_ukuran = penjualan_kemeja.sum(axis=0)  # Jumlahkan di semua lokasi\n\n# Langkah 3: Analisis distribusi ukuran (tanpa argmax)\n# Temukan nilai maksimum untuk total penjualan tiap ukuran\nmaks_penjualan_ukuran = total_per_ukuran.max()  # Cari total penjualan maksimum\n\n# Buat mask untuk ukuran terpopuler\nmask_terpopuler = total_per_ukuran == maks_penjualan_ukuran  # Bandingkan dengan nilai maksimum\n\n# Identifikasi ukuran terpopuler (menangani kemungkinan seri)\nukuran_terpopuler = np.where(mask_terpopuler)[0]  # Dapatkan indeks elemen True\n\n# Tampilkan hasilnya\nprint(\"Total Penjualan Kemeja per Ukuran:\", total_per_ukuran)\n\n# Tampilkan ukuran terpopuler (menangani seri)\nif len(ukuran_terpopuler) &gt; 1:\n  print(\"Ukuran Kemeja Terpopuler:\", ukuran_terpopuler)\nelse:\n  print(\"Ukuran Kemeja Terpopuler:\", ukuran_terpopuler[0])",
+    "crumbs": [
+      "Posts",
+      "Exercises",
+      "Solusi Tugas numpy 1"
     ]
   }
 ]
