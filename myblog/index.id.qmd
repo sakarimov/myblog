@@ -1,0 +1,33 @@
+---
+title: "Just Another Attempt to Contribute"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  feed:
+    categories: [rss]
+page-layout: full
+title-block-banner: false
+---
+
+## Selamat datang
+
+Ini adalah ruang kecil milik saya di internet, tempat saya berbagi pemikiran, proyek, dan pelajaran dari perjalanan saya sebagai programmer, pembelajar, dan seorang muslim.
+
+Dulu saya sering ragu untuk berbagi — takut salah, takut tidak cukup baik. Tapi saya sadar: pertumbuhan terjadi ketika kita berbagi — bukan karena kita sempurna, tapi karena kita tulus.
+
+Dari sinilah saya ingin membagikan apa pun yang bisa saya bagi, sekecil apa pun. Baik itu potongan kode, refleksi, atau ide sederhana — saya niatkan semua ini untuk memberi manfaat.
+
+> Bocah Angon Penekno Blimbing Kuwi
+>
+> Lunyu Lunyu Penekno Kanggo Mbasuh Dodot Iro
+
+Jika ada yang Anda temukan di sini dan itu bermanfaat atau menginspirasi — alhamdulillah.
+Jika belum, tidak apa-apa — saya masih belajar, masih tumbuh, dan saya bersyukur Anda telah mampir.
+
+Bismillah — mari kita membangun, merenung, dan belajar bersama.
+
+**— Sulthan A. Karimov —**

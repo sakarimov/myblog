@@ -4,7 +4,7 @@ project:
 website:
   title: ""
   site-url: https://sulthankarimov.my.id/myblog
-  favicon: assets/img/logo.png
+  favicon: assets/img/logo_S.png
   navbar:
     logo: assets/img/logo_cropped.png
     search: true

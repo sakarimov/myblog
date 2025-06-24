@@ -11,3 +11,4 @@ libs/
 _site/
 .quarto/
 .aider*
+*.quarto_ipynb
