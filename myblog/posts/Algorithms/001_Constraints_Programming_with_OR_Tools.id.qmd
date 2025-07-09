@@ -48,7 +48,7 @@ Intinya, OR-Tools mengimplementasikan algoritma canggih:
 - **Pencarian backtracking** (mencoba kemungkinan secara sistematis)
 - **Heuristik** (strategi tebakan cerdas)
 
-```{python}
+```{.python .example-code}
 from ortools.sat.python import cp_model
 
 model = cp_model.CpModel()
@@ -78,7 +78,7 @@ OR-Tools unggul dalam tantangan praktis:
 
 Mari lihat bagaimana pemrograman keterbatasan memecahkan Sudoku - bukan dengan heuristik cerdas, tapi dengan memperlakukannya sebagai masalah keterbatasan murni:
 
-```{python}
+```{.python .example-code}
 # Mendefinisikan grid 9x9
 for i in range(9):
     for j in range(9):
@@ -114,7 +114,7 @@ Produsen elektronik menggunakan pemrograman keterbatasan untuk:
 
 Keindahan pemrograman keterbatasan modern adalah kemudahan aksesnya. Setup dasar hanya membutuhkan:
 
-```{bash}
+```{.bash .example-code}
 pip install ortools
 ```
 

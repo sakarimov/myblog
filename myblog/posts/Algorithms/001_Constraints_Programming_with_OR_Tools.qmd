@@ -48,7 +48,7 @@ At its core, OR-Tools implements sophisticated algorithms:
 - **Backtracking search** (systematically trying possibilities)
 - **Heuristics** (smart guessing strategies)
 
-```python
+```{.python .example-code}
 from ortools.sat.python import cp_model
 
 model = cp_model.CpModel()
@@ -78,7 +78,7 @@ OR-Tools shines on practical challenges:
 
 Let's examine how constraint programming cracks Sudoku - not with clever heuristics, but by treating it as a pure constraint problem:
 
-```python
+```{.python .example-code}
 # Defining the 9x9 grid
 for i in range(9):
     for j in range(9):
@@ -114,7 +114,7 @@ Electronics manufacturers use constraint programming to:
 
 The beauty of modern constraint programming is its accessibility. A basic setup requires just:
 
-```bash
+```{.bash .example-code}
 pip install ortools
 ```
 
