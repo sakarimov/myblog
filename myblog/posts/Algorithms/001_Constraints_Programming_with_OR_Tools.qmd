@@ -33,7 +33,6 @@ We are given a list of subjects and classrooms. Each subject has a required numb
 Let’s define our subjects and classrooms:
 
 ```{python}
-#| eval: false
 subjects = {
     "PAI": {"hour": 2},
     "Al-Qur'an": {"hour": 3},
@@ -52,7 +51,6 @@ slots = [(d, h) for d in weekdays for h in hours]
 We’ll use `cp_model` from OR-Tools to define our variables and constraints.
 
 ```{python}
-#| eval: false
 from ortools.sat.python import cp_model
 
 model = cp_model.CpModel()
@@ -70,7 +68,6 @@ for cls in classrooms:
 ### 1. Each subject must be assigned the exact number of required hours:
 
 ```{python}
-#| eval: false
 subject_slots_per_classroom_subject = {}
 for cls in classrooms:
     for subj, subject in subjects.items():
@@ -84,7 +81,6 @@ for cls in classrooms:
 ### 2. Each classroom can only have one subject per slot:
 
 ```{python}
-#| eval: false
 for cls in classrooms:
     for slot in slots:
         one_subject_per_slot = [is_subject_assigned[(cls, subj, slot)] for subj in subjects]
@@ -96,7 +92,6 @@ for cls in classrooms:
 Now we’ll solve the model and print the schedule if it exists.
 
 ```{python}
-#| eval: false
 solver = cp_model.CpSolver()
 status = solver.Solve(model)
 
