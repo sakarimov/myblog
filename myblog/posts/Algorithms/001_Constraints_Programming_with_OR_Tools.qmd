@@ -1,171 +1,150 @@
 ---
-title: "Solving Real-World Puzzles with Constraint Programming and OR-Tools"
-date: "2025-07-08"
+title: "Constraint Programming with OR-Tools"
 author: "Sulthan A. Karimov"
-categories: [Algorithms, Optimization, Python]
-description: "How constraint programming and Google's OR-Tools can elegantly solve complex scheduling, routing, and logic problems."
-draft: false
+date: today
+format:
+  html:
+    toc: true
+    code-fold: true
+    code-tools: true
+    code-overflow: wrap
+    number-sections: true
+    df-print: paged
+    engine: knitr
 ---
 
-::: {.content-visible unless-meta="draft"}
+## Introduction: Why Constraint Programming?
 
-# When Constraints Become Solutions
+In many real-world scenarios, we often face problems that involve making a series of decisions subject to a set of constraints. For example, assigning employees to shifts, organizing school timetables, or optimizing routes for delivery services. These are known as **combinatorial optimization problems**, and they can be quite challenging to solve with brute force or simple heuristics.
 
-There exists a peculiar class of problems where the solution isn't about finding the optimal path forward, but rather about satisfying a web of interconnected rules. These are constraint satisfaction problems (CSPs), and they appear everywhere - from scheduling your team's shifts to solving the morning's Sudoku puzzle. What makes them fascinating is that the constraints _are_ the solution - we just need the right tools to uncover them.
+This is where **constraint programming (CP)** comes in — a paradigm designed for solving such problems efficiently. Google’s **OR-Tools** is a powerful open-source toolkit that provides a constraint solver along with other optimization engines. In this article, we’ll explore how to use OR-Tools in Python to model and solve a scheduling problem with hard constraints.
 
-## The Art of Constraint Programming
+Our example: **Assigning subjects to weekly time slots in classrooms**, where each subject has a required number of hours, and subjects must not overlap within the same classroom.
 
-Constraint programming is like being a master puzzle-maker who understands that the true solution emerges from carefully designed limitations. Unlike traditional algorithms that follow step-by-step procedures, constraint programming:
+Let’s dive in!
 
-1. **Declares what we know** (variables and their possible values)
-2. **States what must be true** (the constraints)
-3. **Lets the solver do the heavy lifting** (searching for valid combinations)
+## Defining the Scheduling Problem
 
-This paradigm shift makes it perfect for problems where relationships between elements matter more than the path to the solution.
+We are given a list of subjects and classrooms. Each subject has a required number of hours per week. Our goal is to assign subjects to weekly time slots such that:
 
-### A Language of Limitations
+1. Each subject gets exactly the number of hours it requires.
+2. Each classroom has only one subject per slot.
 
-Consider a university scheduling:
+Let’s define our subjects and classrooms:
 
-- **Variables**: Class times, rooms, professors
-- **Domains**: 
-  - Times: 8AM-5PM slots 
-  - Rooms: Building A/B/C
-  - Professors: Availability schedules
-- **Constraints**:
-  - No professor teaches two classes simultaneously
-  - Room capacities must match class sizes
-  - CS classes should cluster in the tech building
-
-What seems like bureaucratic red tape becomes precise mathematical constraints that, when satisfied, yield a perfect schedule.
-
-## OR-Tools: Google's Optimization Powerhouse
-
-Google's OR-Tools provides industrial-strength constraint programming capabilities wrapped in an accessible Python package. Its true power lies in:
-
-### 1. The Constraint Satisfaction Engine
-At its core, OR-Tools implements sophisticated algorithms:
-
-- **Arc consistency** (eliminating impossible values early)
-- **Backtracking search** (systematically trying possibilities)
-- **Heuristics** (smart guessing strategies)
-
-```{.python .example-code}
-# Import the constraint programming module from OR-Tools
-from ortools.sat.python import cp_model
-
-# Initialize the constraint programming model
-model = cp_model.CpModel()
-
-# Create boolean variables for each employee's shift assignment
-# Each variable represents whether an employee works (True/False)
-shifts = {
-    employee: model.NewBoolVar(f"{employee}_works") 
-    for employee in employees
+```{python}
+subjects = {
+    "PAI": {"hour": 2},
+    "Al-Qur'an": {"hour": 3},
+    "Olahraga": {"hour": 2},
 }
 
-# Add the core constraint: at least 'minimum_staff' must be working
-# This ensures we never have fewer workers than required
-model.Add(sum(shifts.values()) >= minimum_staff)
+classrooms = ["Kelas1_C0", "Kelas1_C1"]
 
-# Note: Additional constraints would typically be added here
-# For example: maximum consecutive shifts, required days off, etc.
+weekdays = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"]
+hours = ["07.00", "08.00", "09.00", "10.00", "11.00", "13.00"]
+slots = [(d, h) for d in weekdays for h in hours]
 ```
 
-### 2. Real-World Problem Solving
-OR-Tools shines on practical challenges:
+## Building the Constraint Model
 
-**Delivery Route Optimization**
-- Variables: Truck assignments, routes
-- Constraints: 
-  - Delivery time windows
-  - Vehicle capacities
-  - Driver working hours
-- Objective: Minimize total delivery time
+We’ll use `cp_model` from OR-Tools to define our variables and constraints.
 
-**Manufacturing Scheduling**
-- Variables: Machine allocations
-- Constraints:
-  - Operation sequences
-  - Maintenance windows
-  - Resource limitations
+```{python}
+from ortools.sat.python import cp_model
 
-## Case Study: The Sudoku Revelation
+model = cp_model.CpModel()
 
-Let's examine how constraint programming cracks Sudoku - not with clever heuristics, but by treating it as a pure constraint problem:
-
-```{.python .example-code}
-# Defining the 9x9 grid variables
-# Each cell gets an integer variable with possible values 1-9
-for i in range(9):
-    for j in range(9):
-        grid[(i,j)] = model.NewIntVar(1, 9, f'cell_{i}_{j}')
-
-# Row constraints: All values in each row must be different
-for i in range(9):
-    model.AddAllDifferent([grid[(i,j)] for j in range(9)])
-    # This creates 9 separate constraints (one per row)
-    # Each ensures numbers 1-9 appear exactly once in the row
-
-# Column constraints: All values in each column must be different
-for j in range(9):
-    model.AddAllDifferent([grid[(i,j)] for i in range(9)])
-    # Similarly ensures numbers 1-9 appear exactly once per column
-
-# 3x3 subgrid constraints: All values in each 3x3 box must be different
-# We define the top-left corner of each 3x3 box
-box_starts = [(0,0), (0,3), (0,6), 
-             (3,0), (3,3), (3,6),
-             (6,0), (6,3), (6,6)]
-
-for box_i, box_j in box_starts:
-    # Get all cells in the current 3x3 box
-    box_cells = [
-        grid[(box_i+i, box_j+j)] 
-        for i in range(3) 
-        for j in range(3)
-    ]
-    model.AddAllDifferent(box_cells)
-    # This creates 9 constraints ensuring each number appears once per box
+# Variable: is_subject_assigned[(classroom, subject, slot)] = 1 if subject is scheduled in that slot
+is_subject_assigned = {}
+for cls in classrooms:
+    for subj in subjects:
+        for slot in slots:
+            is_subject_assigned[(cls, subj, slot)] = model.NewBoolVar(f"{cls}_{subj}_{slot}")
 ```
 
-Notice how we describe _what_ makes a valid solution rather than _how_ to find it. This declarative approach allows OR-Tools to employ advanced solving techniques under the hood.
+## Adding Constraints to the Model
 
-## Beyond Puzzles: Industrial Applications
+### 1. Each subject must be assigned the exact number of required hours:
 
-### Hospital Staff Scheduling
-A Tokyo hospital reduced nurse scheduling time from 8 hours to 15 minutes using similar techniques, while:
-- Honoring seniority preferences
-- Ensuring specialty coverage
-- Balancing shift fairness
-
-### Circuit Board Design
-Electronics manufacturers use constraint programming to:
-- Place components without overlaps
-- Minimize trace lengths
-- Satisfy thermal constraints
-
-## Getting Started with OR-Tools
-
-The beauty of modern constraint programming is its accessibility. A basic setup requires just:
-
-```{.bash .example-code}
-pip install ortools
+```{python}
+subject_slots_per_classroom_subject = {}
+for cls in classrooms:
+    for subj, subject in subjects.items():
+        assigned_slots = [is_subject_assigned[(cls, subj, slot)] for slot in slots]
+        var = model.NewIntVar(0, len(slots), f"hours_{cls}_{subj}")
+        model.Add(var == sum(assigned_slots))
+        model.Add(var == subject["hour"])
+        subject_slots_per_classroom_subject[(cls, subj)] = var
 ```
 
-Then you're ready to model problems ranging from:
-- Cryptarithmetic puzzles (SEND + MORE = MONEY)
-- Magic squares
-- Classroom seating arrangements
-- Sports tournament scheduling
+### 2. Each classroom can only have one subject per slot:
 
-## The Constraint Mindset
+```{python}
+for cls in classrooms:
+    for slot in slots:
+        one_subject_per_slot = [is_subject_assigned[(cls, subj, slot)] for subj in subjects]
+        model.Add(sum(one_subject_per_slot) <= 1)
+```
 
-What makes constraint programming transformative isn't just the technology, but the mental shift it encourages. By focusing on:
-- Clearly defining variables
-- Precisely stating constraints
-- Letting the solver handle the search
+## Solving the Model
 
-We free ourselves to think about _what_ needs solving rather than _how_ to solve it. In an increasingly complex world, that's not just convenient - it's revolutionary.
+Now we’ll solve the model and print the schedule if it exists.
 
-:::
+```{python}
+#| eval: false
+solver = cp_model.CpSolver()
+status = solver.Solve(model)
+
+if status == cp_model.FEASIBLE or status == cp_model.OPTIMAL:
+    for cls in classrooms:
+        print(f"\nSchedule for {cls}:")
+        for day in weekdays:
+            print(f"  {day}:")
+            for hour in hours:
+                slot = (day, hour)
+                subject_found = False
+                for subj in subjects:
+                    if solver.Value(is_subject_assigned[(cls, subj, slot)]) == 1:
+                        print(f"    {hour}: {subj}")
+                        subject_found = True
+                if not subject_found:
+                    print(f"    {hour}: -")
+else:
+    print("No solution found.")
+```
+
+## Sample Output
+
+Here's an example output for `Kelas1_C0`:
+
+```{txt}
+Schedule for Kelas1_C0:
+  Senin:
+    07.00: PAI
+    08.00: Al-Qur'an
+    09.00: Al-Qur'an
+    ...
+```
+
+(Your results may vary based on how the solver assigns time slots.)
+
+## Conclusion
+
+We’ve just modeled a simple weekly scheduling problem using constraint programming with OR-Tools. We:
+
+* Defined subjects and classrooms
+* Created binary decision variables
+* Applied hard constraints for hours and exclusivity
+* Solved and printed the solution
+
+This is only scratching the surface — you can add more constraints like teacher availability, subject preferences, or soft constraints (e.g., minimizing gaps). Constraint programming gives you a powerful, declarative way to solve such scheduling challenges.
+
+### 🔗 Resources
+
+* [Google OR-Tools Documentation](https://developers.google.com/optimization)
+* [OR-Tools Python Examples](https://github.com/google/or-tools/tree/stable/examples/python)
+* [MiniZinc](https://www.minizinc.org/) – another popular CP system
+
+Let me know if you’d like to expand this tutorial to cover optimization goals or soft constraints!
+
