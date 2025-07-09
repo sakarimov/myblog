@@ -26,6 +26,7 @@ This paradigm shift makes it perfect for problems where relationships between el
 ### A Language of Limitations
 
 Consider a university scheduling:
+
 - **Variables**: Class times, rooms, professors
 - **Domains**: 
   - Times: 8AM-5PM slots 
@@ -44,6 +45,7 @@ Google's OR-Tools provides industrial-strength constraint programming capabiliti
 
 ### 1. The Constraint Satisfaction Engine
 At its core, OR-Tools implements sophisticated algorithms:
+
 - **Arc consistency** (eliminating impossible values early)
 - **Backtracking search** (systematically trying possibilities)
 - **Heuristics** (smart guessing strategies)
