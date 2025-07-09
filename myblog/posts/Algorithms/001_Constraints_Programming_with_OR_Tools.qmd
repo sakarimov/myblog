@@ -51,11 +51,25 @@ At its core, OR-Tools implements sophisticated algorithms:
 - **Heuristics** (smart guessing strategies)
 
 ```{.python .example-code}
+# Import the constraint programming module from OR-Tools
 from ortools.sat.python import cp_model
 
+# Initialize the constraint programming model
 model = cp_model.CpModel()
-shifts = {employee: model.NewBoolVar(f"{employee}_works") for employee in employees}
+
+# Create boolean variables for each employee's shift assignment
+# Each variable represents whether an employee works (True/False)
+shifts = {
+    employee: model.NewBoolVar(f"{employee}_works") 
+    for employee in employees
+}
+
+# Add the core constraint: at least 'minimum_staff' must be working
+# This ensures we never have fewer workers than required
 model.Add(sum(shifts.values()) >= minimum_staff)
+
+# Note: Additional constraints would typically be added here
+# For example: maximum consecutive shifts, required days off, etc.
 ```
 
 ### 2. Real-World Problem Solving
@@ -81,19 +95,38 @@ OR-Tools shines on practical challenges:
 Let's examine how constraint programming cracks Sudoku - not with clever heuristics, but by treating it as a pure constraint problem:
 
 ```{.python .example-code}
-# Defining the 9x9 grid
+# Defining the 9x9 grid variables
+# Each cell gets an integer variable with possible values 1-9
 for i in range(9):
     for j in range(9):
         grid[(i,j)] = model.NewIntVar(1, 9, f'cell_{i}_{j}')
 
-# The elegant constraints
+# Row constraints: All values in each row must be different
 for i in range(9):
-    model.AddAllDifferent([grid[(i,j)] for j in range(9)])  # Rows
-    model.AddAllDifferent([grid[(j,i)] for j in range(9)])  # Columns
+    model.AddAllDifferent([grid[(i,j)] for j in range(9)])
+    # This creates 9 separate constraints (one per row)
+    # Each ensures numbers 1-9 appear exactly once in the row
 
-# 3x3 subgrid constraints
-for box_i, box_j in [(0,0), (0,3), (0,6), (3,0), (3,3), (3,6), (6,0), (6,3), (6,6)]:
-    model.AddAllDifferent([grid[(box_i+i, box_j+j)] for i in range(3) for j in range(3)])
+# Column constraints: All values in each column must be different
+for j in range(9):
+    model.AddAllDifferent([grid[(i,j)] for i in range(9)])
+    # Similarly ensures numbers 1-9 appear exactly once per column
+
+# 3x3 subgrid constraints: All values in each 3x3 box must be different
+# We define the top-left corner of each 3x3 box
+box_starts = [(0,0), (0,3), (0,6), 
+             (3,0), (3,3), (3,6),
+             (6,0), (6,3), (6,6)]
+
+for box_i, box_j in box_starts:
+    # Get all cells in the current 3x3 box
+    box_cells = [
+        grid[(box_i+i, box_j+j)] 
+        for i in range(3) 
+        for j in range(3)
+    ]
+    model.AddAllDifferent(box_cells)
+    # This creates 9 constraints ensuring each number appears once per box
 ```
 
 Notice how we describe _what_ makes a valid solution rather than _how_ to find it. This declarative approach allows OR-Tools to employ advanced solving techniques under the hood.

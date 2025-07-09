@@ -49,11 +49,25 @@ Intinya, OR-Tools mengimplementasikan algoritma canggih:
 - **Heuristik** (strategi tebakan cerdas)
 
 ```{.python .example-code}
+# Mengimpor modul pemrograman keterbatasan dari OR-Tools
 from ortools.sat.python import cp_model
 
+# Inisialisasi model pemrograman keterbatasan
 model = cp_model.CpModel()
-shifts = {karyawan: model.NewBoolVar(f"{karyawan}_bekerja") for karyawan in karyawan}
+
+# Membuat variabel boolean untuk penugasan shift setiap karyawan
+# Setiap variabel merepresentasikan apakah seorang karyawan bekerja (True/False)
+shifts = {
+    karyawan: model.NewBoolVar(f"{karyawan}_bekerja") 
+    for karyawan in karyawan
+}
+
+# Menambahkan constraint utama: minimal 'staf_minimum' harus bekerja
+# Memastikan kita tidak pernah kekurangan staf dari yang dibutuhkan
 model.Add(sum(shifts.values()) >= staf_minimum)
+
+# Catatan: Biasanya constraint tambahan akan ditambahkan di sini
+# Contoh: shift berturut-turut maksimum, hari libur wajib, dll.
 ```
 
 ### 2. Pemecahan Masalah Dunia Nyata
@@ -79,19 +93,38 @@ OR-Tools unggul dalam tantangan praktis:
 Mari lihat bagaimana pemrograman keterbatasan memecahkan Sudoku - bukan dengan heuristik cerdas, tapi dengan memperlakukannya sebagai masalah keterbatasan murni:
 
 ```{.python .example-code}
-# Mendefinisikan grid 9x9
+# Mendefinisikan variabel grid 9x9
+# Setiap sel mendapatkan variabel integer dengan nilai mungkin 1-9
 for i in range(9):
     for j in range(9):
         grid[(i,j)] = model.NewIntVar(1, 9, f'sel_{i}_{j}')
 
-# Constraints yang elegan
+# Constraint baris: Semua nilai dalam setiap baris harus berbeda
 for i in range(9):
-    model.AddAllDifferent([grid[(i,j)] for j in range(9)])  # Baris
-    model.AddAllDifferent([grid[(j,i)] for j in range(9)])  # Kolom
+    model.AddAllDifferent([grid[(i,j)] for j in range(9)])
+    # Membuat 9 constraint terpisah (satu per baris)
+    # Memastikan angka 1-9 muncul tepat sekali di setiap baris
 
-# Constraints subgrid 3x3
-for box_i, box_j in [(0,0), (0,3), (0,6), (3,0), (3,3), (3,6), (6,0), (6,3), (6,6)]:
-    model.AddAllDifferent([grid[(box_i+i, box_j+j)] for i in range(3) for j in range(3)])
+# Constraint kolom: Semua nilai dalam setiap kolom harus berbeda
+for j in range(9):
+    model.AddAllDifferent([grid[(i,j)] for i in range(9)])
+    # Memastikan angka 1-9 muncul tepat sekali per kolom
+
+# Constraint subgrid 3x3: Semua nilai dalam setiap kotak 3x3 harus berbeda
+# Kita definisikan sudut kiri atas dari setiap kotak 3x3
+awal_kotak = [(0,0), (0,3), (0,6), 
+             (3,0), (3,3), (3,6),
+             (6,0), (6,3), (6,6)]
+
+for box_i, box_j in awal_kotak:
+    # Ambil semua sel dalam kotak 3x3 saat ini
+    sel_kotak = [
+        grid[(box_i+i, box_j+j)] 
+        for i in range(3) 
+        for j in range(3)
+    ]
+    model.AddAllDifferent(sel_kotak)
+    # Membuat 9 constraint memastikan setiap angka muncul sekali per kotak
 ```
 
 Perhatikan bagaimana kita mendeskripsikan _apa_ yang membuat solusi valid, bukan _bagaimana_ menemukannya. Pendekatan deklaratif ini memungkinkan OR-Tools menggunakan teknik penyelesaian canggih di balik layar.
