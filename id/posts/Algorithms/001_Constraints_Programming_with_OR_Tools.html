@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="id" xml:lang="id">
+<head>
+<link rel="alternate" hreflang="en" href="https://sulthankarimov.my.id/myblog/posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html" />
+<link rel="alternate" hreflang="id" href="https://sulthankarimov.my.id/myblog/id/posts/Algorithms/001_Constraints_Programming_with_OR_Tools.id.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="author" content="Sulthan A. Karimov">
+<title>Pemrograman Kendala dengan OR-Tools</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script><script src="../../site_libs/quarto-nav/headroom.min.js"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script><script src="../../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../../site_libs/quarto-search/fuse.min.js"></script><script src="../../site_libs/quarto-search/quarto-search.js"></script><meta name="quarto:offset" content="../../">
+<link href="../../assets/img/logo_S.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script><script src="../../site_libs/quarto-html/popper.min.js"></script><script src="../../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../../site_libs/quarto-html/anchor.min.js"></script><link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script><link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Tidak ada hasil",
+    "search-matching-documents-text": "dokumen cocok",
+    "search-copy-link-title": "Salin tautan untuk mencari",
+    "search-hide-matches-text": "Sembunyikan kecocokan lainnya",
+    "search-more-match-text": "kecocokan lainnya di dokumen ini",
+    "search-more-matches-text": "kecocokan lainnya di dokumen ini",
+    "search-clear-button-title": "Hapus",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Batal",
+    "search-submit-button-title": "Kirim",
+    "search-label": "Mencari"
+  }
+}</script><link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/img/logo_cropped.png" alt="" class="navbar-logo"></a>
+  </div>
+            <div id="quarto-search" class="" title="Mencari"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Alihkan navigasi" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item"><div class="dropdown" id="languages-links-parent">
+<button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="languages-button"><i class="bi bi-globe2"></i></button><ul class="dropdown-menu" id="languages-links"><li><a class="dropdown-item" href="https://sulthankarimov.my.id/myblog/posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html" id="language-link-en">English</a></li></ul>
+</div></li>
+<li class="dropdown-header">
+ <span class="menu-text">about.qmd</span>
+</li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/sakarimov"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/sulthan_karimov"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/sulthankarimov"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+</div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Alihkan mode pembaca">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alihkan bilah sisi" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item">Posts</li>
+<li class="breadcrumb-item"><a href="../../posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html">Algorithms</a></li>
+<li class="breadcrumb-item"><a href="../../posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html">Pemrograman Kendala dengan OR-Tools</a></li>
+</ol></nav><a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alihkan bilah sisi" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Posts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Alihkan bagian">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Algorithms</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Alihkan bagian">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Pemrograman Kendala dengan OR-Tools</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Data Science</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Alihkan bagian">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">
+<li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Alihkan bagian">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Data%20Science/Machine%20Learning/CNN.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convolutional Neural Network (CNN)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Data%20Science/Machine%20Learning/Dimensionality%20Reduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dimensionality Reduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Data%20Science/Machine%20Learning/JanKenPon%20CNN%20Feature%20Extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Student Name</strong> : Sulthan A. Karimov</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Data%20Science/Machine%20Learning/ML%20-%20Supervised%20Learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Machine Learning - Supervised Learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Data%20Science/Machine%20Learning/ML%20-%20Unsupervised%20Learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ML - Unsupervised Learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Data%20Science/Machine%20Learning/Submission.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><strong>Student Name</strong> : Sulthan A. Karimov</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Data%20Science/Machine%20Learning/Submission-colab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transfer Learning on Jankenpon Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Data%20Science/Machine%20Learning/Transfer%20Learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">import the necessary packages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Data%20Science/Machine%20Learning/Transfer%20Learning%20with%20CNN.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transfer Learning with CNN</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Data%20Science/Machine%20Learning/Untitled.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Untitled</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+      </ul>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Exercises</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Alihkan bagian">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Exercises/numpy%20task1%20solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solusi Tugas numpy 1</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Di halaman ini</h2>
+   
+  <ul>
+<li><a href="#pendahuluan-mengapa-pemrograman-kendala" id="toc-pendahuluan-mengapa-pemrograman-kendala" class="nav-link active" data-scroll-target="#pendahuluan-mengapa-pemrograman-kendala"><span class="header-section-number">1</span> Pendahuluan: Mengapa Pemrograman Kendala?</a></li>
+  <li><a href="#mendefinisikan-masalah-penjadwalan" id="toc-mendefinisikan-masalah-penjadwalan" class="nav-link" data-scroll-target="#mendefinisikan-masalah-penjadwalan"><span class="header-section-number">2</span> Mendefinisikan Masalah Penjadwalan</a></li>
+  <li><a href="#membangun-model-kendala" id="toc-membangun-model-kendala" class="nav-link" data-scroll-target="#membangun-model-kendala"><span class="header-section-number">3</span> Membangun Model Kendala</a></li>
+  <li>
+<a href="#menambahkan-kendala-ke-model" id="toc-menambahkan-kendala-ke-model" class="nav-link" data-scroll-target="#menambahkan-kendala-ke-model"><span class="header-section-number">4</span> Menambahkan Kendala ke Model</a>
+  <ul>
+<li><a href="#setiap-mata-pelajaran-dijadwalkan-sesuai-jumlah-jamnya" id="toc-setiap-mata-pelajaran-dijadwalkan-sesuai-jumlah-jamnya" class="nav-link" data-scroll-target="#setiap-mata-pelajaran-dijadwalkan-sesuai-jumlah-jamnya"><span class="header-section-number">4.1</span> 1. Setiap mata pelajaran dijadwalkan sesuai jumlah jamnya:</a></li>
+  <li><a href="#satu-kelas-hanya-boleh-memiliki-satu-mata-pelajaran-dalam-satu-slot" id="toc-satu-kelas-hanya-boleh-memiliki-satu-mata-pelajaran-dalam-satu-slot" class="nav-link" data-scroll-target="#satu-kelas-hanya-boleh-memiliki-satu-mata-pelajaran-dalam-satu-slot"><span class="header-section-number">4.2</span> 2. Satu kelas hanya boleh memiliki satu mata pelajaran dalam satu slot:</a></li>
+  </ul>
+</li>
+  <li><a href="#menyelesaikan-model" id="toc-menyelesaikan-model" class="nav-link" data-scroll-target="#menyelesaikan-model"><span class="header-section-number">5</span> Menyelesaikan Model</a></li>
+  <li><a href="#contoh-keluaran" id="toc-contoh-keluaran" class="nav-link" data-scroll-target="#contoh-keluaran"><span class="header-section-number">6</span> Contoh Keluaran</a></li>
+  <li>
+<a href="#kesimpulan" id="toc-kesimpulan" class="nav-link" data-scroll-target="#kesimpulan"><span class="header-section-number">7</span> Kesimpulan</a>
+  <ul>
+<li><a href="#sumber-belajar" id="toc-sumber-belajar" class="nav-link" data-scroll-target="#sumber-belajar"><span class="header-section-number">7.1</span> 🔗 Sumber Belajar</a></li>
+  </ul>
+</li>
+  </ul></nav>
+</div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item">Posts</li>
+<li class="breadcrumb-item"><a href="../../posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html">Algorithms</a></li>
+<li class="breadcrumb-item"><a href="../../posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html">Pemrograman Kendala dengan OR-Tools</a></li>
+</ol></nav><div class="quarto-title">
+<div class="quarto-title-block"><div>
+<h1 class="title">Pemrograman Kendala dengan OR-Tools</h1>
+<button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Kode</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu">
+<li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Tampilkan Semua Kode</a></li>
+<li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Sembunyikan Semua Kode</a></li>
+<li><hr class="dropdown-divider"></li>
+<li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Lihat Sumber</a></li>
+</ul>
+</div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Penulis</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sulthan A. Karimov </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Diterbitkan</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">9 Juli 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header><section id="pendahuluan-mengapa-pemrograman-kendala" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="pendahuluan-mengapa-pemrograman-kendala">
+<span class="header-section-number">1</span> Pendahuluan: Mengapa Pemrograman Kendala?</h2>
+<p>Dalam banyak skenario dunia nyata, kita sering dihadapkan pada masalah yang melibatkan serangkaian keputusan yang harus dibuat dengan batasan tertentu. Contohnya termasuk penjadwalan shift karyawan, menyusun jadwal pelajaran sekolah, atau mengoptimalkan rute pengiriman barang. Masalah-masalah ini dikenal sebagai <strong>masalah optimasi kombinatorial</strong>, dan seringkali sulit diselesaikan dengan pendekatan brute force atau heuristik sederhana.</p>
+<p>Di sinilah <strong>pemrograman kendala (constraint programming)</strong> berperan — sebuah paradigma yang dirancang untuk menyelesaikan masalah seperti ini secara efisien. <strong>OR-Tools</strong> dari Google adalah toolkit open-source yang sangat kuat dan menyediakan pemecah kendala (constraint solver) serta mesin optimasi lainnya. Dalam artikel ini, kita akan mengeksplorasi bagaimana menggunakan OR-Tools dalam Python untuk memodelkan dan menyelesaikan masalah penjadwalan dengan kendala keras (hard constraints).</p>
+<p>Contoh kasus kita: <strong>Menjadwalkan mata pelajaran ke dalam slot waktu mingguan di kelas</strong>, di mana setiap mata pelajaran memiliki jumlah jam tertentu, dan tidak boleh ada tumpang tindih mata pelajaran dalam satu kelas pada waktu yang sama.</p>
+<p>Yuk kita mulai!</p>
+</section><section id="mendefinisikan-masalah-penjadwalan" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="mendefinisikan-masalah-penjadwalan">
+<span class="header-section-number">2</span> Mendefinisikan Masalah Penjadwalan</h2>
+<p>Kita memiliki daftar mata pelajaran dan kelas. Setiap mata pelajaran memiliki jumlah jam per minggu. Tujuan kita adalah menjadwalkan mata pelajaran ke dalam slot waktu mingguan sehingga:</p>
+<ol type="1">
+<li>Setiap mata pelajaran dijadwalkan sesuai jumlah jam yang dibutuhkan.</li>
+<li>Setiap kelas hanya boleh memiliki satu mata pelajaran dalam satu slot.</li>
+</ol>
+<p>Berikut definisi mata pelajaran dan kelas:</p>
+<div id="2a3acbb9" class="cell" data-execution_count="1">
+<details class="code-fold"><summary>Kode</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>subjects <span class="op">=</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PAI"</span>: {<span class="st">"hour"</span>: <span class="dv">2</span>},</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Al-Qur'an"</span>: {<span class="st">"hour"</span>: <span class="dv">3</span>},</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Olahraga"</span>: {<span class="st">"hour"</span>: <span class="dv">2</span>},</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>classrooms <span class="op">=</span> [<span class="st">"Kelas1_C0"</span>, <span class="st">"Kelas1_C1"</span>]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>weekdays <span class="op">=</span> [<span class="st">"Senin"</span>, <span class="st">"Selasa"</span>, <span class="st">"Rabu"</span>, <span class="st">"Kamis"</span>, <span class="st">"Jumat"</span>]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>hours <span class="op">=</span> [<span class="st">"07.00"</span>, <span class="st">"08.00"</span>, <span class="st">"09.00"</span>, <span class="st">"10.00"</span>, <span class="st">"11.00"</span>, <span class="st">"13.00"</span>]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>slots <span class="op">=</span> [(d, h) <span class="cf">for</span> d <span class="kw">in</span> weekdays <span class="cf">for</span> h <span class="kw">in</span> hours]</span></code><button title="Salin ke Papan Klip" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="membangun-model-kendala" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="membangun-model-kendala">
+<span class="header-section-number">3</span> Membangun Model Kendala</h2>
+<p>Kita akan menggunakan <code>cp_model</code> dari OR-Tools untuk mendefinisikan variabel dan kendala.</p>
+<div id="9eabe795" class="cell" data-execution_count="2">
+<details class="code-fold"><summary>Kode</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ortools.sat.python <span class="im">import</span> cp_model</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> cp_model.CpModel()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Variabel: is_subject_assigned[(kelas, mata pelajaran, slot)] = 1 jika dijadwalkan di slot tersebut</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>is_subject_assigned <span class="op">=</span> {}</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cls <span class="kw">in</span> classrooms:</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> subj <span class="kw">in</span> subjects:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> slot <span class="kw">in</span> slots:</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            is_subject_assigned[(cls, subj, slot)] <span class="op">=</span> model.NewBoolVar(<span class="ss">f"</span><span class="sc">{</span>cls<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>subj<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>slot<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Salin ke Papan Klip" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="menambahkan-kendala-ke-model" class="level2" data-number="4"><h2 data-number="4" class="anchored" data-anchor-id="menambahkan-kendala-ke-model">
+<span class="header-section-number">4</span> Menambahkan Kendala ke Model</h2>
+<section id="setiap-mata-pelajaran-dijadwalkan-sesuai-jumlah-jamnya" class="level3" data-number="4.1"><h3 data-number="4.1" class="anchored" data-anchor-id="setiap-mata-pelajaran-dijadwalkan-sesuai-jumlah-jamnya">
+<span class="header-section-number">4.1</span> 1. Setiap mata pelajaran dijadwalkan sesuai jumlah jamnya:</h3>
+<div id="906e44c5" class="cell" data-execution_count="3">
+<details class="code-fold"><summary>Kode</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>subject_slots_per_classroom_subject <span class="op">=</span> {}</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cls <span class="kw">in</span> classrooms:</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> subj, subject <span class="kw">in</span> subjects.items():</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        assigned_slots <span class="op">=</span> [is_subject_assigned[(cls, subj, slot)] <span class="cf">for</span> slot <span class="kw">in</span> slots]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        var <span class="op">=</span> model.NewIntVar(<span class="dv">0</span>, <span class="bu">len</span>(slots), <span class="ss">f"hours_</span><span class="sc">{</span>cls<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>subj<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        model.Add(var <span class="op">==</span> <span class="bu">sum</span>(assigned_slots))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        model.Add(var <span class="op">==</span> subject[<span class="st">"hour"</span>])</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        subject_slots_per_classroom_subject[(cls, subj)] <span class="op">=</span> var</span></code><button title="Salin ke Papan Klip" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="satu-kelas-hanya-boleh-memiliki-satu-mata-pelajaran-dalam-satu-slot" class="level3" data-number="4.2"><h3 data-number="4.2" class="anchored" data-anchor-id="satu-kelas-hanya-boleh-memiliki-satu-mata-pelajaran-dalam-satu-slot">
+<span class="header-section-number">4.2</span> 2. Satu kelas hanya boleh memiliki satu mata pelajaran dalam satu slot:</h3>
+<div id="00bda963" class="cell" data-execution_count="4">
+<details class="code-fold"><summary>Kode</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cls <span class="kw">in</span> classrooms:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> slot <span class="kw">in</span> slots:</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        one_subject_per_slot <span class="op">=</span> [is_subject_assigned[(cls, subj, slot)] <span class="cf">for</span> subj <span class="kw">in</span> subjects]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        model.Add(<span class="bu">sum</span>(one_subject_per_slot) <span class="op">&lt;=</span> <span class="dv">1</span>)</span></code><button title="Salin ke Papan Klip" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section></section><section id="menyelesaikan-model" class="level2" data-number="5"><h2 data-number="5" class="anchored" data-anchor-id="menyelesaikan-model">
+<span class="header-section-number">5</span> Menyelesaikan Model</h2>
+<p>Sekarang kita jalankan solver dan cetak hasil jadwal jika solusi ditemukan.</p>
+<div id="321a19b7" class="cell" data-execution_count="5">
+<details class="code-fold"><summary>Kode</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>solver <span class="op">=</span> cp_model.CpSolver()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>status <span class="op">=</span> solver.Solve(model)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> status <span class="op">==</span> cp_model.FEASIBLE <span class="kw">or</span> status <span class="op">==</span> cp_model.OPTIMAL:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cls <span class="kw">in</span> classrooms:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Jadwal untuk </span><span class="sc">{</span>cls<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> day <span class="kw">in</span> weekdays:</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>day<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> hour <span class="kw">in</span> hours:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>                slot <span class="op">=</span> (day, hour)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                subject_found <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> subj <span class="kw">in</span> subjects:</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> solver.Value(is_subject_assigned[(cls, subj, slot)]) <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                        <span class="bu">print</span>(<span class="ss">f"    </span><span class="sc">{</span>hour<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>subj<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                        subject_found <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="kw">not</span> subject_found:</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="ss">f"    </span><span class="sc">{</span>hour<span class="sc">}</span><span class="ss">: -"</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Tidak ada solusi ditemukan."</span>)</span></code><button title="Salin ke Papan Klip" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="contoh-keluaran" class="level2" data-number="6"><h2 data-number="6" class="anchored" data-anchor-id="contoh-keluaran">
+<span class="header-section-number">6</span> Contoh Keluaran</h2>
+<p>Contoh hasil jadwal untuk <code>Kelas1_C0</code>:</p>
+<pre class="{txt}"><code>Jadwal untuk Kelas1_C0:
+  Senin:
+    07.00: PAI
+    08.00: Al-Qur'an
+    09.00: Al-Qur'an
+    ...</code></pre>
+<p>(Hasil dapat berbeda tergantung bagaimana solver menetapkan slot.)</p>
+</section><section id="kesimpulan" class="level2" data-number="7"><h2 data-number="7" class="anchored" data-anchor-id="kesimpulan">
+<span class="header-section-number">7</span> Kesimpulan</h2>
+<p>Kita telah memodelkan masalah penjadwalan sederhana menggunakan pemrograman kendala dengan OR-Tools. Kita:</p>
+<ul>
+<li>Mendefinisikan mata pelajaran dan kelas</li>
+<li>Membuat variabel keputusan biner</li>
+<li>Menambahkan kendala keras untuk jumlah jam dan eksklusivitas</li>
+<li>Menyelesaikan dan mencetak jadwal</li>
+</ul>
+<p>Ini baru permulaan — kamu bisa menambahkan lebih banyak kendala seperti ketersediaan guru, preferensi waktu, atau kendala lunak (misalnya meminimalkan jeda antar pelajaran). Pemrograman kendala menawarkan pendekatan deklaratif yang kuat untuk menyelesaikan masalah penjadwalan kompleks.</p>
+<section id="sumber-belajar" class="level3" data-number="7.1"><h3 data-number="7.1" class="anchored" data-anchor-id="sumber-belajar">
+<span class="header-section-number">7.1</span> 🔗 Sumber Belajar</h3>
+<ul>
+<li><a href="https://developers.google.com/optimization">Dokumentasi Google OR-Tools</a></li>
+<li><a href="https://github.com/google/or-tools/tree/stable/examples/python">Contoh Python OR-Tools</a></li>
+<li>
+<a href="https://www.minizinc.org/">MiniZinc</a> – sistem CP populer lainnya</li>
+</ul>
+<p>Jika kamu ingin memperluas tutorial ini ke optimasi atau kendala lunak, tinggal beri tahu saya!</p>
+
+
+<!-- -->
+
+</section></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Kembali ke atas</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Disalin!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Disalin!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Kode Sumber</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body"><div class="">
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Pemrograman Kendala dengan OR-Tools"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Sulthan A. Karimov"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> today</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">    df-print: paged</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">    engine: knitr</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pendahuluan: Mengapa Pemrograman Kendala?</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>Dalam banyak skenario dunia nyata, kita sering dihadapkan pada masalah yang melibatkan serangkaian keputusan yang harus dibuat dengan batasan tertentu. Contohnya termasuk penjadwalan shift karyawan, menyusun jadwal pelajaran sekolah, atau mengoptimalkan rute pengiriman barang. Masalah-masalah ini dikenal sebagai **masalah optimasi kombinatorial**, dan seringkali sulit diselesaikan dengan pendekatan brute force atau heuristik sederhana.</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>Di sinilah **pemrograman kendala (constraint programming)** berperan — sebuah paradigma yang dirancang untuk menyelesaikan masalah seperti ini secara efisien. **OR-Tools** dari Google adalah toolkit open-source yang sangat kuat dan menyediakan pemecah kendala (constraint solver) serta mesin optimasi lainnya. Dalam artikel ini, kita akan mengeksplorasi bagaimana menggunakan OR-Tools dalam Python untuk memodelkan dan menyelesaikan masalah penjadwalan dengan kendala keras (hard constraints).</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>Contoh kasus kita: **Menjadwalkan mata pelajaran ke dalam slot waktu mingguan di kelas**, di mana setiap mata pelajaran memiliki jumlah jam tertentu, dan tidak boleh ada tumpang tindih mata pelajaran dalam satu kelas pada waktu yang sama.</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>Yuk kita mulai!</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mendefinisikan Masalah Penjadwalan</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>Kita memiliki daftar mata pelajaran dan kelas. Setiap mata pelajaran memiliki jumlah jam per minggu. Tujuan kita adalah menjadwalkan mata pelajaran ke dalam slot waktu mingguan sehingga:</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Setiap mata pelajaran dijadwalkan sesuai jumlah jam yang dibutuhkan.</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Setiap kelas hanya boleh memiliki satu mata pelajaran dalam satu slot.</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>Berikut definisi mata pelajaran dan kelas:</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>subjects <span class="op">=</span> {</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PAI"</span>: {<span class="st">"hour"</span>: <span class="dv">2</span>},</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Al-Qur'an"</span>: {<span class="st">"hour"</span>: <span class="dv">3</span>},</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Olahraga"</span>: {<span class="st">"hour"</span>: <span class="dv">2</span>},</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>classrooms <span class="op">=</span> [<span class="st">"Kelas1_C0"</span>, <span class="st">"Kelas1_C1"</span>]</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>weekdays <span class="op">=</span> [<span class="st">"Senin"</span>, <span class="st">"Selasa"</span>, <span class="st">"Rabu"</span>, <span class="st">"Kamis"</span>, <span class="st">"Jumat"</span>]</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>hours <span class="op">=</span> [<span class="st">"07.00"</span>, <span class="st">"08.00"</span>, <span class="st">"09.00"</span>, <span class="st">"10.00"</span>, <span class="st">"11.00"</span>, <span class="st">"13.00"</span>]</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>slots <span class="op">=</span> [(d, h) <span class="cf">for</span> d <span class="kw">in</span> weekdays <span class="cf">for</span> h <span class="kw">in</span> hours]</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Membangun Model Kendala</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>Kita akan menggunakan <span class="in">`cp_model`</span> dari OR-Tools untuk mendefinisikan variabel dan kendala.</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ortools.sat.python <span class="im">import</span> cp_model</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> cp_model.CpModel()</span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Variabel: is_subject_assigned[(kelas, mata pelajaran, slot)] = 1 jika dijadwalkan di slot tersebut</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>is_subject_assigned <span class="op">=</span> {}</span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cls <span class="kw">in</span> classrooms:</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> subj <span class="kw">in</span> subjects:</span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> slot <span class="kw">in</span> slots:</span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>            is_subject_assigned[(cls, subj, slot)] <span class="op">=</span> model.NewBoolVar(<span class="ss">f"</span><span class="sc">{</span>cls<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>subj<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>slot<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Menambahkan Kendala ke Model</span></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a><span class="fu">### 1. Setiap mata pelajaran dijadwalkan sesuai jumlah jamnya:</span></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>subject_slots_per_classroom_subject <span class="op">=</span> {}</span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cls <span class="kw">in</span> classrooms:</span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> subj, subject <span class="kw">in</span> subjects.items():</span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>        assigned_slots <span class="op">=</span> [is_subject_assigned[(cls, subj, slot)] <span class="cf">for</span> slot <span class="kw">in</span> slots]</span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>        var <span class="op">=</span> model.NewIntVar(<span class="dv">0</span>, <span class="bu">len</span>(slots), <span class="ss">f"hours_</span><span class="sc">{</span>cls<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>subj<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>        model.Add(var <span class="op">==</span> <span class="bu">sum</span>(assigned_slots))</span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>        model.Add(var <span class="op">==</span> subject[<span class="st">"hour"</span>])</span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>        subject_slots_per_classroom_subject[(cls, subj)] <span class="op">=</span> var</span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a><span class="fu">### 2. Satu kelas hanya boleh memiliki satu mata pelajaran dalam satu slot:</span></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cls <span class="kw">in</span> classrooms:</span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> slot <span class="kw">in</span> slots:</span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>        one_subject_per_slot <span class="op">=</span> [is_subject_assigned[(cls, subj, slot)] <span class="cf">for</span> subj <span class="kw">in</span> subjects]</span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>        model.Add(<span class="bu">sum</span>(one_subject_per_slot) <span class="op">&lt;=</span> <span class="dv">1</span>)</span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="fu">## Menyelesaikan Model</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a>Sekarang kita jalankan solver dan cetak hasil jadwal jika solusi ditemukan.</span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a>solver <span class="op">=</span> cp_model.CpSolver()</span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a>status <span class="op">=</span> solver.Solve(model)</span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> status <span class="op">==</span> cp_model.FEASIBLE <span class="kw">or</span> status <span class="op">==</span> cp_model.OPTIMAL:</span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> cls <span class="kw">in</span> classrooms:</span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Jadwal untuk </span><span class="sc">{</span>cls<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> day <span class="kw">in</span> weekdays:</span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>day<span class="sc">}</span><span class="ss">:"</span>)</span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> hour <span class="kw">in</span> hours:</span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a>                slot <span class="op">=</span> (day, hour)</span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a>                subject_found <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> subj <span class="kw">in</span> subjects:</span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> solver.Value(is_subject_assigned[(cls, subj, slot)]) <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a>                        <span class="bu">print</span>(<span class="ss">f"    </span><span class="sc">{</span>hour<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>subj<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a>                        subject_found <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="kw">not</span> subject_found:</span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="ss">f"    </span><span class="sc">{</span>hour<span class="sc">}</span><span class="ss">: -"</span>)</span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Tidak ada solusi ditemukan."</span>)</span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a><span class="fu">## Contoh Keluaran</span></span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a>Contoh hasil jadwal untuk <span class="in">`Kelas1_C0`</span>:</span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{txt}</span></span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a><span class="in">Jadwal untuk Kelas1_C0:</span></span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a><span class="in">  Senin:</span></span>
+<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a><span class="in">    07.00: PAI</span></span>
+<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a><span class="in">    08.00: Al-Qur'an</span></span>
+<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a><span class="in">    09.00: Al-Qur'an</span></span>
+<span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a><span class="in">    ...</span></span>
+<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-145"><a href="#cb7-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a>(Hasil dapat berbeda tergantung bagaimana solver menetapkan slot.)</span>
+<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-148"><a href="#cb7-148" aria-hidden="true" tabindex="-1"></a><span class="fu">## Kesimpulan</span></span>
+<span id="cb7-149"><a href="#cb7-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-150"><a href="#cb7-150" aria-hidden="true" tabindex="-1"></a>Kita telah memodelkan masalah penjadwalan sederhana menggunakan pemrograman kendala dengan OR-Tools. Kita:</span>
+<span id="cb7-151"><a href="#cb7-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-152"><a href="#cb7-152" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Mendefinisikan mata pelajaran dan kelas</span>
+<span id="cb7-153"><a href="#cb7-153" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Membuat variabel keputusan biner</span>
+<span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Menambahkan kendala keras untuk jumlah jam dan eksklusivitas</span>
+<span id="cb7-155"><a href="#cb7-155" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Menyelesaikan dan mencetak jadwal</span>
+<span id="cb7-156"><a href="#cb7-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-157"><a href="#cb7-157" aria-hidden="true" tabindex="-1"></a>Ini baru permulaan — kamu bisa menambahkan lebih banyak kendala seperti ketersediaan guru, preferensi waktu, atau kendala lunak (misalnya meminimalkan jeda antar pelajaran). Pemrograman kendala menawarkan pendekatan deklaratif yang kuat untuk menyelesaikan masalah penjadwalan kompleks.</span>
+<span id="cb7-158"><a href="#cb7-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-159"><a href="#cb7-159" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🔗 Sumber Belajar</span></span>
+<span id="cb7-160"><a href="#cb7-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-161"><a href="#cb7-161" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Dokumentasi Google OR-Tools</span><span class="co">](https://developers.google.com/optimization)</span></span>
+<span id="cb7-162"><a href="#cb7-162" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Contoh Python OR-Tools</span><span class="co">](https://github.com/google/or-tools/tree/stable/examples/python)</span></span>
+<span id="cb7-163"><a href="#cb7-163" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">MiniZinc</span><span class="co">](https://www.minizinc.org/)</span> – sistem CP populer lainnya</span>
+<span id="cb7-164"><a href="#cb7-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-165"><a href="#cb7-165" aria-hidden="true" tabindex="-1"></a>Jika kamu ingin memperluas tutorial ini ke optimasi atau kendala lunak, tinggal beri tahu saya!</span>
+</code><button title="Salin ke Papan Klip" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body>
+</html>

@@ -14,6 +14,102 @@
     "text": "Ini adalah ruang kecil milik saya di internet, tempat saya berbagi pemikiran, proyek, dan pelajaran dari perjalanan saya sebagai programmer, pembelajar, dan seorang muslim.\nDulu saya sering ragu untuk berbagi — takut salah, takut tidak cukup baik. Tapi saya sadar: pertumbuhan terjadi ketika kita berbagi — bukan karena kita sempurna, tapi karena kita tulus.\nDari sinilah saya ingin membagikan apa pun yang bisa saya bagi, sekecil apa pun. Baik itu potongan kode, refleksi, atau ide sederhana — saya niatkan semua ini untuk memberi manfaat.\n\nBocah Angon Penekno Blimbing Kuwi\nLunyu Lunyu Penekno Kanggo Mbasuh Dodot Iro\n\nJika ada yang Anda temukan di sini dan itu bermanfaat atau menginspirasi — alhamdulillah. Jika belum, tidak apa-apa — saya masih belajar, masih tumbuh, dan saya bersyukur Anda telah mampir.\nBismillah — mari kita membangun, merenung, dan belajar bersama.\n— Sulthan A. Karimov —"
   },
   {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html",
+    "title": "Pemrograman Kendala dengan OR-Tools",
+    "section": "",
+    "text": "Dalam banyak skenario dunia nyata, kita sering dihadapkan pada masalah yang melibatkan serangkaian keputusan yang harus dibuat dengan batasan tertentu. Contohnya termasuk penjadwalan shift karyawan, menyusun jadwal pelajaran sekolah, atau mengoptimalkan rute pengiriman barang. Masalah-masalah ini dikenal sebagai masalah optimasi kombinatorial, dan seringkali sulit diselesaikan dengan pendekatan brute force atau heuristik sederhana.\nDi sinilah pemrograman kendala (constraint programming) berperan — sebuah paradigma yang dirancang untuk menyelesaikan masalah seperti ini secara efisien. OR-Tools dari Google adalah toolkit open-source yang sangat kuat dan menyediakan pemecah kendala (constraint solver) serta mesin optimasi lainnya. Dalam artikel ini, kita akan mengeksplorasi bagaimana menggunakan OR-Tools dalam Python untuk memodelkan dan menyelesaikan masalah penjadwalan dengan kendala keras (hard constraints).\nContoh kasus kita: Menjadwalkan mata pelajaran ke dalam slot waktu mingguan di kelas, di mana setiap mata pelajaran memiliki jumlah jam tertentu, dan tidak boleh ada tumpang tindih mata pelajaran dalam satu kelas pada waktu yang sama.\nYuk kita mulai!",
+    "crumbs": [
+      "Posts",
+      "Algorithms",
+      "Pemrograman Kendala dengan OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#pendahuluan-mengapa-pemrograman-kendala",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#pendahuluan-mengapa-pemrograman-kendala",
+    "title": "Pemrograman Kendala dengan OR-Tools",
+    "section": "",
+    "text": "Dalam banyak skenario dunia nyata, kita sering dihadapkan pada masalah yang melibatkan serangkaian keputusan yang harus dibuat dengan batasan tertentu. Contohnya termasuk penjadwalan shift karyawan, menyusun jadwal pelajaran sekolah, atau mengoptimalkan rute pengiriman barang. Masalah-masalah ini dikenal sebagai masalah optimasi kombinatorial, dan seringkali sulit diselesaikan dengan pendekatan brute force atau heuristik sederhana.\nDi sinilah pemrograman kendala (constraint programming) berperan — sebuah paradigma yang dirancang untuk menyelesaikan masalah seperti ini secara efisien. OR-Tools dari Google adalah toolkit open-source yang sangat kuat dan menyediakan pemecah kendala (constraint solver) serta mesin optimasi lainnya. Dalam artikel ini, kita akan mengeksplorasi bagaimana menggunakan OR-Tools dalam Python untuk memodelkan dan menyelesaikan masalah penjadwalan dengan kendala keras (hard constraints).\nContoh kasus kita: Menjadwalkan mata pelajaran ke dalam slot waktu mingguan di kelas, di mana setiap mata pelajaran memiliki jumlah jam tertentu, dan tidak boleh ada tumpang tindih mata pelajaran dalam satu kelas pada waktu yang sama.\nYuk kita mulai!",
+    "crumbs": [
+      "Posts",
+      "Algorithms",
+      "Pemrograman Kendala dengan OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#mendefinisikan-masalah-penjadwalan",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#mendefinisikan-masalah-penjadwalan",
+    "title": "Pemrograman Kendala dengan OR-Tools",
+    "section": "2 Mendefinisikan Masalah Penjadwalan",
+    "text": "2 Mendefinisikan Masalah Penjadwalan\nKita memiliki daftar mata pelajaran dan kelas. Setiap mata pelajaran memiliki jumlah jam per minggu. Tujuan kita adalah menjadwalkan mata pelajaran ke dalam slot waktu mingguan sehingga:\n\nSetiap mata pelajaran dijadwalkan sesuai jumlah jam yang dibutuhkan.\nSetiap kelas hanya boleh memiliki satu mata pelajaran dalam satu slot.\n\nBerikut definisi mata pelajaran dan kelas:\n\n\nKode\nsubjects = {\n    \"PAI\": {\"hour\": 2},\n    \"Al-Qur'an\": {\"hour\": 3},\n    \"Olahraga\": {\"hour\": 2},\n}\n\nclassrooms = [\"Kelas1_C0\", \"Kelas1_C1\"]\n\nweekdays = [\"Senin\", \"Selasa\", \"Rabu\", \"Kamis\", \"Jumat\"]\nhours = [\"07.00\", \"08.00\", \"09.00\", \"10.00\", \"11.00\", \"13.00\"]\nslots = [(d, h) for d in weekdays for h in hours]",
+    "crumbs": [
+      "Posts",
+      "Algorithms",
+      "Pemrograman Kendala dengan OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#membangun-model-kendala",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#membangun-model-kendala",
+    "title": "Pemrograman Kendala dengan OR-Tools",
+    "section": "3 Membangun Model Kendala",
+    "text": "3 Membangun Model Kendala\nKita akan menggunakan cp_model dari OR-Tools untuk mendefinisikan variabel dan kendala.\n\n\nKode\nfrom ortools.sat.python import cp_model\n\nmodel = cp_model.CpModel()\n\n# Variabel: is_subject_assigned[(kelas, mata pelajaran, slot)] = 1 jika dijadwalkan di slot tersebut\nis_subject_assigned = {}\nfor cls in classrooms:\n    for subj in subjects:\n        for slot in slots:\n            is_subject_assigned[(cls, subj, slot)] = model.NewBoolVar(f\"{cls}_{subj}_{slot}\")",
+    "crumbs": [
+      "Posts",
+      "Algorithms",
+      "Pemrograman Kendala dengan OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#menambahkan-kendala-ke-model",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#menambahkan-kendala-ke-model",
+    "title": "Pemrograman Kendala dengan OR-Tools",
+    "section": "4 Menambahkan Kendala ke Model",
+    "text": "4 Menambahkan Kendala ke Model\n\n4.1 1. Setiap mata pelajaran dijadwalkan sesuai jumlah jamnya:\n\n\nKode\nsubject_slots_per_classroom_subject = {}\nfor cls in classrooms:\n    for subj, subject in subjects.items():\n        assigned_slots = [is_subject_assigned[(cls, subj, slot)] for slot in slots]\n        var = model.NewIntVar(0, len(slots), f\"hours_{cls}_{subj}\")\n        model.Add(var == sum(assigned_slots))\n        model.Add(var == subject[\"hour\"])\n        subject_slots_per_classroom_subject[(cls, subj)] = var\n\n\n\n\n4.2 2. Satu kelas hanya boleh memiliki satu mata pelajaran dalam satu slot:\n\n\nKode\nfor cls in classrooms:\n    for slot in slots:\n        one_subject_per_slot = [is_subject_assigned[(cls, subj, slot)] for subj in subjects]\n        model.Add(sum(one_subject_per_slot) &lt;= 1)",
+    "crumbs": [
+      "Posts",
+      "Algorithms",
+      "Pemrograman Kendala dengan OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#menyelesaikan-model",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#menyelesaikan-model",
+    "title": "Pemrograman Kendala dengan OR-Tools",
+    "section": "5 Menyelesaikan Model",
+    "text": "5 Menyelesaikan Model\nSekarang kita jalankan solver dan cetak hasil jadwal jika solusi ditemukan.\n\n\nKode\nsolver = cp_model.CpSolver()\nstatus = solver.Solve(model)\n\nif status == cp_model.FEASIBLE or status == cp_model.OPTIMAL:\n    for cls in classrooms:\n        print(f\"\\nJadwal untuk {cls}:\")\n        for day in weekdays:\n            print(f\"  {day}:\")\n            for hour in hours:\n                slot = (day, hour)\n                subject_found = False\n                for subj in subjects:\n                    if solver.Value(is_subject_assigned[(cls, subj, slot)]) == 1:\n                        print(f\"    {hour}: {subj}\")\n                        subject_found = True\n                if not subject_found:\n                    print(f\"    {hour}: -\")\nelse:\n    print(\"Tidak ada solusi ditemukan.\")",
+    "crumbs": [
+      "Posts",
+      "Algorithms",
+      "Pemrograman Kendala dengan OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#contoh-keluaran",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#contoh-keluaran",
+    "title": "Pemrograman Kendala dengan OR-Tools",
+    "section": "6 Contoh Keluaran",
+    "text": "6 Contoh Keluaran\nContoh hasil jadwal untuk Kelas1_C0:\nJadwal untuk Kelas1_C0:\n  Senin:\n    07.00: PAI\n    08.00: Al-Qur'an\n    09.00: Al-Qur'an\n    ...\n(Hasil dapat berbeda tergantung bagaimana solver menetapkan slot.)",
+    "crumbs": [
+      "Posts",
+      "Algorithms",
+      "Pemrograman Kendala dengan OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#kesimpulan",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#kesimpulan",
+    "title": "Pemrograman Kendala dengan OR-Tools",
+    "section": "7 Kesimpulan",
+    "text": "7 Kesimpulan\nKita telah memodelkan masalah penjadwalan sederhana menggunakan pemrograman kendala dengan OR-Tools. Kita:\n\nMendefinisikan mata pelajaran dan kelas\nMembuat variabel keputusan biner\nMenambahkan kendala keras untuk jumlah jam dan eksklusivitas\nMenyelesaikan dan mencetak jadwal\n\nIni baru permulaan — kamu bisa menambahkan lebih banyak kendala seperti ketersediaan guru, preferensi waktu, atau kendala lunak (misalnya meminimalkan jeda antar pelajaran). Pemrograman kendala menawarkan pendekatan deklaratif yang kuat untuk menyelesaikan masalah penjadwalan kompleks.\n\n7.1 🔗 Sumber Belajar\n\nDokumentasi Google OR-Tools\nContoh Python OR-Tools\nMiniZinc – sistem CP populer lainnya\n\nJika kamu ingin memperluas tutorial ini ke optimasi atau kendala lunak, tinggal beri tahu saya!",
+    "crumbs": [
+      "Posts",
+      "Algorithms",
+      "Pemrograman Kendala dengan OR-Tools"
+    ]
+  },
+  {
     "objectID": "posts/Data Science/Machine Learning/ML - Supervised Learning.html",
     "href": "posts/Data Science/Machine Learning/ML - Supervised Learning.html",
     "title": "Machine Learning - Supervised Learning",

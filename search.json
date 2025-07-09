@@ -91,6 +91,110 @@
     ]
   },
   {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html",
+    "title": "Constraint Programming with OR-Tools",
+    "section": "",
+    "text": "In many real-world scenarios, we often face problems that involve making a series of decisions subject to a set of constraints. For example, assigning employees to shifts, organizing school timetables, or optimizing routes for delivery services. These are known as combinatorial optimization problems, and they can be quite challenging to solve with brute force or simple heuristics.\nThis is where constraint programming (CP) comes in — a paradigm designed for solving such problems efficiently. Google’s OR-Tools is a powerful open-source toolkit that provides a constraint solver along with other optimization engines. In this article, we’ll explore how to use OR-Tools in Python to model and solve a scheduling problem with hard constraints.\nOur example: Assigning subjects to weekly time slots in classrooms, where each subject has a required number of hours, and subjects must not overlap within the same classroom.\nLet’s dive in!",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Algorithms",
+      "Constraint Programming with OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#introduction-why-constraint-programming",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#introduction-why-constraint-programming",
+    "title": "Constraint Programming with OR-Tools",
+    "section": "",
+    "text": "In many real-world scenarios, we often face problems that involve making a series of decisions subject to a set of constraints. For example, assigning employees to shifts, organizing school timetables, or optimizing routes for delivery services. These are known as combinatorial optimization problems, and they can be quite challenging to solve with brute force or simple heuristics.\nThis is where constraint programming (CP) comes in — a paradigm designed for solving such problems efficiently. Google’s OR-Tools is a powerful open-source toolkit that provides a constraint solver along with other optimization engines. In this article, we’ll explore how to use OR-Tools in Python to model and solve a scheduling problem with hard constraints.\nOur example: Assigning subjects to weekly time slots in classrooms, where each subject has a required number of hours, and subjects must not overlap within the same classroom.\nLet’s dive in!",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Algorithms",
+      "Constraint Programming with OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#defining-the-scheduling-problem",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#defining-the-scheduling-problem",
+    "title": "Constraint Programming with OR-Tools",
+    "section": "2 Defining the Scheduling Problem",
+    "text": "2 Defining the Scheduling Problem\nWe are given a list of subjects and classrooms. Each subject has a required number of hours per week. Our goal is to assign subjects to weekly time slots such that:\n\nEach subject gets exactly the number of hours it requires.\nEach classroom has only one subject per slot.\n\nLet’s define our subjects and classrooms:\n\n\nCode\nsubjects = {\n    \"PAI\": {\"hour\": 2},\n    \"Al-Qur'an\": {\"hour\": 3},\n    \"Olahraga\": {\"hour\": 2},\n}\n\nclassrooms = [\"Kelas1_C0\", \"Kelas1_C1\"]\n\nweekdays = [\"Senin\", \"Selasa\", \"Rabu\", \"Kamis\", \"Jumat\"]\nhours = [\"07.00\", \"08.00\", \"09.00\", \"10.00\", \"11.00\", \"13.00\"]\nslots = [(d, h) for d in weekdays for h in hours]",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Algorithms",
+      "Constraint Programming with OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#building-the-constraint-model",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#building-the-constraint-model",
+    "title": "Constraint Programming with OR-Tools",
+    "section": "3 Building the Constraint Model",
+    "text": "3 Building the Constraint Model\nWe’ll use cp_model from OR-Tools to define our variables and constraints.\n\n\nCode\nfrom ortools.sat.python import cp_model\n\nmodel = cp_model.CpModel()\n\n# Variable: is_subject_assigned[(classroom, subject, slot)] = 1 if subject is scheduled in that slot\nis_subject_assigned = {}\nfor cls in classrooms:\n    for subj in subjects:\n        for slot in slots:\n            is_subject_assigned[(cls, subj, slot)] = model.NewBoolVar(f\"{cls}_{subj}_{slot}\")",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Algorithms",
+      "Constraint Programming with OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#adding-constraints-to-the-model",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#adding-constraints-to-the-model",
+    "title": "Constraint Programming with OR-Tools",
+    "section": "4 Adding Constraints to the Model",
+    "text": "4 Adding Constraints to the Model\n\n4.1 1. Each subject must be assigned the exact number of required hours:\n\n\nCode\nsubject_slots_per_classroom_subject = {}\nfor cls in classrooms:\n    for subj, subject in subjects.items():\n        assigned_slots = [is_subject_assigned[(cls, subj, slot)] for slot in slots]\n        var = model.NewIntVar(0, len(slots), f\"hours_{cls}_{subj}\")\n        model.Add(var == sum(assigned_slots))\n        model.Add(var == subject[\"hour\"])\n        subject_slots_per_classroom_subject[(cls, subj)] = var\n\n\n\n\n4.2 2. Each classroom can only have one subject per slot:\n\n\nCode\nfor cls in classrooms:\n    for slot in slots:\n        one_subject_per_slot = [is_subject_assigned[(cls, subj, slot)] for subj in subjects]\n        model.Add(sum(one_subject_per_slot) &lt;= 1)",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Algorithms",
+      "Constraint Programming with OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#solving-the-model",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#solving-the-model",
+    "title": "Constraint Programming with OR-Tools",
+    "section": "5 Solving the Model",
+    "text": "5 Solving the Model\nNow we’ll solve the model and print the schedule if it exists.\n\n\nCode\nsolver = cp_model.CpSolver()\nstatus = solver.Solve(model)\n\nif status == cp_model.FEASIBLE or status == cp_model.OPTIMAL:\n    for cls in classrooms:\n        print(f\"\\nSchedule for {cls}:\")\n        for day in weekdays:\n            print(f\"  {day}:\")\n            for hour in hours:\n                slot = (day, hour)\n                subject_found = False\n                for subj in subjects:\n                    if solver.Value(is_subject_assigned[(cls, subj, slot)]) == 1:\n                        print(f\"    {hour}: {subj}\")\n                        subject_found = True\n                if not subject_found:\n                    print(f\"    {hour}: -\")\nelse:\n    print(\"No solution found.\")",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Algorithms",
+      "Constraint Programming with OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#sample-output",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#sample-output",
+    "title": "Constraint Programming with OR-Tools",
+    "section": "6 Sample Output",
+    "text": "6 Sample Output\nHere’s an example output for Kelas1_C0:\nSchedule for Kelas1_C0:\n  Senin:\n    07.00: PAI\n    08.00: Al-Qur'an\n    09.00: Al-Qur'an\n    ...\n(Your results may vary based on how the solver assigns time slots.)",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Algorithms",
+      "Constraint Programming with OR-Tools"
+    ]
+  },
+  {
+    "objectID": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#conclusion",
+    "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#conclusion",
+    "title": "Constraint Programming with OR-Tools",
+    "section": "7 Conclusion",
+    "text": "7 Conclusion\nWe’ve just modeled a simple weekly scheduling problem using constraint programming with OR-Tools. We:\n\nDefined subjects and classrooms\nCreated binary decision variables\nApplied hard constraints for hours and exclusivity\nSolved and printed the solution\n\nThis is only scratching the surface — you can add more constraints like teacher availability, subject preferences, or soft constraints (e.g., minimizing gaps). Constraint programming gives you a powerful, declarative way to solve such scheduling challenges.\n\n7.1 🔗 Resources\n\nGoogle OR-Tools Documentation\nOR-Tools Python Examples\nMiniZinc – another popular CP system\n\nLet me know if you’d like to expand this tutorial to cover optimization goals or soft constraints!",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Algorithms",
+      "Constraint Programming with OR-Tools"
+    ]
+  },
+  {
     "objectID": "posts/Exercises/numpy task1.html",
     "href": "posts/Exercises/numpy task1.html",
     "title": "Latihan Numpy 1",
