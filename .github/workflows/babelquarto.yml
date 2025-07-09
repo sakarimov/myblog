@@ -36,7 +36,7 @@ jobs:
       - name: Install Jupyter for Python rendering
         run: |
           python3 -m pip install --upgrade pip
-          python3 -m pip install jupyter nbformat
+          python3 -m pip install -r requirements.txt
 
       # -------- FIXED SECTION --------
       - name: Render multilingual site with babelquarto
