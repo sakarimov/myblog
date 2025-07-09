@@ -32,6 +32,12 @@ jobs:
         run: |
           pwd
           tree -L 2
+          python3 --version
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'  # or '3.12.3' for exact match
 
       - name: Install Jupyter for Python rendering
         run: |
