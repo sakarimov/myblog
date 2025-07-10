@@ -104,7 +104,6 @@ plotly==5.22.0
 prometheus-client==0.20.0
 prompt-toolkit==3.0.45
 protobuf==6.31.1
-proxybroker==0.3.2
 psutil==5.9.8
 ptyprocess==0.7.0
 pure-eval==0.2.2
