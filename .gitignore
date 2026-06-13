@@ -1,14 +1,27 @@
-# Basic gitignore template for Hugo SSG - which has some stuff for WordPress migration
-#
-# This is a template .gitignore file for git-managed Hugo projects.
-#
-# Fact: you don't want Hugo core files, or your server-specific
-# configuration files etc., in your project's repository. You just don't.
-#
-# Ignore everything in the root except the "content" directory and "static"
-!.gitignore
-libs/
+# --- Build artifacts ---
 _site/
 .quarto/
-.aider*
 *.quarto_ipynb
+
+# --- Python ---
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- R / renv (commit renv.lock, .Rprofile, renv/activate.R; ignore library) ---
+renv/library/
+renv/staging/
+
+# --- Post computation caches (NOT _freeze/ — freeze output must be committed) ---
+**/cache/
+
+# --- AI assistant ---
+.aider*
+
+# --- OS ---
+.DS_Store
+Thumbs.db

@@ -1,0 +1,23 @@
+[project]
+name = "myblog"
+version = "0.1.0"
+description = "Python environment for blog post code execution (Quarto + Jupyter kernel)"
+requires-python = ">=3.11"
+dependencies = [
+    # --- Jupyter kernel (Quarto uses this to execute Python in .qmd/.ipynb) ---
+    "ipykernel",
+    "pyyaml",
+    "nbformat",
+    "nbclient",
+    # --- Data science stack ---
+    "numpy",
+    "pandas",
+    "scipy",
+    "scikit-learn",
+    # --- Visualization ---
+    "matplotlib",
+    "seaborn",
+    "plotly",
+    # --- Constraint programming ---
+    "ortools",
+]
