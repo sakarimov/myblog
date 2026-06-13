@@ -1,12 +1,68 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Just Another Attempt to Contribute",
     "section": "",
-    "text": "Just Another Attempt to Share\nIlmu memang memberi kita pengetahuan, tetapi hanya filsafat yang bisa memberi kita kebijaksanaan.\nWill Durant\n\n\n\n Back to top",
+    "text": "This is my little corner of the web where I share thoughts, projects, and lessons from my journey as a programmer, builder, and believer.\nI used to hold back from sharing, afraid of saying the wrong thing or not being “good enough.” But I realized: growth happens when we share — not when we’re perfect, but when we’re sincere.\n\nThough this I hope to offer what I can, no matter how small. Whether it’s a piece of code, a reflection, or a simple idea — I share it here with the hope that it brings benefit.\n\nBocah Angon Penekno Blimbing Kuwi\nLunyu Lunyu Penekno Kanggo Mbasuh Dodot Iro\n\nIf something here helps you, inspires you, or even makes you curious, i’ll be happy to hear you out. Otherwise If not, that’s okay too — I’m still learning, still growing, and I’m grateful you stopped by.\nBismillah — let’s build, reflect, and learn together.\n— Sulthan A. Karimov —"
+  },
+  {
+    "objectID": "index.html#welcome.-peace-be-upon-you.",
+    "href": "index.html#welcome.-peace-be-upon-you.",
+    "title": "Just Another Attempt to Contribute",
+    "section": "",
+    "text": "This is my little corner of the web where I share thoughts, projects, and lessons from my journey as a programmer, builder, and believer.\nI used to hold back from sharing, afraid of saying the wrong thing or not being “good enough.” But I realized: growth happens when we share — not when we’re perfect, but when we’re sincere.\n\nThough this I hope to offer what I can, no matter how small. Whether it’s a piece of code, a reflection, or a simple idea — I share it here with the hope that it brings benefit.\n\nBocah Angon Penekno Blimbing Kuwi\nLunyu Lunyu Penekno Kanggo Mbasuh Dodot Iro\n\nIf something here helps you, inspires you, or even makes you curious, i’ll be happy to hear you out. Otherwise If not, that’s okay too — I’m still learning, still growing, and I’m grateful you stopped by.\nBismillah — let’s build, reflect, and learn together.\n— Sulthan A. Karimov —"
+  },
+  {
+    "objectID": "posts/opinions/salut dengan bangsa indonesia.html",
+    "href": "posts/opinions/salut dengan bangsa indonesia.html",
+    "title": "kekuatan unik bangsa ini",
+    "section": "",
+    "text": "Salut dengan Bangsa Ini\nsaya salut sekali dengan bangsa Indonesia dalam menyikapi masalah-masalah yang mencuat baru-baru ini. bagaimana tidak?, gempuran itu datang dari berbagai arah, ekonomi, sosial, budaya, bahkan politik. Bangsa Indonesia ini umurnya sudah tidak muda lagi, lebih tua dari negaranya sendiri. jadi maklum kalau masalah-masalah yang muncul belakangan tak menjadi persoalan sebesar kehancuran sebuah bangsa. paling hanya menjadi riak-riak kecil dalam mewarnai kehidupan bernegara. semoga kondisi ini terus jadi kekuatan untuk seluruh Bangsa Indonesia, sehingga masalah selevel negara tidak bisa mengusik kemakmuran hidup kita.\n\n\n\n\n Back to top",
     "crumbs": [
-      "About"
+      "About",
+      "Posts",
+      "Opinions",
+      "kekuatan unik bangsa ini"
+    ]
+  },
+  {
+    "objectID": "posts/Exercises/numpy task1.html",
+    "href": "posts/Exercises/numpy task1.html",
+    "title": "Latihan Numpy 1",
+    "section": "",
+    "text": "Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L, XL) di berbagai lokasi (toko). Data penjualan disimpan dalam array NumPy bernama sales_data dengan struktur berikut (data dalam struktur hanya contoh):\n\nimport numpy as np\n\nsales_data = np.array([\n[[10, 35, 15, 20],  # Penjualan Lokasi 1\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [5,  35, 8, 12]],\n\n[[12, 35, 18, 15],  # Penjualan Lokasi 2\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [7,  35, 9, 11]]\n])\n\n# sales_data.shape = (jumlah_lokasi, jumlah_kategori, jumlah_ukuran)\n\nfile tugas bisa didownload [di sini](https://github.com/sakarimov/my-personal-blog/raw/main/mybook/notes/numpy%231.txt)\n\n\n\n\n\n\n\nNote\n\n\n\nuntuk membuka file ini ikuti petunjuk berikut:\nimport numpy as np\n\nload_file = np.loadtxt('path/to/the/file/you/download')\nload_original = load_file.reshape(4,7,4)\n\n\n\n\n\n\nIdentifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):\n\nGunakan teknik slicing tingkat lanjut dalam NumPy untuk menghitung total penjualan untuk setiap kategori di semua ukuran di setiap lokasi.\nPetunjuk: Anda dapat menggabungkan slicing dasar (:) untuk memilih lokasi tertentu dan masking boolean untuk menjumlahkan di sepanjang sumbu kategori.\nIdentifikasi kategori dengan penjualan tertinggi untuk setiap lokasi.\n\nBandingkan Distribusi Ukuran untuk Kategori Spesifik:\n\nFokus pada kategori tertentu (misalnya, kemeja) di semua lokasi.\nGunakan teknik slicing atau pengindeksan array untuk memilih hanya data penjualan kategori tersebut.\nHitung total penjualan untuk setiap ukuran (jumlahkan di sepanjang sumbu ukuran).\nAnalisa distribusi ukuran (misalnya, ukuran mana yang paling banyak terjual untuk kategori tersebut secara keseluruhan).\n\nTemukan Lokasi dengan Penjualan Rendah pada Ukuran Tertentu:\n\nTentukan ukuran tertentu (misalnya, XL) yang mungkin perlu diisi ulang stoknya.\nGunakan masking boolean untuk memilih hanya data penjualan ukuran tersebut dari seluruh array.\nHitung total penjualan produk dengan ukuran tersebut di setiap lokasi (jumlahkan di sepanjang semua sumbu lainnya).\nIdentifikasi lokasi dengan penjualan di bawah ambang batas tertentu untuk produk dengan ukuran tersebut, yang menunjukkan potensi kebutuhan untuk mengisi ulang stok.",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Exercises",
+      "Latihan Numpy 1"
+    ]
+  },
+  {
+    "objectID": "posts/Exercises/numpy task1.html#skenario",
+    "href": "posts/Exercises/numpy task1.html#skenario",
+    "title": "Latihan Numpy 1",
+    "section": "",
+    "text": "Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L, XL) di berbagai lokasi (toko). Data penjualan disimpan dalam array NumPy bernama sales_data dengan struktur berikut (data dalam struktur hanya contoh):\n\nimport numpy as np\n\nsales_data = np.array([\n[[10, 35, 15, 20],  # Penjualan Lokasi 1\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [5,  35, 8, 12]],\n\n[[12, 35, 18, 15],  # Penjualan Lokasi 2\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [7,  35, 9, 11]]\n])\n\n# sales_data.shape = (jumlah_lokasi, jumlah_kategori, jumlah_ukuran)\n\nfile tugas bisa didownload [di sini](https://github.com/sakarimov/my-personal-blog/raw/main/mybook/notes/numpy%231.txt)\n\n\n\n\n\n\n\nNote\n\n\n\nuntuk membuka file ini ikuti petunjuk berikut:\nimport numpy as np\n\nload_file = np.loadtxt('path/to/the/file/you/download')\nload_original = load_file.reshape(4,7,4)",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Exercises",
+      "Latihan Numpy 1"
+    ]
+  },
+  {
+    "objectID": "posts/Exercises/numpy task1.html#tugas",
+    "href": "posts/Exercises/numpy task1.html#tugas",
+    "title": "Latihan Numpy 1",
+    "section": "",
+    "text": "Identifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):\n\nGunakan teknik slicing tingkat lanjut dalam NumPy untuk menghitung total penjualan untuk setiap kategori di semua ukuran di setiap lokasi.\nPetunjuk: Anda dapat menggabungkan slicing dasar (:) untuk memilih lokasi tertentu dan masking boolean untuk menjumlahkan di sepanjang sumbu kategori.\nIdentifikasi kategori dengan penjualan tertinggi untuk setiap lokasi.\n\nBandingkan Distribusi Ukuran untuk Kategori Spesifik:\n\nFokus pada kategori tertentu (misalnya, kemeja) di semua lokasi.\nGunakan teknik slicing atau pengindeksan array untuk memilih hanya data penjualan kategori tersebut.\nHitung total penjualan untuk setiap ukuran (jumlahkan di sepanjang sumbu ukuran).\nAnalisa distribusi ukuran (misalnya, ukuran mana yang paling banyak terjual untuk kategori tersebut secara keseluruhan).\n\nTemukan Lokasi dengan Penjualan Rendah pada Ukuran Tertentu:\n\nTentukan ukuran tertentu (misalnya, XL) yang mungkin perlu diisi ulang stoknya.\nGunakan masking boolean untuk memilih hanya data penjualan ukuran tersebut dari seluruh array.\nHitung total penjualan produk dengan ukuran tersebut di setiap lokasi (jumlahkan di sepanjang semua sumbu lainnya).\nIdentifikasi lokasi dengan penjualan di bawah ambang batas tertentu untuk produk dengan ukuran tersebut, yang menunjukkan potensi kebutuhan untuk mengisi ulang stok.",
+    "crumbs": [
+      "About",
+      "Posts",
+      "Exercises",
+      "Latihan Numpy 1"
     ]
   },
   {
@@ -33,61 +89,6 @@
       "Posts",
       "Exercises",
       "Solusi Tugas numpy 1"
-    ]
-  },
-  {
-    "objectID": "posts/Data Science/Machine Learning/ML - Supervised Learning.html",
-    "href": "posts/Data Science/Machine Learning/ML - Supervised Learning.html",
-    "title": "Machine Learning - Supervised Learning",
-    "section": "",
-    "text": "import graphviz\n\n# This output is generated from the model\n# as you can see, there are several decisions \n# to make, and the hyrarchy can be compiled like a tree\ngraphviz.Source.from_file('cache/iristree.dot')\nfirst we need to import pandas and load the data with pd.read_csv(file)\nimport pandas as pd\n\niris = pd.read_csv('datasets/iris/Iris.csv')\nthis is the overview of the data\niris\n\n\n\n\n\n\n\n\n\nId\nSepalLengthCm\nSepalWidthCm\nPetalLengthCm\nPetalWidthCm\nSpecies\n\n\n\n\n0\n1\n5.1\n3.5\n1.4\n0.2\nIris-setosa\n\n\n1\n2\n4.9\n3.0\n1.4\n0.2\nIris-setosa\n\n\n2\n3\n4.7\n3.2\n1.3\n0.2\nIris-setosa\n\n\n3\n4\n4.6\n3.1\n1.5\n0.2\nIris-setosa\n\n\n4\n5\n5.0\n3.6\n1.4\n0.2\nIris-setosa\n\n\n...\n...\n...\n...\n...\n...\n...\n\n\n145\n146\n6.7\n3.0\n5.2\n2.3\nIris-virginica\n\n\n146\n147\n6.3\n2.5\n5.0\n1.9\nIris-virginica\n\n\n147\n148\n6.5\n3.0\n5.2\n2.0\nIris-virginica\n\n\n148\n149\n6.2\n3.4\n5.4\n2.3\nIris-virginica\n\n\n149\n150\n5.9\n3.0\n5.1\n1.8\nIris-virginica\n\n\n\n\n150 rows × 6 columns\nif we wan to check detail about the data, use data.info()\niris.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 150 entries, 0 to 149\nData columns (total 6 columns):\n #   Column         Non-Null Count  Dtype  \n---  ------         --------------  -----  \n 0   Id             150 non-null    int64  \n 1   SepalLengthCm  150 non-null    float64\n 2   SepalWidthCm   150 non-null    float64\n 3   PetalLengthCm  150 non-null    float64\n 4   PetalWidthCm   150 non-null    float64\n 5   Species        150 non-null    object \ndtypes: float64(4), int64(1), object(1)\nmemory usage: 7.2+ KB\nthe Id is not needed in this case, therefore we can just drop it\n# stropping unneeded data\niris.drop('Id', axis=1, inplace=True)\n\n\n\n\n\n\n\n\n\nId\nSepalLengthCm\nSepalWidthCm\nPetalLengthCm\nPetalWidthCm\nSpecies\n\n\n\n\n0\n1\n5.1\n3.5\n1.4\n0.2\nIris-setosa\n\n\n1\n2\n4.9\n3.0\n1.4\n0.2\nIris-setosa\n\n\n2\n3\n4.7\n3.2\n1.3\n0.2\nIris-setosa\n\n\n3\n4\n4.6\n3.1\n1.5\n0.2\nIris-setosa\n\n\n4\n5\n5.0\n3.6\n1.4\n0.2\nIris-setosa\nnow, we separate the data label from its features, and save it to X and y, we need also to separate the data to train and split\nX = iris[['SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm']]\ny = iris['Species']\n\nfrom sklearn.model_selection import train_test_split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=123)\nwe prepare the model by calling it from sklearn.tree\nfrom sklearn import tree\n\nclf = tree.DecisionTreeClassifier()\n# With defined train test split\n\nclf = clf.fit(X_train, y_train)",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Data Science",
-      "Machine Learning",
-      "Machine Learning - Supervised Learning"
-    ]
-  },
-  {
-    "objectID": "posts/Data Science/Machine Learning/ML - Supervised Learning.html#linear-regression",
-    "href": "posts/Data Science/Machine Learning/ML - Supervised Learning.html#linear-regression",
-    "title": "Machine Learning - Supervised Learning",
-    "section": "Linear Regression",
-    "text": "Linear Regression\n\nimport numpy as np\n\n# make dummy data of rooms\nbedrooms = np.array([1,1,2,2,3,4,4,5,5,5])\n \n# make dummy price data in dolar\nhouse_price = np.array([15000, 18000, 27000, 34000, 50000, 68000, 65000, 81000,85000, 90000])\n\n\n# visualize in scatterplot\nimport matplotlib.pyplot as plt\n%matplotlib inline\n \nplt.scatter(bedrooms, house_price)\n\n\n\n\n\n\n\n\n\nfrom sklearn.linear_model import LinearRegression\n \n# train the model with LinearRegression.fit()\nbedrooms = bedrooms.reshape(-1, 1)\nlinreg = LinearRegression()\nlinreg.fit(bedrooms, house_price)\n\nLinearRegression()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  LinearRegression?Documentation for LinearRegressioniFittedLinearRegression() \n\n\n\n# plotting the corelation between number of rooms and house_prices\nplt.scatter(bedrooms, house_price)\nplt.plot(bedrooms, linreg.predict(bedrooms))",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Data Science",
-      "Machine Learning",
-      "Machine Learning - Supervised Learning"
-    ]
-  },
-  {
-    "objectID": "posts/Data Science/Machine Learning/ML - Supervised Learning.html#logistic-regression",
-    "href": "posts/Data Science/Machine Learning/ML - Supervised Learning.html#logistic-regression",
-    "title": "Machine Learning - Supervised Learning",
-    "section": "Logistic Regression",
-    "text": "Logistic Regression\n\nimport pandas as pd\n\ndf = pd.read_csv('datasets/socmedAds/Social_Network_Ads.csv')\ndf\n\n\n\n\n\n\n\n\n\nUser ID\nGender\nAge\nEstimatedSalary\nPurchased\n\n\n\n\n0\n15624510\nMale\n19\n19000\n0\n\n\n1\n15810944\nMale\n35\n20000\n0\n\n\n2\n15668575\nFemale\n26\n43000\n0\n\n\n3\n15603246\nFemale\n27\n57000\n0\n\n\n4\n15804002\nMale\n19\n76000\n0\n\n\n...\n...\n...\n...\n...\n...\n\n\n395\n15691863\nFemale\n46\n41000\n1\n\n\n396\n15706071\nMale\n51\n23000\n1\n\n\n397\n15654296\nFemale\n50\n20000\n1\n\n\n398\n15755018\nMale\n36\n33000\n0\n\n\n399\n15594041\nFemale\n49\n36000\n1\n\n\n\n\n400 rows × 5 columns\n\n\n\n\n\ndf.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 400 entries, 0 to 399\nData columns (total 5 columns):\n #   Column           Non-Null Count  Dtype \n---  ------           --------------  ----- \n 0   User ID          400 non-null    int64 \n 1   Gender           400 non-null    object\n 2   Age              400 non-null    int64 \n 3   EstimatedSalary  400 non-null    int64 \n 4   Purchased        400 non-null    int64 \ndtypes: int64(4), object(1)\nmemory usage: 15.8+ KB\n\n\n\ndata = df.drop(columns=['User ID'])\n\ndata = pd.get_dummies(data)\ndata\n\n\n\n\n\n\n\n\n\nAge\nEstimatedSalary\nPurchased\nGender_Female\nGender_Male\n\n\n\n\n0\n19\n19000\n0\nFalse\nTrue\n\n\n1\n35\n20000\n0\nFalse\nTrue\n\n\n2\n26\n43000\n0\nTrue\nFalse\n\n\n3\n27\n57000\n0\nTrue\nFalse\n\n\n4\n19\n76000\n0\nFalse\nTrue\n\n\n...\n...\n...\n...\n...\n...\n\n\n395\n46\n41000\n1\nTrue\nFalse\n\n\n396\n51\n23000\n1\nFalse\nTrue\n\n\n397\n50\n20000\n1\nTrue\nFalse\n\n\n398\n36\n33000\n0\nFalse\nTrue\n\n\n399\n49\n36000\n1\nTrue\nFalse\n\n\n\n\n400 rows × 5 columns\n\n\n\n\n\nX = data[['Age', 'EstimatedSalary', 'Gender_Female', 'Gender_Male']]\ny = data['Purchased']\n\n\n# data normalization\nfrom sklearn.preprocessing import StandardScaler\nscaler = StandardScaler()\n# calculating the mean and standard deviation of every attribute column\n# to be used on every transform function\nscaler.fit(X)\nscaled_data = scaler.transform(X)\nscaled_data = pd.DataFrame(scaled_data, columns=X.columns)\nscaled_data\n\n\n\n\n\n\n\n\n\nAge\nEstimatedSalary\nGender_Female\nGender_Male\n\n\n\n\n0\n-1.781797\n-1.490046\n-1.020204\n1.020204\n\n\n1\n-0.253587\n-1.460681\n-1.020204\n1.020204\n\n\n2\n-1.113206\n-0.785290\n0.980196\n-0.980196\n\n\n3\n-1.017692\n-0.374182\n0.980196\n-0.980196\n\n\n4\n-1.781797\n0.183751\n-1.020204\n1.020204\n\n\n...\n...\n...\n...\n...\n\n\n395\n0.797057\n-0.844019\n0.980196\n-0.980196\n\n\n396\n1.274623\n-1.372587\n-1.020204\n1.020204\n\n\n397\n1.179110\n-1.460681\n0.980196\n-0.980196\n\n\n398\n-0.158074\n-1.078938\n-1.020204\n1.020204\n\n\n399\n1.083596\n-0.990844\n0.980196\n-0.980196\n\n\n\n\n400 rows × 4 columns\n\n\n\n\n\n# validation with cross validation\nfrom sklearn.model_selection import cross_val_score\nfrom sklearn import linear_model\n\nmodel = linear_model.LogisticRegression()\nscores = cross_val_score(model, scaled_data, y, cv=5)\n\n\nscores\n\narray([0.7   , 0.95  , 0.9375, 0.8125, 0.7   ])\n\n\n\nfrom sklearn.model_selection import train_test_split\n \nX_train, X_test, y_train, y_test = train_test_split(scaled_data, y, test_size=0.2, random_state=1)\n\n\nmodel.fit(X_train, y_train)\n\nLogisticRegression()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  LogisticRegression?Documentation for LogisticRegressioniFittedLogisticRegression() \n\n\n\n# examine model accuracy\nmodel.score(X_test, y_test)\n\n0.825",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Data Science",
-      "Machine Learning",
-      "Machine Learning - Supervised Learning"
-    ]
-  },
-  {
-    "objectID": "posts/opinions/salut dengan bangsa indonesia.html",
-    "href": "posts/opinions/salut dengan bangsa indonesia.html",
-    "title": "kekuatan unik bangsa ini",
-    "section": "",
-    "text": "Salut dengan Bangsa Ini\nsaya salut sekali dengan bangsa Indonesia dalam menyikapi masalah-masalah yang mencuat baru-baru ini. bagaimana tidak?, gempuran itu datang dari berbagai arah, ekonomi, sosial, budaya, bahkan politik. Bangsa Indonesia ini umurnya sudah tidak muda lagi, lebih tua dari negaranya sendiri. jadi maklum kalau masalah-masalah yang muncul belakangan tak menjadi persoalan sebesar kehancuran sebuah bangsa. paling hanya menjadi riak-riak kecil dalam mewarnai kehidupan bernegara. semoga kondisi ini terus jadi kekuatan untuk seluruh Bangsa Indonesia, sehingga masalah selevel negara tidak bisa mengusik kemakmuran hidup kita.\n\n\n\n\n Back to top",
-    "crumbs": [
-      "About",
-      "Posts",
-      "Opinions",
-      "kekuatan unik bangsa ini"
     ]
   },
   {
@@ -160,7 +161,7 @@
     "href": "posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html#solving-the-model",
     "title": "Constraint Programming with OR-Tools",
     "section": "5 Solving the Model",
-    "text": "5 Solving the Model\nNow we’ll solve the model and print the schedule if it exists.\n\n\nCode\nsolver = cp_model.CpSolver()\nstatus = solver.Solve(model)\n\nif status == cp_model.FEASIBLE or status == cp_model.OPTIMAL:\n    for cls in classrooms:\n        print(f\"\\nSchedule for {cls}:\")\n        for day in weekdays:\n            print(f\"  {day}:\")\n            for hour in hours:\n                slot = (day, hour)\n                subject_found = False\n                for subj in subjects:\n                    if solver.Value(is_subject_assigned[(cls, subj, slot)]) == 1:\n                        print(f\"    {hour}: {subj}\")\n                        subject_found = True\n                if not subject_found:\n                    print(f\"    {hour}: -\")\nelse:\n    print(\"No solution found.\")\n\n\n\nSchedule for Kelas1_C0:\n  Senin:\n    07.00: -\n    08.00: Al-Qur'an\n    09.00: Al-Qur'an\n    10.00: -\n    11.00: -\n    13.00: -\n  Selasa:\n    07.00: -\n    08.00: -\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: Olahraga\n  Rabu:\n    07.00: -\n    08.00: PAI\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: -\n  Kamis:\n    07.00: -\n    08.00: -\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: -\n  Jumat:\n    07.00: Al-Qur'an\n    08.00: PAI\n    09.00: -\n    10.00: -\n    11.00: Olahraga\n    13.00: -\n\nSchedule for Kelas1_C1:\n  Senin:\n    07.00: -\n    08.00: -\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: -\n  Selasa:\n    07.00: -\n    08.00: -\n    09.00: -\n    10.00: Al-Qur'an\n    11.00: -\n    13.00: -\n  Rabu:\n    07.00: -\n    08.00: PAI\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: -\n  Kamis:\n    07.00: Al-Qur'an\n    08.00: -\n    09.00: -\n    10.00: Olahraga\n    11.00: Olahraga\n    13.00: Al-Qur'an\n  Jumat:\n    07.00: -\n    08.00: -\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: PAI",
+    "text": "5 Solving the Model\nNow we’ll solve the model and print the schedule if it exists.\n\n\nCode\nsolver = cp_model.CpSolver()\nstatus = solver.Solve(model)\n\nif status == cp_model.FEASIBLE or status == cp_model.OPTIMAL:\n    for cls in classrooms:\n        print(f\"\\nSchedule for {cls}:\")\n        for day in weekdays:\n            print(f\"  {day}:\")\n            for hour in hours:\n                slot = (day, hour)\n                subject_found = False\n                for subj in subjects:\n                    if solver.Value(is_subject_assigned[(cls, subj, slot)]) == 1:\n                        print(f\"    {hour}: {subj}\")\n                        subject_found = True\n                if not subject_found:\n                    print(f\"    {hour}: -\")\nelse:\n    print(\"No solution found.\")\n\n\n\nSchedule for Kelas1_C0:\n  Senin:\n    07.00: -\n    08.00: -\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: -\n  Selasa:\n    07.00: -\n    08.00: -\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: -\n  Rabu:\n    07.00: -\n    08.00: -\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: -\n  Kamis:\n    07.00: -\n    08.00: -\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: Olahraga\n  Jumat:\n    07.00: Olahraga\n    08.00: Al-Qur'an\n    09.00: Al-Qur'an\n    10.00: Al-Qur'an\n    11.00: PAI\n    13.00: PAI\n\nSchedule for Kelas1_C1:\n  Senin:\n    07.00: -\n    08.00: -\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: -\n  Selasa:\n    07.00: -\n    08.00: -\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: -\n  Rabu:\n    07.00: -\n    08.00: -\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: -\n  Kamis:\n    07.00: -\n    08.00: -\n    09.00: -\n    10.00: -\n    11.00: -\n    13.00: Olahraga\n  Jumat:\n    07.00: Olahraga\n    08.00: Al-Qur'an\n    09.00: Al-Qur'an\n    10.00: Al-Qur'an\n    11.00: PAI\n    13.00: PAI",
     "crumbs": [
       "About",
       "Posts",
@@ -195,56 +196,55 @@
     ]
   },
   {
-    "objectID": "posts/Exercises/numpy task1.html",
-    "href": "posts/Exercises/numpy task1.html",
-    "title": "Latihan Numpy 1",
+    "objectID": "posts/Data Science/Machine Learning/ML - Supervised Learning.html",
+    "href": "posts/Data Science/Machine Learning/ML - Supervised Learning.html",
+    "title": "Machine Learning - Supervised Learning",
     "section": "",
-    "text": "Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L, XL) di berbagai lokasi (toko). Data penjualan disimpan dalam array NumPy bernama sales_data dengan struktur berikut (data dalam struktur hanya contoh):\n\nimport numpy as np\n\nsales_data = np.array([\n[[10, 35, 15, 20],  # Penjualan Lokasi 1\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [5,  35, 8, 12]],\n\n[[12, 35, 18, 15],  # Penjualan Lokasi 2\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [7,  35, 9, 11]]\n])\n\n# sales_data.shape = (jumlah_lokasi, jumlah_kategori, jumlah_ukuran)\n\nfile tugas bisa didownload [di sini](https://github.com/sakarimov/my-personal-blog/raw/main/mybook/notes/numpy%231.txt)\n\n\n\n\n\n\n\nNote\n\n\n\nuntuk membuka file ini ikuti petunjuk berikut:\nimport numpy as np\n\nload_file = np.loadtxt('path/to/the/file/you/download')\nload_original = load_file.reshape(4,7,4)\n\n\n\n\n\n\nIdentifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):\n\nGunakan teknik slicing tingkat lanjut dalam NumPy untuk menghitung total penjualan untuk setiap kategori di semua ukuran di setiap lokasi.\nPetunjuk: Anda dapat menggabungkan slicing dasar (:) untuk memilih lokasi tertentu dan masking boolean untuk menjumlahkan di sepanjang sumbu kategori.\nIdentifikasi kategori dengan penjualan tertinggi untuk setiap lokasi.\n\nBandingkan Distribusi Ukuran untuk Kategori Spesifik:\n\nFokus pada kategori tertentu (misalnya, kemeja) di semua lokasi.\nGunakan teknik slicing atau pengindeksan array untuk memilih hanya data penjualan kategori tersebut.\nHitung total penjualan untuk setiap ukuran (jumlahkan di sepanjang sumbu ukuran).\nAnalisa distribusi ukuran (misalnya, ukuran mana yang paling banyak terjual untuk kategori tersebut secara keseluruhan).\n\nTemukan Lokasi dengan Penjualan Rendah pada Ukuran Tertentu:\n\nTentukan ukuran tertentu (misalnya, XL) yang mungkin perlu diisi ulang stoknya.\nGunakan masking boolean untuk memilih hanya data penjualan ukuran tersebut dari seluruh array.\nHitung total penjualan produk dengan ukuran tersebut di setiap lokasi (jumlahkan di sepanjang semua sumbu lainnya).\nIdentifikasi lokasi dengan penjualan di bawah ambang batas tertentu untuk produk dengan ukuran tersebut, yang menunjukkan potensi kebutuhan untuk mengisi ulang stok.",
+    "text": "import graphviz\n\n# This output is generated from the model\n# as you can see, there are several decisions \n# to make, and the hyrarchy can be compiled like a tree\ngraphviz.Source.from_file('cache/iristree.dot')\nfirst we need to import pandas and load the data with pd.read_csv(file)\nimport pandas as pd\n\niris = pd.read_csv('datasets/iris/Iris.csv')\nthis is the overview of the data\niris\n\n\n\n\n\n\n\n\n\nId\nSepalLengthCm\nSepalWidthCm\nPetalLengthCm\nPetalWidthCm\nSpecies\n\n\n\n\n0\n1\n5.1\n3.5\n1.4\n0.2\nIris-setosa\n\n\n1\n2\n4.9\n3.0\n1.4\n0.2\nIris-setosa\n\n\n2\n3\n4.7\n3.2\n1.3\n0.2\nIris-setosa\n\n\n3\n4\n4.6\n3.1\n1.5\n0.2\nIris-setosa\n\n\n4\n5\n5.0\n3.6\n1.4\n0.2\nIris-setosa\n\n\n...\n...\n...\n...\n...\n...\n...\n\n\n145\n146\n6.7\n3.0\n5.2\n2.3\nIris-virginica\n\n\n146\n147\n6.3\n2.5\n5.0\n1.9\nIris-virginica\n\n\n147\n148\n6.5\n3.0\n5.2\n2.0\nIris-virginica\n\n\n148\n149\n6.2\n3.4\n5.4\n2.3\nIris-virginica\n\n\n149\n150\n5.9\n3.0\n5.1\n1.8\nIris-virginica\n\n\n\n\n150 rows × 6 columns\nif we wan to check detail about the data, use data.info()\niris.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 150 entries, 0 to 149\nData columns (total 6 columns):\n #   Column         Non-Null Count  Dtype  \n---  ------         --------------  -----  \n 0   Id             150 non-null    int64  \n 1   SepalLengthCm  150 non-null    float64\n 2   SepalWidthCm   150 non-null    float64\n 3   PetalLengthCm  150 non-null    float64\n 4   PetalWidthCm   150 non-null    float64\n 5   Species        150 non-null    object \ndtypes: float64(4), int64(1), object(1)\nmemory usage: 7.2+ KB\nthe Id is not needed in this case, therefore we can just drop it\n# stropping unneeded data\niris.drop('Id', axis=1, inplace=True)\n\n\n\n\n\n\n\n\n\nId\nSepalLengthCm\nSepalWidthCm\nPetalLengthCm\nPetalWidthCm\nSpecies\n\n\n\n\n0\n1\n5.1\n3.5\n1.4\n0.2\nIris-setosa\n\n\n1\n2\n4.9\n3.0\n1.4\n0.2\nIris-setosa\n\n\n2\n3\n4.7\n3.2\n1.3\n0.2\nIris-setosa\n\n\n3\n4\n4.6\n3.1\n1.5\n0.2\nIris-setosa\n\n\n4\n5\n5.0\n3.6\n1.4\n0.2\nIris-setosa\nnow, we separate the data label from its features, and save it to X and y, we need also to separate the data to train and split\nX = iris[['SepalLengthCm', 'SepalWidthCm', 'PetalLengthCm', 'PetalWidthCm']]\ny = iris['Species']\n\nfrom sklearn.model_selection import train_test_split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=123)\nwe prepare the model by calling it from sklearn.tree\nfrom sklearn import tree\n\nclf = tree.DecisionTreeClassifier()\n# With defined train test split\n\nclf = clf.fit(X_train, y_train)",
     "crumbs": [
       "About",
       "Posts",
-      "Exercises",
-      "Latihan Numpy 1"
+      "Data Science",
+      "Machine Learning",
+      "Machine Learning - Supervised Learning"
     ]
   },
   {
-    "objectID": "posts/Exercises/numpy task1.html#skenario",
-    "href": "posts/Exercises/numpy task1.html#skenario",
-    "title": "Latihan Numpy 1",
-    "section": "",
-    "text": "Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L, XL) di berbagai lokasi (toko). Data penjualan disimpan dalam array NumPy bernama sales_data dengan struktur berikut (data dalam struktur hanya contoh):\n\nimport numpy as np\n\nsales_data = np.array([\n[[10, 35, 15, 20],  # Penjualan Lokasi 1\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [25, 35, 30, 18],\n [5,  35, 8, 12]],\n\n[[12, 35, 18, 15],  # Penjualan Lokasi 2\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [22, 35, 28, 20],\n [7,  35, 9, 11]]\n])\n\n# sales_data.shape = (jumlah_lokasi, jumlah_kategori, jumlah_ukuran)\n\nfile tugas bisa didownload [di sini](https://github.com/sakarimov/my-personal-blog/raw/main/mybook/notes/numpy%231.txt)\n\n\n\n\n\n\n\nNote\n\n\n\nuntuk membuka file ini ikuti petunjuk berikut:\nimport numpy as np\n\nload_file = np.loadtxt('path/to/the/file/you/download')\nload_original = load_file.reshape(4,7,4)",
+    "objectID": "posts/Data Science/Machine Learning/ML - Supervised Learning.html#linear-regression",
+    "href": "posts/Data Science/Machine Learning/ML - Supervised Learning.html#linear-regression",
+    "title": "Machine Learning - Supervised Learning",
+    "section": "Linear Regression",
+    "text": "Linear Regression\n\nimport numpy as np\n\n# make dummy data of rooms\nbedrooms = np.array([1,1,2,2,3,4,4,5,5,5])\n \n# make dummy price data in dolar\nhouse_price = np.array([15000, 18000, 27000, 34000, 50000, 68000, 65000, 81000,85000, 90000])\n\n\n# visualize in scatterplot\nimport matplotlib.pyplot as plt\n%matplotlib inline\n \nplt.scatter(bedrooms, house_price)\n\n\n\n\n\n\n\n\n\nfrom sklearn.linear_model import LinearRegression\n \n# train the model with LinearRegression.fit()\nbedrooms = bedrooms.reshape(-1, 1)\nlinreg = LinearRegression()\nlinreg.fit(bedrooms, house_price)\n\nLinearRegression()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  LinearRegression?Documentation for LinearRegressioniFittedLinearRegression() \n\n\n\n# plotting the corelation between number of rooms and house_prices\nplt.scatter(bedrooms, house_price)\nplt.plot(bedrooms, linreg.predict(bedrooms))",
     "crumbs": [
       "About",
       "Posts",
-      "Exercises",
-      "Latihan Numpy 1"
+      "Data Science",
+      "Machine Learning",
+      "Machine Learning - Supervised Learning"
     ]
   },
   {
-    "objectID": "posts/Exercises/numpy task1.html#tugas",
-    "href": "posts/Exercises/numpy task1.html#tugas",
-    "title": "Latihan Numpy 1",
-    "section": "",
-    "text": "Identifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):\n\nGunakan teknik slicing tingkat lanjut dalam NumPy untuk menghitung total penjualan untuk setiap kategori di semua ukuran di setiap lokasi.\nPetunjuk: Anda dapat menggabungkan slicing dasar (:) untuk memilih lokasi tertentu dan masking boolean untuk menjumlahkan di sepanjang sumbu kategori.\nIdentifikasi kategori dengan penjualan tertinggi untuk setiap lokasi.\n\nBandingkan Distribusi Ukuran untuk Kategori Spesifik:\n\nFokus pada kategori tertentu (misalnya, kemeja) di semua lokasi.\nGunakan teknik slicing atau pengindeksan array untuk memilih hanya data penjualan kategori tersebut.\nHitung total penjualan untuk setiap ukuran (jumlahkan di sepanjang sumbu ukuran).\nAnalisa distribusi ukuran (misalnya, ukuran mana yang paling banyak terjual untuk kategori tersebut secara keseluruhan).\n\nTemukan Lokasi dengan Penjualan Rendah pada Ukuran Tertentu:\n\nTentukan ukuran tertentu (misalnya, XL) yang mungkin perlu diisi ulang stoknya.\nGunakan masking boolean untuk memilih hanya data penjualan ukuran tersebut dari seluruh array.\nHitung total penjualan produk dengan ukuran tersebut di setiap lokasi (jumlahkan di sepanjang semua sumbu lainnya).\nIdentifikasi lokasi dengan penjualan di bawah ambang batas tertentu untuk produk dengan ukuran tersebut, yang menunjukkan potensi kebutuhan untuk mengisi ulang stok.",
+    "objectID": "posts/Data Science/Machine Learning/ML - Supervised Learning.html#logistic-regression",
+    "href": "posts/Data Science/Machine Learning/ML - Supervised Learning.html#logistic-regression",
+    "title": "Machine Learning - Supervised Learning",
+    "section": "Logistic Regression",
+    "text": "Logistic Regression\n\nimport pandas as pd\n\ndf = pd.read_csv('datasets/socmedAds/Social_Network_Ads.csv')\ndf\n\n\n\n\n\n\n\n\n\nUser ID\nGender\nAge\nEstimatedSalary\nPurchased\n\n\n\n\n0\n15624510\nMale\n19\n19000\n0\n\n\n1\n15810944\nMale\n35\n20000\n0\n\n\n2\n15668575\nFemale\n26\n43000\n0\n\n\n3\n15603246\nFemale\n27\n57000\n0\n\n\n4\n15804002\nMale\n19\n76000\n0\n\n\n...\n...\n...\n...\n...\n...\n\n\n395\n15691863\nFemale\n46\n41000\n1\n\n\n396\n15706071\nMale\n51\n23000\n1\n\n\n397\n15654296\nFemale\n50\n20000\n1\n\n\n398\n15755018\nMale\n36\n33000\n0\n\n\n399\n15594041\nFemale\n49\n36000\n1\n\n\n\n\n400 rows × 5 columns\n\n\n\n\n\ndf.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 400 entries, 0 to 399\nData columns (total 5 columns):\n #   Column           Non-Null Count  Dtype \n---  ------           --------------  ----- \n 0   User ID          400 non-null    int64 \n 1   Gender           400 non-null    object\n 2   Age              400 non-null    int64 \n 3   EstimatedSalary  400 non-null    int64 \n 4   Purchased        400 non-null    int64 \ndtypes: int64(4), object(1)\nmemory usage: 15.8+ KB\n\n\n\ndata = df.drop(columns=['User ID'])\n\ndata = pd.get_dummies(data)\ndata\n\n\n\n\n\n\n\n\n\nAge\nEstimatedSalary\nPurchased\nGender_Female\nGender_Male\n\n\n\n\n0\n19\n19000\n0\nFalse\nTrue\n\n\n1\n35\n20000\n0\nFalse\nTrue\n\n\n2\n26\n43000\n0\nTrue\nFalse\n\n\n3\n27\n57000\n0\nTrue\nFalse\n\n\n4\n19\n76000\n0\nFalse\nTrue\n\n\n...\n...\n...\n...\n...\n...\n\n\n395\n46\n41000\n1\nTrue\nFalse\n\n\n396\n51\n23000\n1\nFalse\nTrue\n\n\n397\n50\n20000\n1\nTrue\nFalse\n\n\n398\n36\n33000\n0\nFalse\nTrue\n\n\n399\n49\n36000\n1\nTrue\nFalse\n\n\n\n\n400 rows × 5 columns\n\n\n\n\n\nX = data[['Age', 'EstimatedSalary', 'Gender_Female', 'Gender_Male']]\ny = data['Purchased']\n\n\n# data normalization\nfrom sklearn.preprocessing import StandardScaler\nscaler = StandardScaler()\n# calculating the mean and standard deviation of every attribute column\n# to be used on every transform function\nscaler.fit(X)\nscaled_data = scaler.transform(X)\nscaled_data = pd.DataFrame(scaled_data, columns=X.columns)\nscaled_data\n\n\n\n\n\n\n\n\n\nAge\nEstimatedSalary\nGender_Female\nGender_Male\n\n\n\n\n0\n-1.781797\n-1.490046\n-1.020204\n1.020204\n\n\n1\n-0.253587\n-1.460681\n-1.020204\n1.020204\n\n\n2\n-1.113206\n-0.785290\n0.980196\n-0.980196\n\n\n3\n-1.017692\n-0.374182\n0.980196\n-0.980196\n\n\n4\n-1.781797\n0.183751\n-1.020204\n1.020204\n\n\n...\n...\n...\n...\n...\n\n\n395\n0.797057\n-0.844019\n0.980196\n-0.980196\n\n\n396\n1.274623\n-1.372587\n-1.020204\n1.020204\n\n\n397\n1.179110\n-1.460681\n0.980196\n-0.980196\n\n\n398\n-0.158074\n-1.078938\n-1.020204\n1.020204\n\n\n399\n1.083596\n-0.990844\n0.980196\n-0.980196\n\n\n\n\n400 rows × 4 columns\n\n\n\n\n\n# validation with cross validation\nfrom sklearn.model_selection import cross_val_score\nfrom sklearn import linear_model\n\nmodel = linear_model.LogisticRegression()\nscores = cross_val_score(model, scaled_data, y, cv=5)\n\n\nscores\n\narray([0.7   , 0.95  , 0.9375, 0.8125, 0.7   ])\n\n\n\nfrom sklearn.model_selection import train_test_split\n \nX_train, X_test, y_train, y_test = train_test_split(scaled_data, y, test_size=0.2, random_state=1)\n\n\nmodel.fit(X_train, y_train)\n\nLogisticRegression()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.  LogisticRegression?Documentation for LogisticRegressioniFittedLogisticRegression() \n\n\n\n# examine model accuracy\nmodel.score(X_test, y_test)\n\n0.825",
     "crumbs": [
       "About",
       "Posts",
-      "Exercises",
-      "Latihan Numpy 1"
+      "Data Science",
+      "Machine Learning",
+      "Machine Learning - Supervised Learning"
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Just Another Attempt to Contribute",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "This is my little corner of the web where I share thoughts, projects, and lessons from my journey as a programmer, builder, and believer.\nI used to hold back from sharing, afraid of saying the wrong thing or not being “good enough.” But I realized: growth happens when we share — not when we’re perfect, but when we’re sincere.\n\nThough this I hope to offer what I can, no matter how small. Whether it’s a piece of code, a reflection, or a simple idea — I share it here with the hope that it brings benefit.\n\nBocah Angon Penekno Blimbing Kuwi\nLunyu Lunyu Penekno Kanggo Mbasuh Dodot Iro\n\nIf something here helps you, inspires you, or even makes you curious, i’ll be happy to hear you out. Otherwise If not, that’s okay too — I’m still learning, still growing, and I’m grateful you stopped by.\nBismillah — let’s build, reflect, and learn together.\n— Sulthan A. Karimov —"
-  },
-  {
-    "objectID": "index.html#welcome.-peace-be-upon-you.",
-    "href": "index.html#welcome.-peace-be-upon-you.",
-    "title": "Just Another Attempt to Contribute",
-    "section": "",
-    "text": "This is my little corner of the web where I share thoughts, projects, and lessons from my journey as a programmer, builder, and believer.\nI used to hold back from sharing, afraid of saying the wrong thing or not being “good enough.” But I realized: growth happens when we share — not when we’re perfect, but when we’re sincere.\n\nThough this I hope to offer what I can, no matter how small. Whether it’s a piece of code, a reflection, or a simple idea — I share it here with the hope that it brings benefit.\n\nBocah Angon Penekno Blimbing Kuwi\nLunyu Lunyu Penekno Kanggo Mbasuh Dodot Iro\n\nIf something here helps you, inspires you, or even makes you curious, i’ll be happy to hear you out. Otherwise If not, that’s okay too — I’m still learning, still growing, and I’m grateful you stopped by.\nBismillah — let’s build, reflect, and learn together.\n— Sulthan A. Karimov —"
+    "text": "Just Another Attempt to Share\nIlmu memang memberi kita pengetahuan, tetapi hanya filsafat yang bisa memberi kita kebijaksanaan.\nWill Durant\n\n\n\n Back to top",
+    "crumbs": [
+      "About"
+    ]
   }
 ]
