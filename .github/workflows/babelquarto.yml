@@ -22,11 +22,17 @@ jobs:
         with:
           version: "1.4.550"
 
-      - name: Install babelquarto
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages: |
-            github::ropensci-review-tools/babelquarto@a485fea
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Sync Python dependencies
+        run: uv sync
+
+      - name: Register Jupyter kernel
+        run: uv run python -m ipykernel install --user --name python3
+
+      - name: Restore R packages from renv.lock
+        run: Rscript -e 'install.packages("renv", repos="https://packagemanager.posit.co/cran/__linux__/noble/latest"); renv::restore()'
 
       - name: Debug — list files
         run: |
@@ -34,20 +40,10 @@ jobs:
           tree -L 2
           python3 --version
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'  # or '3.12.3' for exact match
-
-      - name: Install Jupyter for Python rendering
-        run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install -r requirements.txt
-
-      # -------- FIXED SECTION --------
       - name: Render multilingual site with babelquarto
-        working-directory: myblog
-        run: Rscript -e 'babelquarto::render_website()'   # ./myblog/_quarto.yml found  :contentReference[oaicite:1]{index=1}
+        run: |
+          source .venv/bin/activate
+          Rscript -e 'source("renv/activate.R"); babelquarto::render_website(project_path = "myblog")'
 
       - name: Archive book render
         uses: actions/upload-artifact@v4
@@ -59,8 +55,7 @@ jobs:
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
-          path: myblog/_site           # deploy sub-dir
+          path: myblog/_site
           render: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
