@@ -31,8 +31,7 @@ myblog-main/
 │       └── babelquarto.yml # CI: render + deploy on push to main
 ├── Makefile                # shortcut commands (make preview, make deploy, ...)
 ├── pyproject.toml          # Python deps (source of truth for uv)
-├── uv.lock                 # Python lockfile (auto-generated)
-├── requirements.txt        # Export of pyproject.toml (for CI pip install)
+├── uv.lock                 # Python lockfile (auto-generated, reproducible)
 ├── renv.lock               # R lockfile (source of truth for renv)
 ├── renv/
 │   └── activate.R          # renv bootstrap script
@@ -198,13 +197,9 @@ uv remove <package-name>
 
 # Reinstall from lockfile (after git pull)
 uv sync
-
-# Regenerate requirements.txt for CI
-uv export --format requirements-txt --no-hashes --output-file requirements.txt
 ```
 
 `pyproject.toml` is the source of truth. `uv.lock` ensures reproducible installs.
-`requirements.txt` is a generated export for CI compatibility.
 
 ### R (via renv)
 
