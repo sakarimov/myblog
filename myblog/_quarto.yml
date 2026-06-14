@@ -9,7 +9,6 @@ website:
     logo: assets/img/logo_cropped.png
     search: true
     right:
-      - about.qmd
       - icon: github
         href: https://github.com/sakarimov
       - icon: twitter
@@ -21,8 +20,10 @@ website:
   sidebar:
     contents: auto
     style: floating
+    width: 280px
   back-to-top-navigation: true
   reader-mode: true
+
 format:
   html:
     theme: brite
