@@ -1,0 +1,39 @@
+---
+title: "Tentang"
+image: comfy.jpg
+publish: true
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/sulthan_karimov
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/sulthankarimov
+    - icon: github
+      text: Github
+      href: https://github.com/sakarimov
+
+---
+
+# Hanya Upaya untuk Berbagi
+
+::: {.content-hidden when-meta="publish"}
+puji syukur kehadirat Allah SWT. tanpanya, blog ini tak mungkin bisa author wujudkan. shalawat serta salam semoga senantiasa tercurah kepada Nabi Muhammad SAW, selaku rasul dan imam bagi seluruh alam.
+:::
+
+Blog ini adalah kumpulan dari berbagai eksperimen, pembelajaran, dan trial & error yang selama ini penulis jalani. Cakupannya meliputi computer science, data science, automation, linux sysadmin, hingga desain 3D. Di luar topik-topik teknis tersebut, penulis juga menyelipkan cerita dan kutipan-kutipan filosofis yang semoga bisa menjadi sumber inspirasi.
+
+Penulis blog ini adalah **Sulthan A. Karimov**.
+
+Semua artikel dalam blog ini bebas untuk diserap dan disebarluaskan tanpa perlu atribusi kepada penulis, kecuali bila bersumber dari referensi yang mensyaratkan atribusi. Penulis hanya berharap apa pun yang tersaji lewat blog ini dapat bermanfaat dan diserap seluas-luasnya oleh para pembaca.
+
+| **Ilmu memang memberi kita pengetahuan, tetapi hanya filsafat yang bisa memberi kita kebijaksanaan.**
+| *Will Durant*
+
+::: {.content-hidden when-meta="publish"}
+apabila pembaca merasa senang dan terbantu dari apa yang didapat dari blog ini, dan sekiranya ingin membantu penulis, cukup sisipkan doa untuk penulis menurut keyakinan dan kepercayaan masing-masing.
+
+akhirnya, semua yang tersaji tak lepas dari taufiq dan qodho Nya, semoga kita semua senantiasa mendapat taufiq nya untuk bisa berusaha menjadi lebih baik, aamiin...
+:::

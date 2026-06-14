@@ -1,0 +1,298 @@
+---
+title: "Common Data Processing Practices"
+description: "this post will describe common practices on processing data from raw to ready-to-use dataframe"
+date: 2024-07-02
+author: "Sulthan A. Karimov"
+categories: [data-science, python, pandas, data-cleaning, dataframe]
+draft: true
+---
+
+# Common Data Processing practices
+
+## Introduction
+
+Real-world datasets are rarely clean. They arrive with missing values, duplicate records, inconsistent formats, outliers, and invalid entries. Before any meaningful analysis or modeling can take place, these issues must be identified and resolved. Data cleaning is often the most time-consuming step in a data science workflow — estimates suggest it can consume 60–80% of a project's time — yet it is also the most critical. A model trained on dirty data will produce unreliable results, no matter how sophisticated the algorithm.
+
+This tutorial walks through common data cleaning practices using Python, pandas, and NumPy. Each section introduces a problem, demonstrates how to detect it, and shows how to fix it using realistic sample data.
+
+## Setup
+
+```{python}
+import pandas as pd
+import numpy as np
+
+# Seed for reproducibility
+np.random.seed(42)
+```
+
+## Handling Missing Values
+
+Missing values are one of the most frequent issues in raw data. They can arise from sensor failures, incomplete surveys, or human error during data entry. Pandas provides several tools for detecting and dealing with them.
+
+```{python}
+# Create a sample DataFrame with missing values
+df = pd.DataFrame({
+    'name': ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'],
+    'age': [25, np.nan, 35, 28, np.nan],
+    'salary': [50000, 62000, np.nan, 48000, 55000],
+    'department': ['Engineering', np.nan, 'Marketing', 'Engineering', 'Sales']
+})
+
+df
+```
+
+### Detecting Missing Values
+
+```{python}
+# Check which cells are null
+print("Null mask:\n", df.isna())
+
+# Count missing values per column
+print("\nMissing per column:\n", df.isna().sum())
+```
+
+### Filling Missing Values
+
+```{python}
+# Fill numeric columns with the column median
+df['age'] = df['age'].fillna(df['age'].median())
+df['salary'] = df['salary'].fillna(df['salary'].median())
+
+# Fill categorical columns with the most frequent value (mode)
+df['department'] = df['department'].fillna(df['department'].mode()[0])
+
+df
+```
+
+### Dropping Rows or Columns
+
+```{python}
+# Alternative approach: drop rows with any null value
+df_dropped_rows = df.dropna()
+
+# Drop columns where more than 50% of values are missing
+df_dropped_cols = df.dropna(thresh=len(df) * 0.5, axis=1)
+```
+
+## Removing Duplicates
+
+Duplicate rows can inflate counts, bias aggregations, and mislead statistical tests. Identifying and removing them is straightforward with pandas.
+
+```{python}
+# Create a DataFrame with intentional duplicates
+df_dup = pd.DataFrame({
+    'customer_id': [101, 102, 103, 101, 104, 102],
+    'product': ['Laptop', 'Mouse', 'Keyboard', 'Laptop', 'Monitor', 'Mouse'],
+    'price': [1200, 25, 80, 1200, 300, 25],
+    'date': ['2024-01-15', '2024-01-16', '2024-01-16',
+             '2024-01-15', '2024-01-17', '2024-01-16']
+})
+
+df_dup
+```
+
+### Detecting Duplicates
+
+```{python}
+# Check which rows are duplicates (keep='first' marks subsequent occurrences)
+df_dup.duplicated()
+```
+
+```{python}
+# Show only the duplicate rows
+df_dup[df_dup.duplicated(keep=False)]
+```
+
+### Removing Duplicates
+
+```{python}
+# Drop duplicate rows, keeping the first occurrence
+df_clean = df_dup.drop_duplicates()
+
+df_clean
+```
+
+```{python}
+# Remove duplicates based on specific columns only
+df_dup.drop_duplicates(subset=['customer_id', 'product'])
+```
+
+## Type Conversion
+
+Data often arrives with incorrect types — numeric columns stored as strings, dates stored as text, or categorical values stored as integers. Converting types correctly is essential for downstream operations.
+
+```{python}
+# Create a DataFrame with mixed types
+df_types = pd.DataFrame({
+    'id': ['001', '002', '003', '004'],
+    'price': ['12.50', '8.00', 'invalid', '15.30'],
+    'quantity': [3, 5, 2, 4],
+    'date_string': ['2024-01-01', '2024-02-15', '2024-03-10', '2024-04-22'],
+    'category_code': [1, 2, 1, 3]
+})
+
+df_types.dtypes
+```
+
+### Converting with `astype()`
+
+```{python}
+# Convert 'id' from string to integer
+df_types['id'] = df_types['id'].astype(int)
+
+# Convert 'category_code' to categorical dtype
+df_types['category_code'] = df_types['category_code'].astype('category')
+
+df_types.dtypes
+```
+
+### Safe Numeric Conversion with `to_numeric()`
+
+```{python}
+# to_numeric() handles invalid values: coerce turns 'invalid' into NaN
+df_types['price'] = pd.to_numeric(df_types['price'], errors='coerce')
+
+# Fill the resulting NaN with the median
+df_types['price'] = df_types['price'].fillna(df_types['price'].median())
+
+df_types
+```
+
+### Converting to Datetime
+
+```{python}
+# Parse string dates into proper datetime objects
+df_types['purchase_date'] = pd.to_datetime(df_types['date_string'])
+
+# Extract useful components
+df_types['year'] = df_types['purchase_date'].dt.year
+df_types['month'] = df_types['purchase_date'].dt.month
+df_types['day_of_week'] = df_types['purchase_date'].dt.day_name()
+
+df_types[['date_string', 'purchase_date', 'year', 'month', 'day_of_week']]
+```
+
+## Outlier Detection
+
+Outliers are extreme values that deviate significantly from the rest of the data. They can result from measurement errors, data entry mistakes, or genuine rare events. Two common methods for detecting outliers are the IQR method and the Z-score method.
+
+```{python}
+# Generate sample data with outliers
+np.random.seed(42)
+data = np.random.normal(loc=50, scale=10, size=100).tolist()
+data.extend([5, 8, 95, 98])  # Inject outliers
+df_out = pd.DataFrame({'value': data})
+```
+
+### Interquartile Range (IQR) Method
+
+The IQR method identifies values that fall outside 1.5 times the interquartile range below Q1 or above Q3. It is robust to skewed distributions because it relies on percentiles rather than the mean.
+
+```{python}
+Q1 = df_out['value'].quantile(0.25)
+Q3 = df_out['value'].quantile(0.75)
+IQR = Q3 - Q1
+
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+
+# Find outliers
+outliers_iqr = df_out[(df_out['value'] < lower_bound) | (df_out['value'] > upper_bound)]
+print(f"Lower bound: {lower_bound:.2f}, Upper bound: {upper_bound:.2f}")
+print(f"Outliers detected: {len(outliers_iqr)}")
+outliers_iqr.head()
+```
+
+### Z-Score Method
+
+The Z-score method measures how many standard deviations a value is from the mean. Values beyond a threshold (commonly 3) are flagged as outliers. This method assumes the data is approximately normally distributed.
+
+```{python}
+from scipy import stats
+
+z_scores = np.abs(stats.zscore(df_out['value']))
+df_out['z_score'] = z_scores
+
+# Flag values with |z-score| > 3
+outliers_z = df_out[df_out['z_score'] > 3]
+print(f"Outliers detected: {len(outliers_z)}")
+outliers_z.head()
+```
+
+### Handling Outliers
+
+```{python}
+# Option 1: Remove outliers (IQR method)
+df_no_outliers = df_out[(df_out['value'] >= lower_bound) & (df_out['value'] <= upper_bound)]
+
+# Option 2: Cap outliers at the bounds (winsorization)
+df_out['value_capped'] = df_out['value'].clip(lower=lower_bound, upper=upper_bound)
+
+print(f"Original rows: {len(df_out)}, After removal: {len(df_no_outliers)}")
+```
+
+## Data Validation
+
+After cleaning, it is prudent to verify that the data meets expected constraints. Validation catches errors that may have been missed and ensures the dataset is ready for analysis.
+
+```{python}
+# Create a validated dataset
+df_val = pd.DataFrame({
+    'age': [22, 34, 28, 120, 45, 19, -5],
+    'email': ['a@x.com', 'b@x.com', 'a@x.com', 'c@x.com', 'b@x.com', 'd@x.com', 'e@x.com'],
+    'score': [85, 92, 78, 95, 88, 76, 90],
+    'status': ['active', 'inactive', 'active', 'pending', 'active', 'inactive', 'unknown']
+})
+
+df_val
+```
+
+### Range Checks
+
+```{python}
+# Validate age is within a reasonable range (0 to 120)
+invalid_age = df_val[(df_val['age'] < 0) | (df_val['age'] > 120)]
+print(f"Invalid age entries: {len(invalid_age)}")
+invalid_age
+```
+
+```{python}
+# Fix: clip ages to valid range
+df_val['age'] = df_val['age'].clip(lower=0, upper=120)
+```
+
+### Unique and Domain Constraints
+
+```{python}
+# Check for duplicate emails
+duplicate_emails = df_val[df_val['email'].duplicated(keep=False)]
+print(f"Duplicate emails: {len(duplicate_emails)}")
+
+# Ensure status values belong to an allowed set
+valid_statuses = {'active', 'inactive', 'pending'}
+invalid_status = df_val[~df_val['status'].isin(valid_statuses)]
+print(f"Invalid status entries: {len(invalid_status)}")
+invalid_status
+```
+
+```{python}
+# Fix: drop exact duplicates, replace invalid statuses with a default
+df_val = df_val.drop_duplicates(subset=['email'])
+df_val['status'] = df_val['status'].apply(
+    lambda x: x if x in valid_statuses else 'inactive'
+)
+
+print("Cleaned dataset:")
+df_val
+```
+
+## Conclusion
+
+Data cleaning is an iterative process, not a one-time task. The practices covered in this tutorial — handling missing values, removing duplicates, converting types, detecting outliers, and validating data — form the foundation of any robust data pipeline. Some guiding principles to keep in mind:
+
+- **Inspect first, clean second.** Always profile your data with `.info()`, `.describe()`, and `.isna().sum()` before modifying anything.
+- **Document your cleaning steps.** Whether in code comments or a pipeline log, reproducibility matters.
+- **Know your domain.** A value that looks like an outlier in one context may be perfectly valid in another — consult domain experts before discarding data.
+- **Validate after cleaning.** Re-run your checks after transformations to confirm the fixes were applied correctly.
+
+Clean data leads to reliable insights. Invest the time upfront, and your analyses will be stronger for it.

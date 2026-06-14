@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: ""
+  title: "Sulthan A. Karimov"
   site-url: https://sulthankarimov.my.id/myblog
   favicon: assets/img/logo_S.png
   navbar:
@@ -41,7 +41,7 @@ babelquarto:
     text: "English"
   mainlanguage: 'en'
   languages: ['id']
-title-id: ""
-description-id: ""
+title-id: "Sulthan A. Karimov"
+description-id: "Blog pribadi tentang computer science, data science, dan eksperimen teknis"
 author-id: Sulthan A. Karimov
 lang: en

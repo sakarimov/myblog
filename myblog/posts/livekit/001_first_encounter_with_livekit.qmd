@@ -1,0 +1,237 @@
+---
+title: "My First Encounter with WebRTC and LiveKit Agents"
+date: 2024-06-22
+author: "Sulthan A. Karimov"
+categories: [backend, python, ai, mlops, webrtc, cloud]
+draft: true
+---
+
+::: {.content-hidden unless-meta="publish"}
+
+# My First Encounter with WebRTC and Livekit Agents
+
+yesterday i got a project that pushed me to learn about livekit agents which also involve AI model, even though it's my first time hearing about that stuff, but i'm pretty much confident with my understanding about Devops and AI. at first, i thought that it's just like another backend framework from the rest of the market, turns out i was wrong, it's beyond that, and the potential of this project is beyond reality.
+
+if you ever heard about WebRTC and it's complexity livekit agents try to solve that for you. it creates private room for every user who interact with your frontend app, handle the authentication, audio/video transport etc. and everything are in one API. in this post i will try to give a glimps overview of this topic, how to get your feet wet in it, and how to begin your first webRTC project which involve AI model.
+
+# What is WebRTC?
+
+> With WebRTC, you can add real-time communication capabilities to your application that works on top of an open standard. It supports video, voice, and generic data to be sent between peers, allowing developers to build powerful voice- and video-communication solutions. The technology is available on all modern browsers as well as on native clients for all major platforms. The technologies behind WebRTC are implemented as an open web standard and available as regular JavaScript APIs in all major browsers. For native clients, like Android and iOS applications, a library is available that provides the same functionality. The WebRTC project is open-source and supported by Apple, Google, Microsoft and Mozilla, amongst others. This page is maintained by the Google WebRTC team.
+
+at least that is what written in it's official website [read more here](https://webrtc.org/), this technology gives ability to any web app or mobile app to use users audio and video input to interact with it. it can even control user's screen. many big app uses this technology as their backbone lets mention google duo, whatsapp, zoom, jitsi and so on.
+
+it's just basic implementation of this library. we still can improvise by modifying the input or the output, or by connecting it to AI API, etc. curious? lets get into it.
+
+## basic functionality with WebRTC
+
+at its core, WebRTC relies on three main APIs: `getUserMedia()` to access the user's camera and microphone, `RTCPeerConnection` to establish a direct peer-to-peer connection, and `RTCDataChannel` to send arbitrary data between peers. setting up a basic WebRTC call involves four steps:
+
+1. **capturing media**: using `navigator.mediaDevices.getUserMedia()`, the browser prompts the user for camera/microphone permission and returns a `MediaStream` object containing the audio and video tracks.
+
+2. **signaling**: before peers can connect directly, they need to exchange session metadata — SDP offers/answers and ICE candidates — through a signaling server. WebRTC does not specify a signaling protocol; you are free to use WebSockets, HTTP, or any other transport.
+
+3. **ICE and NAT traversal**: the Interactive Connectivity Establishment (ICE) framework gathers potential network paths using STUN servers (to discover public IP addresses) and TURN servers (to relay media when direct connections fail). every `RTCPeerConnection` collects ICE candidates and exchanges them through the signaling channel.
+
+4. **establishing the connection**: once SDP descriptions and ICE candidates are exchanged, peers negotiate codecs, encryption keys, and transport parameters. media then flows directly between peers over SRTP (Secure Real-time Transport Protocol).
+
+a minimal JavaScript setup to capture camera and create a peer connection looks roughly like this:
+
+```text
+// get user media
+const stream = await navigator.mediaDevices.getUserMedia({
+  video: true,
+  audio: true
+});
+
+// create peer connection with STUN server
+const pc = new RTCPeerConnection({
+  iceServers: [{ urls: "stun:stun.l.google.com:19302" }]
+});
+
+// add local tracks to the connection
+stream.getTracks().forEach(track => pc.addTrack(track, stream));
+
+// listen for remote tracks
+pc.ontrack = (event) => {
+  remoteVideo.srcObject = event.streams[0];
+};
+```
+
+while this looks straightforward on the surface, building a production-grade application around WebRTC requires handling signaling state machines, reconnection logic, multi-party mesh or SFU routing, media recording, room management, and authentication — all of which compound quickly into a significant engineering effort.
+
+## WebRTC architecture overview
+
+the overall flow of a WebRTC session can be visualized as:
+
+```text
+User A                          Signaling Server                   User B
+  |                                    |                              |
+  |--- getUserMedia() -->|             |                              |
+  |--- createOffer() --> |--- SDP offer via WS --->|--- createAnswer() |
+  |                       |                        |--- addStream()    |
+  |<-- SDP answer via WS -|<--- SDP answer ---------|                  |
+  |                       |                                             |
+  |--- ICE candidate -->  |--- ICE candidate via WS -->|--- ICE candidate |
+  |<-- ICE candidate ---- |<--- ICE candidate ---------|--- ICE candidate |
+  |                       |                                             |
+  |<=========== DIRECT PEER CONNECTION (SRTP) ===============>|
+  |                       |                                             |
+  |      [STUN Server — discovers public IP]                           |
+  |      [TURN Server — relay if direct connection fails]              |
+```
+
+the signaling server is responsible only for exchanging metadata — it never touches the actual audio or video streams. the media travels directly between peers, or through a TURN relay server when network conditions demand it. this decentralized architecture is what makes WebRTC powerful, but also what makes it complex to manage at scale.
+
+# How Livekit Agents Untangled the Challenges
+
+if you ever heard about WebRTC and it's complexity livekit agents try to solve that for you. ```LiveKit Agents is an end-to-end framework for building realtime, multimodal AI "agents" that interact with end-users through voice, video, and data channels. This framework allows you to build an agent using Python.``` — this is what written in it's official docs.
+
+so what does that actually mean? when you try to build a real-time AI application using raw WebRTC, you quickly find yourself wrestling with a dozen interconnected problems that have nothing to do with AI:
+
+**signaling complexity**: raw WebRTC tells you nothing about how signaling should work. you have to design your own protocol, manage reconnection timeouts, handle edge cases when clients disconnect mid-handshake, and synchronize state across multiple servers. livekit provides a complete signaling protocol out of the box with its client SDKs for JavaScript, Swift, Kotlin, Flutter, and React Native.
+
+**room and participant management**: in a multi-party application, you need to track who joined, who left, who is publishing audio/video, and who is muted. livekit gives you a `Room` abstraction where participants join, publish tracks, subscribe to others, and receive real-time events — all without managing the underlying peer connections yourself.
+
+**authentication and access control**: securing a WebRTC application means generating short-lived tokens, validating room permissions, and preventing unauthorized access to streams. livekit handles token-based authentication where your backend generates a JSON Web Token (JWT) with the user's identity, room name, and permissions — the livekit server enforces these automatically.
+
+**media transport at scale**: once you have more than two participants, you need a Selective Forwarding Unit (SFU) to route media efficiently. building an SFU from scratch is a monumental task. livekit provides a production-grade SFU written in Go that handles packet forwarding, bandwidth estimation, simulcast, and adaptive bitrate — all with sub-second latency.
+
+**the agents framework**: on top of all this infrastructure, livekit agents lets you build server-side "agents" in Python that participate in rooms just like human users. an agent can listen to audio, process it through an AI model (speech-to-text, LLM, text-to-speech), and respond through the room's audio track. the framework handles audio chunking, interruption management, and model lifecycle for you.
+
+in short, livekit takes the "real-time infrastructure" problem off your plate so you can focus on building the AI behavior. what would take months of engineering around raw WebRTC can be done in days with livekit.
+
+# Getting Started with LiveKit Agents
+
+to start building your own livekit agent, you will need a running livekit server and the python agents SDK.
+
+## installation
+
+install the python package from PyPI:
+
+```text
+pip install livekit-agents
+```
+
+this installs the core agents framework along with plugins for common AI providers (OpenAI, ElevenLabs, Deepgram, and others).
+
+## environment configuration
+
+the agent connects to your livekit server using three environment variables:
+
+```text
+LIVEKIT_URL=wss://your-livekit-server.com
+LIVEKIT_API_KEY=your-api-key
+LIVEKIT_API_SECRET=your-api-secret
+```
+
+you can obtain these credentials from the livekit cloud dashboard at cloud.livekit.io or from your self-hosted server configuration. the `LIVEKIT_URL` uses the `wss://` (WebSocket Secure) protocol for real-time communication.
+
+## a minimal agent
+
+here is a conceptual "hello world" agent that joins a room, listens for the user speaking, and responds with a fixed audio reply:
+
+```text
+from livekit.agents import JobContext, WorkerOptions, cli
+from livekit.agents.voice import Agent, AgentSession
+
+class HelloAgent(Agent):
+    async def on_enter(self, ctx: JobContext):
+        # join the room as a participant
+        await ctx.connect()
+
+        # create an agent session (handles audio pipeline)
+        session = AgentSession(ctx=ctx, agent=self)
+        session.start()
+
+        # greet the user
+        await session.say(
+            "hello! i am your livekit agent. how can i help you?"
+        )
+
+if __name__ == "__main__":
+    cli.run_app(WorkerOptions(agent=HelloAgent))
+```
+
+when you run this script, it registers a worker that waits for job assignments from the livekit server. when a user connects to a room in your frontend application, the server dispatches a job to your agent worker, which then joins the room and begins interacting.
+
+the `AgentSession` handles all the complexities: audio encoding/decoding, voice activity detection, interruption handling (the user can interrupt the agent's speech), and turn management. you only need to implement the agent logic.
+
+# Connecting AI Models
+
+the real power of livekit agents comes from integrating AI models into the audio pipeline. a typical multimodal agent workflow looks like this:
+
+```text
+User speaks --> [microphone]
+    |
+    v
+LiveKit SFU --> sends audio chunks to agent worker
+    |
+    v
+Speech-to-Text (e.g., Deepgram, Whisper)
+    |       converts audio to text
+    v
+LLM (e.g., GPT-4o, Claude)
+    |       generates text response
+    v
+Text-to-Speech (e.g., ElevenLabs, PlayHT)
+    |       converts text to audio
+    v
+LiveKit SFU --> streams audio back to user's speaker
+```
+
+each stage is handled by a plugin that livekit agents natively supports. here is a conceptual example of an agent that pipes user speech through an AI model:
+
+```text
+from livekit.agents import JobContext, WorkerOptions, cli
+from livekit.agents.llm import LLM, ChatContext, ChatMessage
+from livekit.agents.voice import Agent, AgentSession
+
+class AIReceptionist(Agent):
+    def __init__(self):
+        # configure the AI model chain
+        self.llm = LLM.with_provider("openai", model="gpt-4o")
+        self.chat_ctx = ChatContext()
+
+        # set system prompt
+        self.chat_ctx.messages.append(ChatMessage(
+            role="system",
+            content="you are a helpful receptionist. be concise."
+        ))
+
+    async def on_enter(self, ctx: JobContext):
+        await ctx.connect()
+        session = AgentSession(ctx=ctx, agent=self)
+
+        # the session automatically:
+        # - captures user audio from the room
+        # - converts speech to text (using configured STT)
+        # - calls self.llm.chat() with the transcript
+        # - converts LLM response to speech (using configured TTS)
+        # - streams audio back to the room
+        session.start()
+        await session.say("welcome! how may i assist you today?")
+
+if __name__ == "__main__":
+    cli.run_app(WorkerOptions(agent=AIReceptionist))
+```
+
+with this setup, a user connects to your frontend, speaks into their microphone, and the agent responds in real time with AI-generated speech. the livekit framework handles all the audio streaming, transcription, model inference, and TTS synthesis behind the scenes.
+
+you can customize each stage of the pipeline independently: swap in a different speech-to-text provider, use a self-hosted LLM via a compatible API, or add function calling so the agent can execute actions beyond generating text — such as querying a database or controlling smart home devices.
+
+# Conclusion
+
+webrtc opens the door to real-time communication on the web, but building production applications around it requires solving a long list of infrastructure problems. livekit and its agents framework abstract away the signaling, room management, authentication, and media transport layers — letting you focus on what matters: the AI behavior.
+
+the combination of webrtc and AI models enables experiences that were science fiction just a few years ago: voice assistants that feel conversational, real-time translation agents, and AI co-pilots that see and hear what you do. livekit agents provides the bridge between real-time media and AI inference, turning months of infrastructure work into days of building agent behavior.
+
+to go deeper:
+
+- [webrtc.org](https://webrtc.org/) — the official WebRTC documentation and code samples
+- [livekit.io docs](https://docs.livekit.io/) — comprehensive guides for livekit server, client SDKs, and agents
+- [livekit/agents on GitHub](https://github.com/livekit/agents) — the open-source python framework with examples
+- [livekit meet](https://meet.livekit.io/) — a google-meet clone built on livekit, demonstrating the platform's capabilities
+
+the gap between "streaming data to a browser" and "an AI agent that converses naturally" is shrinking fast. livekit agents makes that gap almost disappear.
+
+:::

@@ -1,12 +1,10 @@
 ---
-title: kekuatan unik bangsa ini
-description: sebuah opini kebangsaan
-date: 07/02/2024
-author: Sulthan A. Karimov
+title: "Salut dengan Bangsa Ini"
+description: "sebuah opini kebangsaan"
+date: 2024-07-02
+author: "Sulthan A. Karimov"
 categories: [opini, ngelantur, indonesia]
 draft: false
-show: true
-freeze: true
 ---
 
 # Salut dengan Bangsa Ini
