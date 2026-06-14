@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Sulthan A. Karimov</title>
+<link>https://sulthankarimov.my.id/myblog/id/</link>
+<atom:link href="https://sulthankarimov.my.id/myblog/id/index.xml" rel="self" type="application/rss+xml"/>
+<description>Blog pribadi tentang computer science, data science, dan eksperimen teknis</description>
+<generator>quarto-1.4.550</generator>
+<lastBuildDate>Sun, 14 Jun 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Pemrograman Kendala dengan OR-Tools</title>
+  <dc:creator>Sulthan A. Karimov</dc:creator>
+  <link>https://sulthankarimov.my.id/myblog/id/posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="pendahuluan-mengapa-pemrograman-kendala" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="pendahuluan-mengapa-pemrograman-kendala"><span class="header-section-number">1</span> Pendahuluan: Mengapa Pemrograman Kendala?</h2>
+<p>Dalam banyak skenario dunia nyata, kita sering dihadapkan pada masalah yang melibatkan serangkaian keputusan yang harus dibuat dengan batasan tertentu. Contohnya termasuk penjadwalan shift karyawan, menyusun jadwal pelajaran sekolah, atau mengoptimalkan rute pengiriman barang. Masalah-masalah ini dikenal sebagai <strong>masalah optimasi kombinatorial</strong>, dan seringkali sulit diselesaikan dengan pendekatan brute force atau heuristik sederhana.</p>
+<p>Di sinilah <strong>pemrograman kendala (constraint programming)</strong> berperan — sebuah paradigma yang dirancang untuk menyelesaikan masalah seperti ini secara efisien. <strong>OR-Tools</strong> dari Google adalah toolkit open-source yang sangat kuat dan menyediakan pemecah kendala (constraint solver) serta mesin optimasi lainnya. Dalam artikel ini, kita akan mengeksplorasi bagaimana menggunakan OR-Tools dalam Python untuk memodelkan dan menyelesaikan masalah penjadwalan dengan kendala keras (hard constraints).</p>
+<p>Contoh kasus kita: <strong>Menjadwalkan mata pelajaran ke dalam slot waktu mingguan di kelas</strong>, di mana setiap mata pelajaran memiliki jumlah jam tertentu, dan tidak boleh ada tumpang tindih mata pelajaran dalam satu kelas pada waktu yang sama.</p>
+<p>Yuk kita mulai!</p>
+</section>
+<section id="mendefinisikan-masalah-penjadwalan" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="mendefinisikan-masalah-penjadwalan"><span class="header-section-number">2</span> Mendefinisikan Masalah Penjadwalan</h2>
+<p>Kita memiliki daftar mata pelajaran dan kelas. Setiap mata pelajaran memiliki jumlah jam per minggu. Tujuan kita adalah menjadwalkan mata pelajaran ke dalam slot waktu mingguan sehingga:</p>
+<ol type="1">
+<li>Setiap mata pelajaran dijadwalkan sesuai jumlah jam yang dibutuhkan.</li>
+<li>Setiap kelas hanya boleh memiliki satu mata pelajaran dalam satu slot.</li>
+</ol>
+<p>Berikut definisi mata pelajaran dan kelas:</p>
+<div id="58947cd7" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Kode</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1">subjects <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {</span>
+<span id="cb1-2">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PAI"</span>: {<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hour"</span>: <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>},</span>
+<span id="cb1-3">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Al-Qur'an"</span>: {<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hour"</span>: <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>},</span>
+<span id="cb1-4">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Olahraga"</span>: {<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hour"</span>: <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>},</span>
+<span id="cb1-5">}</span>
+<span id="cb1-6"></span>
+<span id="cb1-7">classrooms <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Kelas1_C0"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Kelas1_C1"</span>]</span>
+<span id="cb1-8"></span>
+<span id="cb1-9">weekdays <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Senin"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Selasa"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Rabu"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Kamis"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Jumat"</span>]</span>
+<span id="cb1-10">hours <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"07.00"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"08.00"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"09.00"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"10.00"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"11.00"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"13.00"</span>]</span>
+<span id="cb1-11">slots <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [(d, h) <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> d <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> weekdays <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> h <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> hours]</span></code></pre></div>
+</details>
+</div>
+</section>
+<section id="membangun-model-kendala" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="membangun-model-kendala"><span class="header-section-number">3</span> Membangun Model Kendala</h2>
+<p>Kita akan menggunakan <code>cp_model</code> dari OR-Tools untuk mendefinisikan variabel dan kendala.</p>
+<div id="00059865" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Kode</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> ortools.sat.python <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> cp_model</span>
+<span id="cb2-2"></span>
+<span id="cb2-3">model <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> cp_model.CpModel()</span>
+<span id="cb2-4"></span>
+<span id="cb2-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Variabel: is_subject_assigned[(kelas, mata pelajaran, slot)] = 1 jika dijadwalkan di slot tersebut</span></span>
+<span id="cb2-6">is_subject_assigned <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {}</span>
+<span id="cb2-7"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> cls <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> classrooms:</span>
+<span id="cb2-8">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> subj <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> subjects:</span>
+<span id="cb2-9">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> slot <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> slots:</span>
+<span id="cb2-10">            is_subject_assigned[(cls, subj, slot)] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> model.NewBoolVar(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>cls<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">_</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>subj<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">_</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>slot<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span></code></pre></div>
+</details>
+</div>
+</section>
+<section id="menambahkan-kendala-ke-model" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="menambahkan-kendala-ke-model"><span class="header-section-number">4</span> Menambahkan Kendala ke Model</h2>
+<section id="setiap-mata-pelajaran-dijadwalkan-sesuai-jumlah-jamnya" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="setiap-mata-pelajaran-dijadwalkan-sesuai-jumlah-jamnya"><span class="header-section-number">4.1</span> 1. Setiap mata pelajaran dijadwalkan sesuai jumlah jamnya:</h3>
+<div id="fef77e1e" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Kode</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">subject_slots_per_classroom_subject <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> {}</span>
+<span id="cb3-2"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> cls <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> classrooms:</span>
+<span id="cb3-3">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> subj, subject <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> subjects.items():</span>
+<span id="cb3-4">        assigned_slots <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [is_subject_assigned[(cls, subj, slot)] <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> slot <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> slots]</span>
+<span id="cb3-5">        var <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> model.NewIntVar(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(slots), <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"hours_</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>cls<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">_</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>subj<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb3-6">        model.Add(var <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>(assigned_slots))</span>
+<span id="cb3-7">        model.Add(var <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> subject[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hour"</span>])</span>
+<span id="cb3-8">        subject_slots_per_classroom_subject[(cls, subj)] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> var</span></code></pre></div>
+</details>
+</div>
+</section>
+<section id="satu-kelas-hanya-boleh-memiliki-satu-mata-pelajaran-dalam-satu-slot" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="satu-kelas-hanya-boleh-memiliki-satu-mata-pelajaran-dalam-satu-slot"><span class="header-section-number">4.2</span> 2. Satu kelas hanya boleh memiliki satu mata pelajaran dalam satu slot:</h3>
+<div id="61209a45" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Kode</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> cls <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> classrooms:</span>
+<span id="cb4-2">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> slot <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> slots:</span>
+<span id="cb4-3">        one_subject_per_slot <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [is_subject_assigned[(cls, subj, slot)] <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> subj <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> subjects]</span>
+<span id="cb4-4">        model.Add(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">sum</span>(one_subject_per_slot) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span></code></pre></div>
+</details>
+</div>
+</section>
+</section>
+<section id="menyelesaikan-model" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="menyelesaikan-model"><span class="header-section-number">5</span> Menyelesaikan Model</h2>
+<p>Sekarang kita jalankan solver dan cetak hasil jadwal jika solusi ditemukan.</p>
+<div id="267f0179" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Kode</summary>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">solver <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> cp_model.CpSolver()</span>
+<span id="cb5-2">status <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> solver.Solve(model)</span>
+<span id="cb5-3"></span>
+<span id="cb5-4"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> status <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> cp_model.FEASIBLE <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">or</span> status <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> cp_model.OPTIMAL:</span>
+<span id="cb5-5">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> cls <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> classrooms:</span>
+<span id="cb5-6">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Jadwal untuk </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>cls<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:"</span>)</span>
+<span id="cb5-7">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> day <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> weekdays:</span>
+<span id="cb5-8">            <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"  </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>day<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:"</span>)</span>
+<span id="cb5-9">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> hour <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> hours:</span>
+<span id="cb5-10">                slot <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (day, hour)</span>
+<span id="cb5-11">                subject_found <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span>
+<span id="cb5-12">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> subj <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> subjects:</span>
+<span id="cb5-13">                    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> solver.Value(is_subject_assigned[(cls, subj, slot)]) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>:</span>
+<span id="cb5-14">                        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"    </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>hour<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>subj<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb5-15">                        subject_found <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span></span>
+<span id="cb5-16">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">not</span> subject_found:</span>
+<span id="cb5-17">                    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"    </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>hour<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">: -"</span>)</span>
+<span id="cb5-18"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span>:</span>
+<span id="cb5-19">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Tidak ada solusi ditemukan."</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Jadwal untuk Kelas1_C0:
+  Senin:
+    07.00: -
+    08.00: Al-Qur'an
+    09.00: Al-Qur'an
+    10.00: -
+    11.00: -
+    13.00: -
+  Selasa:
+    07.00: -
+    08.00: -
+    09.00: -
+    10.00: -
+    11.00: -
+    13.00: Olahraga
+  Rabu:
+    07.00: -
+    08.00: PAI
+    09.00: -
+    10.00: -
+    11.00: -
+    13.00: -
+  Kamis:
+    07.00: -
+    08.00: -
+    09.00: -
+    10.00: -
+    11.00: -
+    13.00: -
+  Jumat:
+    07.00: Al-Qur'an
+    08.00: PAI
+    09.00: -
+    10.00: -
+    11.00: Olahraga
+    13.00: -
+
+Jadwal untuk Kelas1_C1:
+  Senin:
+    07.00: -
+    08.00: -
+    09.00: -
+    10.00: PAI
+    11.00: -
+    13.00: -
+  Selasa:
+    07.00: -
+    08.00: -
+    09.00: -
+    10.00: Al-Qur'an
+    11.00: -
+    13.00: -
+  Rabu:
+    07.00: -
+    08.00: PAI
+    09.00: -
+    10.00: -
+    11.00: -
+    13.00: -
+  Kamis:
+    07.00: Al-Qur'an
+    08.00: -
+    09.00: -
+    10.00: Olahraga
+    11.00: Olahraga
+    13.00: Al-Qur'an
+  Jumat:
+    07.00: -
+    08.00: -
+    09.00: -
+    10.00: -
+    11.00: -
+    13.00: -</code></pre>
+</div>
+</div>
+</section>
+<section id="contoh-keluaran" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="contoh-keluaran"><span class="header-section-number">6</span> Contoh Keluaran</h2>
+<p>Contoh hasil jadwal untuk <code>Kelas1_C0</code>:</p>
+<pre class="{txt}"><code>Jadwal untuk Kelas1_C0:
+  Senin:
+    07.00: PAI
+    08.00: Al-Qur'an
+    09.00: Al-Qur'an
+    ...</code></pre>
+<p>(Hasil dapat berbeda tergantung bagaimana solver menetapkan slot.)</p>
+</section>
+<section id="kesimpulan" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="kesimpulan"><span class="header-section-number">7</span> Kesimpulan</h2>
+<p>Kita telah memodelkan masalah penjadwalan sederhana menggunakan pemrograman kendala dengan OR-Tools. Kita:</p>
+<ul>
+<li>Mendefinisikan mata pelajaran dan kelas</li>
+<li>Membuat variabel keputusan biner</li>
+<li>Menambahkan kendala keras untuk jumlah jam dan eksklusivitas</li>
+<li>Menyelesaikan dan mencetak jadwal</li>
+</ul>
+<p>Ini baru permulaan — kamu bisa menambahkan lebih banyak kendala seperti ketersediaan guru, preferensi waktu, atau kendala lunak (misalnya meminimalkan jeda antar pelajaran). Pemrograman kendala menawarkan pendekatan deklaratif yang kuat untuk menyelesaikan masalah penjadwalan kompleks.</p>
+<section id="sumber-belajar" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="sumber-belajar"><span class="header-section-number">7.1</span> 🔗 Sumber Belajar</h3>
+<ul>
+<li><a href="https://developers.google.com/optimization">Dokumentasi Google OR-Tools</a></li>
+<li><a href="https://github.com/google/or-tools/tree/stable/examples/python">Contoh Python OR-Tools</a></li>
+<li><a href="https://www.minizinc.org/">MiniZinc</a> – sistem CP populer lainnya</li>
+</ul>
+<p>Jika kamu ingin memperluas tutorial ini ke optimasi atau kendala lunak, tinggal beri tahu saya!</p>
+
+
+<!-- -->
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Kembali ke atas</a> ]]></description>
+  <guid>https://sulthankarimov.my.id/myblog/id/posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html</guid>
+  <pubDate>Sun, 14 Jun 2026 00:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

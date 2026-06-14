@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<link rel="alternate" hreflang="en" href="https://sulthankarimov.my.id/myblog/posts/Data Science/Machine Learning/JanKenPon CNN Feature Extraction.html" />
-<link rel="alternate" hreflang="id" href="https://sulthankarimov.my.id/myblog/id/posts/Data Science/Machine Learning/JanKenPon CNN Feature Extraction.id.html" />
+<link rel="alternate" hreflang="en" href="https://sulthankarimov.my.id/myblog/posts/Data Science/Machine Learning/005_jankenpon_cnn.html" />
+<link rel="alternate" hreflang="id" href="https://sulthankarimov.my.id/myblog/id/posts/Data Science/Machine Learning/005_jankenpon_cnn.id.html" />
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Sulthan A. Karimov">
+<meta name="dcterms.date" content="2024-07-17">
 
-<title>jankenpon-cnn-feature-extraction</title>
+<title>Sulthan A. Karimov - Transfer Learning with CNN for Image Classification</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,6 +120,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../../assets/img/logo_cropped.png" alt="" class="navbar-logo">
     </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Sulthan A. Karimov</span>
+    </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -161,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li><li class="breadcrumb-item">Data Science</li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/CNN.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/JanKenPon CNN Feature Extraction.html"><strong>Student Name</strong> : Sulthan A. Karimov</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li><li class="breadcrumb-item">Data Science</li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/001_supervised_learning.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/005_jankenpon_cnn.html">Transfer Learning with CNN for Image Classification</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -225,8 +230,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Data Processing/data cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">common data processing practices</span></a>
+  <a href="../../../posts/Data Science/Data Processing/001_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Common Data Processing Practices</span></a>
   </div>
 </li>
       </ul>
@@ -242,62 +247,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/CNN.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Convolutional Neural Network (CNN)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/Dimensionality Reduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dimensionality Reduction</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/JanKenPon CNN Feature Extraction.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><strong>Student Name</strong> : Sulthan A. Karimov</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/ML - Supervised Learning.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../posts/Data Science/Machine Learning/001_supervised_learning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Machine Learning - Supervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/ML - Unsupervised Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ML - Unsupervised Learning</span></a>
+  <a href="../../../posts/Data Science/Machine Learning/002_unsupervised_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unsupervised Learning with K-Means Clustering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/Submission.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Student Name</strong> : Sulthan A. Karimov</span></a>
+  <a href="../../../posts/Data Science/Machine Learning/003_dimensionality_reduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dimensionality Reduction with PCA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/Submission-colab.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../posts/Data Science/Machine Learning/004_cnn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convolutional Neural Network (CNN)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Data Science/Machine Learning/005_jankenpon_cnn.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Transfer Learning with CNN for Image Classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Data Science/Machine Learning/006_transfer_learning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Transfer Learning on Jankenpon Data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/Transfer Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">import the necessary packages</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/Transfer Learning with CNN.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Transfer Learning with CNN</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/Untitled.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Untitled</span></a>
   </div>
 </li>
       </ul>
@@ -315,13 +296,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Exercises/numpy task1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../posts/Exercises/001_numpy_task1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Latihan Numpy 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Exercises/numpy task1 solution.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../posts/Exercises/002_numpy_task1_solution.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Solusi Tugas numpy 1</span></a>
   </div>
 </li>
@@ -338,8 +319,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/livekit/1_first_encounter_with_livekit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">my first encounter with webrtc and livekit agents</span></a>
+  <a href="../../../posts/livekit/001_first_encounter_with_livekit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">My First Encounter with WebRTC and LiveKit Agents</span></a>
   </div>
 </li>
       </ul>
@@ -355,8 +336,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/opinions/salut dengan bangsa indonesia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">kekuatan unik bangsa ini</span></a>
+  <a href="../../../posts/opinions/001_salut_dengan_bangsa_indonesia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Salut dengan Bangsa Ini</span></a>
   </div>
 </li>
       </ul>
@@ -373,27 +354,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#student-name-sulthan-a.-karimov" id="toc-student-name-sulthan-a.-karimov" class="nav-link active" data-scroll-target="#student-name-sulthan-a.-karimov"><strong>Student Name</strong> : Sulthan A. Karimov</a></li>
-  <li><a href="#username-sulthankarimov" id="toc-username-sulthankarimov" class="nav-link" data-scroll-target="#username-sulthankarimov"><strong>Username</strong> : sulthankarimov</a></li>
-  <li><a href="#email-sulthankarimovgmail.com" id="toc-email-sulthankarimovgmail.com" class="nav-link" data-scroll-target="#email-sulthankarimovgmail.com"><strong>Email</strong> : sulthankarimov@gmail.com</a></li>
+  <li><a href="#transfer-learning-with-cnn-for-image-classification" id="toc-transfer-learning-with-cnn-for-image-classification" class="nav-link active" data-scroll-target="#transfer-learning-with-cnn-for-image-classification">Transfer Learning with CNN for Image Classification</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li><li class="breadcrumb-item">Data Science</li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/001_supervised_learning.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/005_jankenpon_cnn.html">Transfer Learning with CNN for Image Classification</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Transfer Learning with CNN for Image Classification</h1>
+  </div>
 
 
 
-<p><a target="_blank" href="https://colab.research.google.com/github/sakarimov/Basic-ML-Model/blob/main/JanKenPon%20CNN%20Image%20Recognizer.ipynb"> <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"> </a></p>
-<section id="student-name-sulthan-a.-karimov" class="level1">
-<h1><strong>Student Name</strong> : Sulthan A. Karimov</h1>
-</section>
-<section id="username-sulthankarimov" class="level1">
-<h1><strong>Username</strong> : sulthankarimov</h1>
-</section>
-<section id="email-sulthankarimovgmail.com" class="level1">
-<h1><strong>Email</strong> : sulthankarimov@gmail.com</h1>
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sulthan A. Karimov </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 17, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="transfer-learning-with-cnn-for-image-classification" class="level1">
+<h1>Transfer Learning with CNN for Image Classification</h1>
 <div id="f35a636c-52b5-4ed9-8036-c3c1c8ce8ad2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install split<span class="op">-</span>folders[full] matplotlib jupyter_http_over_ws</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

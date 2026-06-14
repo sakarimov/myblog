@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<link rel="alternate" hreflang="en" href="https://sulthankarimov.my.id/myblog/posts/Data Science/Machine Learning/ML - Unsupervised Learning.html" />
-<link rel="alternate" hreflang="id" href="https://sulthankarimov.my.id/myblog/id/posts/Data Science/Machine Learning/ML - Unsupervised Learning.id.html" />
+<link rel="alternate" hreflang="en" href="https://sulthankarimov.my.id/myblog/posts/Data Science/Machine Learning/002_unsupervised_learning.html" />
+<link rel="alternate" hreflang="id" href="https://sulthankarimov.my.id/myblog/id/posts/Data Science/Machine Learning/002_unsupervised_learning.id.html" />
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Sulthan A. Karimov">
+<meta name="dcterms.date" content="2024-07-17">
 
-<title>ml---unsupervised-learning</title>
+<title>Sulthan A. Karimov - Unsupervised Learning with K-Means Clustering</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -121,6 +123,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../../assets/img/logo_cropped.png" alt="" class="navbar-logo">
     </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Sulthan A. Karimov</span>
+    </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -164,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li><li class="breadcrumb-item">Data Science</li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/CNN.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/ML - Unsupervised Learning.html">ML - Unsupervised Learning</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li><li class="breadcrumb-item">Data Science</li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/001_supervised_learning.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/002_unsupervised_learning.html">Unsupervised Learning with K-Means Clustering</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -228,8 +233,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Data Processing/data cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">common data processing practices</span></a>
+  <a href="../../../posts/Data Science/Data Processing/001_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Common Data Processing Practices</span></a>
   </div>
 </li>
       </ul>
@@ -245,62 +250,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/CNN.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Convolutional Neural Network (CNN)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/Dimensionality Reduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dimensionality Reduction</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/JanKenPon CNN Feature Extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Student Name</strong> : Sulthan A. Karimov</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/ML - Supervised Learning.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../posts/Data Science/Machine Learning/001_supervised_learning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Machine Learning - Supervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/ML - Unsupervised Learning.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">ML - Unsupervised Learning</span></a>
+  <a href="../../../posts/Data Science/Machine Learning/002_unsupervised_learning.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Unsupervised Learning with K-Means Clustering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/Submission.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Student Name</strong> : Sulthan A. Karimov</span></a>
+  <a href="../../../posts/Data Science/Machine Learning/003_dimensionality_reduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dimensionality Reduction with PCA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/Submission-colab.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../posts/Data Science/Machine Learning/004_cnn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convolutional Neural Network (CNN)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Data Science/Machine Learning/005_jankenpon_cnn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transfer Learning with CNN for Image Classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../posts/Data Science/Machine Learning/006_transfer_learning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Transfer Learning on Jankenpon Data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/Transfer Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">import the necessary packages</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/Transfer Learning with CNN.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Transfer Learning with CNN</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../../posts/Data Science/Machine Learning/Untitled.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Untitled</span></a>
   </div>
 </li>
       </ul>
@@ -318,13 +299,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Exercises/numpy task1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../posts/Exercises/001_numpy_task1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Latihan Numpy 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/Exercises/numpy task1 solution.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../posts/Exercises/002_numpy_task1_solution.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Solusi Tugas numpy 1</span></a>
   </div>
 </li>
@@ -341,8 +322,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/livekit/1_first_encounter_with_livekit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">my first encounter with webrtc and livekit agents</span></a>
+  <a href="../../../posts/livekit/001_first_encounter_with_livekit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">My First Encounter with WebRTC and LiveKit Agents</span></a>
   </div>
 </li>
       </ul>
@@ -358,8 +339,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../posts/opinions/salut dengan bangsa indonesia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">kekuatan unik bangsa ini</span></a>
+  <a href="../../../posts/opinions/001_salut_dengan_bangsa_indonesia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Salut dengan Bangsa Ini</span></a>
   </div>
 </li>
       </ul>
@@ -372,14 +353,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-k-means-clustering" id="toc-introduction-to-k-means-clustering" class="nav-link active" data-scroll-target="#introduction-to-k-means-clustering">Introduction to K-Means Clustering</a></li>
+  <li><a href="#choosing-k-the-elbow-method" id="toc-choosing-k-the-elbow-method" class="nav-link" data-scroll-target="#choosing-k-the-elbow-method">Choosing <em>k</em>: The Elbow Method</a></li>
+  <li><a href="#visualizing-and-interpreting-clusters" id="toc-visualizing-and-interpreting-clusters" class="nav-link" data-scroll-target="#visualizing-and-interpreting-clusters">Visualizing and Interpreting Clusters</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li><li class="breadcrumb-item">Data Science</li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/001_supervised_learning.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../../../posts/Data Science/Machine Learning/002_unsupervised_learning.html">Unsupervised Learning with K-Means Clustering</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Unsupervised Learning with K-Means Clustering</h1>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sulthan A. Karimov </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 17, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction-to-k-means-clustering" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-k-means-clustering">Introduction to K-Means Clustering</h2>
+<p>K-Means is an unsupervised machine learning algorithm that partitions data into <em>k</em> distinct clusters. Each data point belongs to the cluster with the nearest mean (centroid). The algorithm works iteratively: (1) initialize <em>k</em> centroids randomly, (2) assign each point to the nearest centroid, (3) recalculate centroids as the mean of assigned points, and (4) repeat until convergence.</p>
+<p>In this notebook, we apply K-Means to a <strong>mall customers dataset</strong> to segment shoppers based on their annual income and spending score.</p>
 <div id="5f107e0e-7387-4b05-b8ac-aeea62be9ccf" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -575,6 +596,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
+<section id="choosing-k-the-elbow-method" class="level2">
+<h2 class="anchored" data-anchor-id="choosing-k-the-elbow-method">Choosing <em>k</em>: The Elbow Method</h2>
+<p>The <strong>elbow method</strong> helps determine the optimal number of clusters (<em>k</em>). We run K-Means for a range of <em>k</em> values (e.g., 1 through 10) and compute the <strong>inertia</strong> (sum of squared distances from each point to its assigned centroid).</p>
+<p>As <em>k</em> increases, inertia decreases — because clusters become smaller and tighter. The goal is to find the “elbow point” where the rate of decrease sharply changes, indicating that adding more clusters yields diminishing returns.</p>
+<p>Below we calculate inertia for <em>k</em> = 1 to 10 and plot the results to visually identify the elbow.</p>
 <div id="d0f84412-2c5b-4960-bab2-7c21e98fd2e8" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -585,6 +612,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    km <span class="op">=</span> KMeans(n_clusters <span class="op">=</span> i).fit(X)</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    clusters.append(km.inertia_)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="visualizing-and-interpreting-clusters" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-and-interpreting-clusters">Visualizing and Interpreting Clusters</h2>
+<p>Once we’ve chosen <em>k</em> (here, <em>k</em> = 5 based on the elbow plot above), we fit a final K-Means model and assign cluster labels to each data point.</p>
+<p>The scatter plot below visualizes customers colored by their cluster assignment, using <strong>Annual Income</strong> on the x-axis and <strong>Spending Score</strong> on the y-axis. Each cluster represents a distinct customer segment:</p>
+<ul>
+<li><strong>High income, high spending</strong> — premium customers</li>
+<li><strong>High income, low spending</strong> — cautious spenders</li>
+<li><strong>Low income, high spending</strong> — aspirational shoppers</li>
+<li><strong>Low income, low spending</strong> — budget-conscious customers</li>
+<li><strong>Average income, average spending</strong> — mainstream shoppers</li>
+</ul>
+<p>These segments can inform targeted marketing strategies.</p>
 <div id="9e8149b0-7727-4151-8e93-56ce4e30e935" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
@@ -601,7 +641,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ML - Unsupervised Learning_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
+<p><img src="002_unsupervised_learning_files/figure-html/cell-6-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -619,13 +659,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ML - Unsupervised Learning_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="002_unsupervised_learning_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

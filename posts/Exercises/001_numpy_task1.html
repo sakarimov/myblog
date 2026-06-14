@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<link rel="alternate" hreflang="en" href="https://sulthankarimov.my.id/myblog/posts/Exercises/numpy task1 solution.html" />
-<link rel="alternate" hreflang="id" href="https://sulthankarimov.my.id/myblog/id/posts/Exercises/numpy task1 solution.id.html" />
+<link rel="alternate" hreflang="en" href="https://sulthankarimov.my.id/myblog/posts/Exercises/001_numpy_task1.html" />
+<link rel="alternate" hreflang="id" href="https://sulthankarimov.my.id/myblog/id/posts/Exercises/001_numpy_task1.id.html" />
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.550">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="sulthan a. karimov">
+<meta name="author" content="Sulthan A. Karimov">
 <meta name="dcterms.date" content="2024-06-10">
 
-<title>Solusi Tugas numpy 1</title>
+<title>Sulthan A. Karimov - Latihan Numpy 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,69 +105,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script>
-  function addAnswerWithButton(answerClass, buttonText, answerText) {
-
-    const divElement = document.querySelector(`.${answerClass}`);
-    const answerRandomId = "answer-" + Math.floor(Math.random() * 1000000);
-    const tokenRandomId = "answer-" + Math.floor(Math.random() * 1000000);
-
-    // Create div for token
-    const tokenContainer = document.createElement('div');
-    tokenContainer.className = "token-container"
-    tokenContainer.style.display = "flex"
-
-    // Create the new button element
-    const buttonElement = document.createElement("button");
-    buttonElement.className = "show-answer btn btn-primary";
-    buttonElement.textContent = buttonText;
-    buttonElement.onclick = function() {
-      showAnswer(answerRandomId, tokenRandomId);
-    };
-
-    // Create the new button element
-    const inputElement = document.createElement("input");
-    inputElement.id = tokenRandomId;
-    inputElement.className = "input-token form-control";
-    inputElement.setAttribute("type", "text")
-    inputElement.setAttribute("placeholder", "Put Your Token Here")
-    inputElement.style.width = "50%"
-    inputElement.style.marginRight = "20px"
-
-    // Create the new answer element
-    const answerElement = document.createElement("p");
-    answerElement.id = answerRandomId;
-    answerElement.style.display = "none";
-    answerElement.innerHTML = answerText;
-
-    // Replace the div element with the new button and answer elements
-    tokenContainer.append(inputElement)
-    tokenContainer.append(buttonElement)
-    divElement.parentNode.replaceChild(tokenContainer, divElement);
-    tokenContainer.insertAdjacentElement("afterend", answerElement);
-  }
-
-  function showAnswer(answerId, tokenId) {
-    var answer = document.getElementById(answerId);
-    var token = document.getElementById(tokenId)
-    if (answer.style.display === "none" && token.value === "token") {
-      answer.style.display = "block";
-    } else {
-      answer.style.display = "none";
-    }
-  }
-
-  function addAnswerButton() {
-    var answers = document.querySelectorAll(".answer")
-    answers.forEach(e => {
-      addAnswerWithButton("answer", " Show", e.innerHTML);
-    });
-  }
-
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    addAnswerButton();
-  });
-</script>
 
 
 <link rel="stylesheet" href="../../assets/css/styles.css">
@@ -182,6 +119,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../../assets/img/logo_cropped.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Sulthan A. Karimov</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -226,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li><li class="breadcrumb-item"><a href="../../posts/Exercises/numpy task1.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../posts/Exercises/numpy task1 solution.html">Solusi Tugas numpy 1</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li><li class="breadcrumb-item"><a href="../../posts/Exercises/001_numpy_task1.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../posts/Exercises/001_numpy_task1.html">Latihan Numpy 1</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -290,8 +230,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Data Science/Data Processing/data cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">common data processing practices</span></a>
+  <a href="../../posts/Data Science/Data Processing/001_data_cleaning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Common Data Processing Practices</span></a>
   </div>
 </li>
       </ul>
@@ -307,62 +247,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Data Science/Machine Learning/CNN.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Convolutional Neural Network (CNN)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/Data Science/Machine Learning/Dimensionality Reduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dimensionality Reduction</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/Data Science/Machine Learning/JanKenPon CNN Feature Extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Student Name</strong> : Sulthan A. Karimov</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/Data Science/Machine Learning/ML - Supervised Learning.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/Data Science/Machine Learning/001_supervised_learning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Machine Learning - Supervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Data Science/Machine Learning/ML - Unsupervised Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ML - Unsupervised Learning</span></a>
+  <a href="../../posts/Data Science/Machine Learning/002_unsupervised_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unsupervised Learning with K-Means Clustering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Data Science/Machine Learning/Submission.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><strong>Student Name</strong> : Sulthan A. Karimov</span></a>
+  <a href="../../posts/Data Science/Machine Learning/003_dimensionality_reduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dimensionality Reduction with PCA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Data Science/Machine Learning/Submission-colab.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/Data Science/Machine Learning/004_cnn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convolutional Neural Network (CNN)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Data Science/Machine Learning/005_jankenpon_cnn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transfer Learning with CNN for Image Classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Data Science/Machine Learning/006_transfer_learning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Transfer Learning on Jankenpon Data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/Data Science/Machine Learning/Transfer Learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">import the necessary packages</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/Data Science/Machine Learning/Transfer Learning with CNN.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Transfer Learning with CNN</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../posts/Data Science/Machine Learning/Untitled.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Untitled</span></a>
   </div>
 </li>
       </ul>
@@ -380,13 +296,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Exercises/numpy task1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../posts/Exercises/001_numpy_task1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Latihan Numpy 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Exercises/numpy task1 solution.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../posts/Exercises/002_numpy_task1_solution.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Solusi Tugas numpy 1</span></a>
   </div>
 </li>
@@ -403,8 +319,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/livekit/1_first_encounter_with_livekit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">my first encounter with webrtc and livekit agents</span></a>
+  <a href="../../posts/livekit/001_first_encounter_with_livekit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">My First Encounter with WebRTC and LiveKit Agents</span></a>
   </div>
 </li>
       </ul>
@@ -420,8 +336,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/opinions/salut dengan bangsa indonesia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">kekuatan unik bangsa ini</span></a>
+  <a href="../../posts/opinions/001_salut_dengan_bangsa_indonesia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Salut dengan Bangsa Ini</span></a>
   </div>
 </li>
       </ul>
@@ -434,14 +350,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#latihan-numpy-1-analisa-penjualan-pakaian-dengan-numpy" id="toc-latihan-numpy-1-analisa-penjualan-pakaian-dengan-numpy" class="nav-link active" data-scroll-target="#latihan-numpy-1-analisa-penjualan-pakaian-dengan-numpy">Latihan Numpy 1 : Analisa Penjualan Pakaian dengan NumPy</a>
+  <ul>
+  <li><a href="#skenario" id="toc-skenario" class="nav-link" data-scroll-target="#skenario">Skenario</a></li>
+  <li><a href="#tugas" id="toc-tugas" class="nav-link" data-scroll-target="#tugas">Tugas</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="https://raw.githubusercontent.com/sakarimov/myblog/main/myblog/posts/Exercises/numpy%20data1.txt"><i class="bi bi-link-45deg"></i>download Data</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li><li class="breadcrumb-item"><a href="../../posts/Exercises/numpy task1.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../posts/Exercises/numpy task1 solution.html">Solusi Tugas numpy 1</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Posts</li><li class="breadcrumb-item"><a href="../../posts/Exercises/001_numpy_task1.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../posts/Exercises/001_numpy_task1.html">Latihan Numpy 1</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Solusi Tugas numpy 1</h1>
+<h1 class="title">Latihan Numpy 1</h1>
   </div>
 
 
@@ -451,7 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>sulthan a. karimov </p>
+             <p>Sulthan A. Karimov </p>
           </div>
   </div>
     
@@ -470,126 +396,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="cell-1" class="cell">
+<section id="latihan-numpy-1-analisa-penjualan-pakaian-dengan-numpy" class="level1">
+<h1>Latihan Numpy 1 : Analisa Penjualan Pakaian dengan NumPy</h1>
+<section id="skenario" class="level2">
+<h2 class="anchored" data-anchor-id="skenario">Skenario</h2>
+<p>Perusahaan Anda bergerak di bidang retail pakaian dan ingin menganalisa data penjualan untuk berbagai kategori produk (contoh: kemeja, celana, sepatu) dan ukuran (S, M, L, XL) di berbagai lokasi (toko). Data penjualan disimpan dalam array NumPy bernama <code>sales_data</code> dengan struktur berikut (data dalam struktur hanya contoh):</p>
+<div id="86679ca1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>load_file <span class="op">=</span> np.loadtxt(<span class="st">'numpy data1.txt'</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> load_file.reshape(<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>sales_data <span class="op">=</span> np.array([</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>[[<span class="dv">10</span>, <span class="dv">35</span>, <span class="dv">15</span>, <span class="dv">20</span>],  <span class="co"># Penjualan Lokasi 1</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> [<span class="dv">25</span>, <span class="dv">35</span>, <span class="dv">30</span>, <span class="dv">18</span>],</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a> [<span class="dv">25</span>, <span class="dv">35</span>, <span class="dv">30</span>, <span class="dv">18</span>],</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a> [<span class="dv">25</span>, <span class="dv">35</span>, <span class="dv">30</span>, <span class="dv">18</span>],</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a> [<span class="dv">25</span>, <span class="dv">35</span>, <span class="dv">30</span>, <span class="dv">18</span>],</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a> [<span class="dv">25</span>, <span class="dv">35</span>, <span class="dv">30</span>, <span class="dv">18</span>],</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a> [<span class="dv">5</span>,  <span class="dv">35</span>, <span class="dv">8</span>, <span class="dv">12</span>]],</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>[[<span class="dv">12</span>, <span class="dv">35</span>, <span class="dv">18</span>, <span class="dv">15</span>],  <span class="co"># Penjualan Lokasi 2</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a> [<span class="dv">22</span>, <span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">20</span>],</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a> [<span class="dv">22</span>, <span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">20</span>],</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a> [<span class="dv">22</span>, <span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">20</span>],</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a> [<span class="dv">22</span>, <span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">20</span>],</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a> [<span class="dv">22</span>, <span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">20</span>],</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a> [<span class="dv">7</span>,  <span class="dv">35</span>, <span class="dv">9</span>, <span class="dv">11</span>]]</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sales_data)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># sales_data.shape = (jumlah_lokasi, jumlah_kategori, jumlah_ukuran)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[[10 35 15 20]
+  [25 35 30 18]
+  [25 35 30 18]
+  [25 35 30 18]
+  [25 35 30 18]
+  [25 35 30 18]
+  [ 5 35  8 12]]
+
+ [[12 35 18 15]
+  [22 35 28 20]
+  [22 35 28 20]
+  [22 35 28 20]
+  [22 35 28 20]
+  [22 35 28 20]
+  [ 7 35  9 11]]]</code></pre>
 </div>
-<ol type="1">
-<li><strong>Identifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):</strong></li>
-</ol>
-<div class="answer">
-<pre><code>* Gunakan teknik slicing tingkat lanjut dalam NumPy untuk menghitung total penjualan untuk setiap kategori di semua ukuran di setiap lokasi.
-* Petunjuk: Anda dapat menggabungkan slicing dasar (`:`) untuk memilih lokasi tertentu dan masking boolean untuk menjumlahkan di sepanjang sumbu kategori.
-* Identifikasi kategori dengan penjualan tertinggi untuk setiap lokasi.</code></pre>
-<div id="cell-3" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-4" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<pre class="{note}"><code>
+file tugas bisa didownload dari link di sidebar
+</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>untuk membuka file ini ikuti petunjuk berikut:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Asumsikan data penjualan Anda berada dalam array NumPy bernama "sales_data"</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Langkah 1: Hitung total penjualan per kategori di semua ukuran untuk setiap lokasi</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>total_per_kategori <span class="op">=</span> data.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">2</span>)  <span class="co"># Jumlahkan sepanjang sumbu ukuran (axis=2)</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Langkah 2: Identifikasi kategori terlaris untuk setiap lokasi</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Pendekatan tanpa menggunakan argmax</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Temukan nilai maksimum untuk setiap lokasi</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>maks_penjualan_per_lokasi <span class="op">=</span> total_per_kategori.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">1</span>)  <span class="co"># Cari nilai maksimum di setiap baris</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Buat mask untuk kategori terlaris di setiap lokasi</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>mask_terlaris <span class="op">=</span> total_per_kategori <span class="op">==</span> maks_penjualan_per_lokasi[:, np.newaxis]  <span class="co"># Perbandingan elemen-per-elemen</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Dapatkan indeks kategori untuk kategori terlaris</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>kategori_terlaris <span class="op">=</span> []</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> mask <span class="kw">in</span> mask_terlaris:</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(mask)):</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> mask[i] <span class="op">==</span> <span class="va">True</span>:</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>            kategori_terlaris.append(i)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Tampilkan hasilnya</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Kategori Terlaris menurut Lokasi:"</span>, kategori_terlaris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>load_file <span class="op">=</span> np.loadtxt(<span class="st">'path/to/the/file/you/download'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>load_original <span class="op">=</span> load_file.reshape(<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<ol start="2" type="1">
-<li><strong>Bandingkan Distribusi Ukuran untuk Kategori Spesifik:</strong></li>
-</ol>
-<div class="answer">
-<pre><code>* Fokus pada kategori tertentu (misalnya, kemeja) di semua lokasi.
-* Gunakan teknik slicing atau pengindeksan array untuk memilih hanya data penjualan kategori tersebut.
-* Hitung total penjualan untuk setiap ukuran (jumlahkan di sepanjang sumbu ukuran).
-* Analisa distribusi ukuran (misalnya, ukuran mana yang paling banyak terjual untuk kategori tersebut secara keseluruhan).</code></pre>
-<section id="todo" class="level2">
-<h2 class="anchored" data-anchor-id="todo">TODO</h2>
-<div id="cell-6" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Asumsikan data penjualan Anda berada dalam array NumPy bernama "sales_data"</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Langkah 1: Pilih data untuk kategori tertentu (misalnya, kemeja)</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Ganti "category_index" dengan indeks aktual untuk kemeja</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>kategori_yang_diminati <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Misalkan kemeja adalah kategori 0</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>penjualan_kemeja <span class="op">=</span> data[:, kategori_yang_diminati, :]  <span class="co"># Pilih data untuk kategori ini</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Langkah 2: Hitung total penjualan untuk setiap ukuran (jumlahkan sepanjang sumbu ukuran)</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>total_per_ukuran <span class="op">=</span> penjualan_kemeja.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)  <span class="co"># Jumlahkan di semua lokasi</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Langkah 3: Analisis distribusi ukuran (tanpa argmax)</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Temukan nilai maksimum untuk total penjualan tiap ukuran</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>maks_penjualan_ukuran <span class="op">=</span> total_per_ukuran.<span class="bu">max</span>()  <span class="co"># Cari total penjualan maksimum</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Buat mask untuk ukuran terpopuler</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>mask_terpopuler <span class="op">=</span> total_per_ukuran <span class="op">==</span> maks_penjualan_ukuran  <span class="co"># Bandingkan dengan nilai maksimum</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Identifikasi ukuran terpopuler (menangani kemungkinan seri)</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>ukuran_terpopuler <span class="op">=</span> np.where(mask_terpopuler)[<span class="dv">0</span>]  <span class="co"># Dapatkan indeks elemen True</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Tampilkan hasilnya</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total Penjualan Kemeja per Ukuran:"</span>, total_per_ukuran)</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Tampilkan ukuran terpopuler (menangani seri)</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(ukuran_terpopuler) <span class="op">&gt;</span> <span class="dv">1</span>:</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Ukuran Kemeja Terpopuler:"</span>, ukuran_terpopuler)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">"Ukuran Kemeja Terpopuler:"</span>, ukuran_terpopuler[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</div>
-<ol start="3" type="1">
-<li><strong>Temukan Lokasi dengan Penjualan Rendah pada Ukuran Tertentu:</strong></li>
+<section id="tugas" class="level2">
+<h2 class="anchored" data-anchor-id="tugas">Tugas</h2>
+<ol type="1">
+<li><p><strong>Identifikasi Kategori Penjualan Tertinggi menurut Lokasi (Slicing Lanjutan):</strong></p>
+<ul>
+<li>Gunakan teknik slicing tingkat lanjut dalam NumPy untuk menghitung total penjualan untuk setiap kategori di semua ukuran di setiap lokasi.</li>
+<li>Petunjuk: Anda dapat menggabungkan slicing dasar (<code>:</code>) untuk memilih lokasi tertentu dan masking boolean untuk menjumlahkan di sepanjang sumbu kategori.</li>
+<li>Identifikasi kategori dengan penjualan tertinggi untuk setiap lokasi.</li>
+</ul></li>
+<li><p><strong>Bandingkan Distribusi Ukuran untuk Kategori Spesifik:</strong></p>
+<ul>
+<li>Fokus pada kategori tertentu (misalnya, kemeja) di semua lokasi.</li>
+<li>Gunakan teknik slicing atau pengindeksan array untuk memilih hanya data penjualan kategori tersebut.</li>
+<li>Hitung total penjualan untuk setiap ukuran (jumlahkan di sepanjang sumbu ukuran).</li>
+<li>Analisa distribusi ukuran (misalnya, ukuran mana yang paling banyak terjual untuk kategori tersebut secara keseluruhan).</li>
+</ul></li>
+<li><p><strong>Temukan Lokasi dengan Penjualan Rendah pada Ukuran Tertentu:</strong></p>
+<ul>
+<li>Tentukan ukuran tertentu (misalnya, XL) yang mungkin perlu diisi ulang stoknya.</li>
+<li>Gunakan masking boolean untuk memilih hanya data penjualan ukuran tersebut dari seluruh array.</li>
+<li>Hitung total penjualan produk dengan ukuran tersebut di setiap lokasi (jumlahkan di sepanjang semua sumbu lainnya).</li>
+<li>Identifikasi lokasi dengan penjualan di bawah ambang batas tertentu untuk produk dengan ukuran tersebut, yang menunjukkan potensi kebutuhan untuk mengisi ulang stok.</li>
+</ul></li>
 </ol>
-<div class="answer">
-<pre><code>* Tentukan ukuran tertentu (misalnya, XL) yang mungkin perlu diisi ulang stoknya.
-* Gunakan masking boolean untuk memilih hanya data penjualan ukuran tersebut dari seluruh array.
-* Hitung total penjualan produk dengan ukuran tersebut di setiap lokasi (jumlahkan di sepanjang semua sumbu lainnya).
-* Identifikasi lokasi dengan penjualan di bawah ambang batas tertentu untuk produk dengan ukuran tersebut, yang menunjukkan potensi kebutuhan untuk mengisi ulang stok.</code></pre>
-<div id="cell-8" class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Asumsikan data penjualan Anda berada dalam array NumPy bernama "sales_data"</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Langkah 1: Pilih data untuk ukuran tertentu (misalnya, XL)</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Ganti "size_index" dengan indeks aktual untuk XL</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>ukuran_yang_dicek <span class="op">=</span> <span class="dv">2</span>  <span class="co"># Misalkan XL adalah ukuran 2</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>penjualan_xl <span class="op">=</span> data[:, :, ukuran_yang_dicek]  <span class="co"># Pilih data untuk ukuran ini</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Langkah 2: Hitung total penjualan untuk ukuran XL di setiap lokasi (jumlahkan di semua sumbu lainnya)</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>total_penjualan_xl <span class="op">=</span> penjualan_xl.<span class="bu">sum</span>(axis<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">1</span>))  <span class="co"># Jumlahkan di semua kategori dan ukuran</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Langkah 3: Identifikasi lokasi dengan potensi stok rendah (ambang batas)</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>ambang_penjualan <span class="op">=</span> <span class="dv">10</span>  <span class="co"># Tetapkan ambang batas penjualan untuk stok rendah</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>lokasi_stok_rendah <span class="op">=</span> total_penjualan_xl <span class="op">&lt;</span> ambang_penjualan</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Tampilkan hasilnya</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Lokasi dengan Penjualan XL Rendah:"</span>, np.where(lokasi_stok_rendah)[<span class="dv">0</span>])</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Total Penjualan XL per Lokasi:"</span>, total_penjualan_xl)  <span class="co"># Opsional untuk referensi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

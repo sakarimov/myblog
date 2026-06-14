@@ -3,10 +3,10 @@
     "listing": "/index.html",
     "items": [
       "/posts/Algorithms/001_Constraints_Programming_with_OR_Tools.html",
-      "/posts/Data Science/Machine Learning/ML - Supervised Learning.html",
-      "/posts/opinions/salut dengan bangsa indonesia.html",
-      "/posts/Exercises/numpy task1 solution.html",
-      "/posts/Exercises/numpy task1.html"
+      "/posts/Data Science/Machine Learning/001_supervised_learning.html",
+      "/posts/opinions/001_salut_dengan_bangsa_indonesia.html",
+      "/posts/Exercises/002_numpy_task1_solution.html",
+      "/posts/Exercises/001_numpy_task1.html"
     ]
   }
 ]
